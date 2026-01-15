@@ -1,0 +1,555 @@
+<style>
+    /* Chat Widget - Expandable */
+    #chat-widget-container {
+        position: fixed;
+        bottom: 20px;
+        right: 20px;
+        z-index: 9999;
+        font-family: 'Poppins', Arial, sans-serif;
+    }
+
+    /* Launch Button */
+    #chat-launch-btn {
+        background: linear-gradient(135deg, #00265e 0%, #003d8f 100%);
+        color: white;
+        border: none;
+        padding: 16px 24px;
+        border-radius: 50px;
+        font-size: 16px;
+        font-weight: 600;
+        cursor: pointer;
+        box-shadow: 0 6px 20px rgba(0, 38, 94, 0.3);
+        display: flex;
+        align-items: center;
+        gap: 12px;
+        transition: all 0.3s ease;
+        position: relative;
+    }
+
+    #chat-launch-btn:hover {
+        transform: translateY(-2px);
+        box-shadow: 0 8px 25px rgba(0, 38, 94, 0.4);
+    }
+
+    /* Flashing Green Indicator */
+    .status-indicator {
+        width: 12px;
+        height: 12px;
+        background-color: #00ff88;
+        border-radius: 50%;
+        animation: pulse 2s infinite;
+        box-shadow: 0 0 8px rgba(0, 255, 136, 0.6);
+    }
+
+    @keyframes pulse {
+        0% {
+            opacity: 1;
+            transform: scale(1);
+        }
+        50% {
+            opacity: 0.6;
+            transform: scale(1.15);
+        }
+        100% {
+            opacity: 1;
+            transform: scale(1);
+        }
+    }
+
+    /* Chat Window */
+    #chat-window {
+        position: fixed;
+        bottom: 100px;
+        right: 20px;
+        width: 400px;
+        height: 600px;
+        background: white;
+        border-radius: 16px;
+        box-shadow: 0 10px 40px rgba(0, 0, 0, 0.2);
+        display: none;
+        flex-direction: column;
+        overflow: hidden;
+        animation: slideUp 0.3s ease-out;
+    }
+
+    @keyframes slideUp {
+        from {
+            opacity: 0;
+            transform: translateY(20px);
+        }
+        to {
+            opacity: 1;
+            transform: translateY(0);
+        }
+    }
+
+    #chat-window.active {
+        display: flex;
+    }
+
+    /* Chat Header - UPDATED */
+    #widget-chat-header {
+        background: linear-gradient(135deg, #00265e 0%, #003d8f 100%);
+        color: white;
+        padding: 20px;
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        position: relative;  /* NEW: for absolute positioning of close button */
+    }
+
+    #widget-chat-header > div {
+        flex: 1;
+        text-align: center;  /* NEW: center the title */
+        padding-right: 30px;  /* NEW: make room for close button */
+    }
+
+    #widget-chat-header h3 {
+        margin: 0;
+        font-size: 18px;
+        font-weight: 600;
+    }
+
+    #widget-chat-header p {
+        margin: 4px 0 0 0;
+        font-size: 13px;
+        opacity: 0.9;
+    }
+
+    /* Close Button - UPDATED */
+    #close-chat-btn {
+        background: rgba(255, 255, 255, 0.2);
+        border: none;
+        color: white;
+        font-size: 24px;
+        width: 32px;
+        height: 32px;
+        border-radius: 50%;
+        cursor: pointer;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        transition: background 0.2s;
+        position: absolute;  /* NEW: absolute positioning */
+        right: 16px;  /* NEW */
+        top: 50%;  /* NEW */
+        transform: translateY(-50%);  /* NEW: perfect vertical centering */
+    }
+
+    #close-chat-btn:hover {
+        background: rgba(255, 255, 255, 0.3);
+    }
+
+    /* Chat Messages */
+    #widget-chat-box {
+        flex: 1;
+        padding: 16px;
+        overflow-y: auto;
+        background: #f8f9fa;
+        display: flex;
+        flex-direction: column;
+        gap: 12px;
+    }
+
+    .widget-message {
+        padding: 12px 16px;
+        border-radius: 18px;
+        max-width: 80%;
+        font-size: 14px;
+        line-height: 1.5;
+        word-wrap: break-word;
+        white-space: pre-wrap;
+    }
+
+    .widget-message.user {
+        background: #00265e;
+        color: white;
+        margin-left: auto;
+        border-bottom-right-radius: 4px;
+    }
+
+    .widget-message.bot {
+        background: white;
+        color: #333;
+        margin-right: auto;
+        border-bottom-left-radius: 4px;
+        box-shadow: 0 2px 4px rgba(0, 0, 0, 0.05);
+    }
+
+    /* Quick Reply Buttons Container - UPDATED FOR HORIZONTAL LAYOUT */
+    .widget-quick-replies {
+        display: flex;
+        flex-direction: row;  /* CHANGED: was column, now row for horizontal */
+        gap: 12px;  /* UPDATED: increased gap */
+        margin: 8px 0;
+        max-width: 100%;  /* UPDATED: was 80%, now 100% to use full width */
+        flex-wrap: wrap;  /* NEW: wrap on smaller screens */
+    }
+
+    /* Quick Reply Buttons - UPDATED FOR TWO-LINE FORMAT */
+    .widget-quick-reply-btn {
+        padding: 14px 18px;  /* UPDATED: increased padding */
+        background: white;
+        border: 2px solid #00265e;
+        color: #00265e;
+        border-radius: 8px;
+        font-size: 14px;
+        font-weight: 600;
+        cursor: pointer;
+        transition: all 0.2s;
+        text-align: center;  /* CHANGED: was left, now center */
+        box-shadow: 0 2px 4px rgba(0, 0, 0, 0.05);
+        flex: 1;  /* NEW: equal width buttons */
+        min-width: 150px;  /* NEW: minimum readable width */
+        white-space: pre-line;  /* CRITICAL NEW: allows \n to create line breaks */
+        line-height: 1.4;  /* NEW: better spacing between lines */
+    }
+
+    .widget-quick-reply-btn:hover {
+        background: #00265e;
+        color: white;
+        transform: translateX(4px);
+    }
+
+    .widget-quick-reply-btn:active {
+        transform: scale(0.98);  /* NEW: subtle click feedback */
+    }
+
+    /* Typing Indicator */
+    .widget-typing {
+        background: white;
+        padding: 12px 16px;
+        border-radius: 18px;
+        max-width: 70px;
+        margin-right: auto;
+        box-shadow: 0 2px 4px rgba(0, 0, 0, 0.05);
+        display: flex;
+        gap: 4px;
+    }
+
+    .widget-typing-dot {
+        width: 8px;
+        height: 8px;
+        background-color: #999;
+        border-radius: 50%;
+        animation: typing 1.4s infinite;
+    }
+
+    .widget-typing-dot:nth-child(1) { animation-delay: 0s; }
+    .widget-typing-dot:nth-child(2) { animation-delay: 0.2s; }
+    .widget-typing-dot:nth-child(3) { animation-delay: 0.4s; }
+
+    @keyframes typing {
+        0%, 60%, 100% {
+            transform: translateY(0);
+            opacity: 0.4;
+        }
+        30% {
+            transform: translateY(-6px);
+            opacity: 1;
+        }
+    }
+
+    /* Input Container */
+    #widget-input-container {
+        display: flex;
+        padding: 16px;
+        background: white;
+        border-top: 1px solid #e0e0e0;
+        gap: 8px;
+    }
+
+    #widget-user-input {
+        flex: 1;
+        padding: 12px;
+        border: 1px solid #ddd;
+        border-radius: 8px;
+        font-size: 14px;
+        font-family: 'Poppins', Arial, sans-serif;
+    }
+
+    #widget-send-button {
+        background: #00265e;
+        color: white;
+        border: none;
+        padding: 12px 20px;
+        border-radius: 8px;
+        cursor: pointer;
+        font-size: 14px;
+        font-weight: 600;
+        transition: all 0.2s;
+    }
+
+    #widget-send-button:hover {
+        background: #003d8f;
+    }
+
+    #widget-send-button:disabled {
+        background: #999;
+        cursor: not-allowed;
+    }
+
+    /* Scrollbar Styling */
+    #widget-chat-box::-webkit-scrollbar {
+        width: 6px;
+    }
+
+    #widget-chat-box::-webkit-scrollbar-track {
+        background: #f1f1f1;
+    }
+
+    #widget-chat-box::-webkit-scrollbar-thumb {
+        background: #888;
+        border-radius: 3px;
+    }
+
+    #widget-chat-box::-webkit-scrollbar-thumb:hover {
+        background: #555;
+    }
+
+    /* Mobile Responsive - UPDATED */
+    @media (max-width: 500px) {
+        #chat-window {
+            bottom: 0;
+            right: 0;
+            left: 0;
+            width: 100%;
+            height: 100vh;
+            border-radius: 0;
+        }
+
+        #chat-widget-container {
+            bottom: 10px;
+            right: 10px;
+        }
+
+        /* Stack buttons vertically on mobile */
+        .widget-quick-replies {
+            flex-direction: column;
+            gap: 8px;
+        }
+
+        .widget-quick-reply-btn {
+            width: 100%;
+            min-width: unset;
+        }
+    }
+</style>
+
+<!-- Chat Widget Container -->
+<div id="chat-widget-container">
+    <!-- Launch Button -->
+    <button id="chat-launch-btn">
+        <span class="status-indicator"></span>
+        <span>See if you qualify!</span>
+    </button>
+
+    <!-- Chat Window (Hidden by default) -->
+    <div id="chat-window">
+        <!-- Header -->
+        <div id="widget-chat-header">
+            <div>
+                <h3>Clinical Trials Assistant</h3>
+                <p>Online • Ready to help</p>
+            </div>
+            <button id="close-chat-btn">×</button>
+        </div>
+
+        <!-- Chat Messages -->
+        <div id="widget-chat-box"></div>
+
+        <!-- Input Area -->
+        <div id="widget-input-container">
+            <input type="text" id="widget-user-input" placeholder="Type your message..." />
+            <button id="widget-send-button">Send</button>
+        </div>
+    </div>
+</div>
+
+<script>
+(function() {
+    // Widget State
+    let isOpen = false;
+    let userID = "user_" + Math.random().toString(36).substr(2, 9);
+    let sessionID = "session_" + Math.random().toString(36).substr(2, 9);
+
+    // DOM Elements
+    const launchBtn = document.getElementById("chat-launch-btn");
+    const chatWindow = document.getElementById("chat-window");
+    const closeBtn = document.getElementById("close-chat-btn");
+    const chatBox = document.getElementById("widget-chat-box");
+    const userInput = document.getElementById("widget-user-input");
+    const sendButton = document.getElementById("widget-send-button");
+
+    // Toggle Chat Window
+    function toggleChat() {
+        isOpen = !isOpen;
+        chatWindow.classList.toggle("active", isOpen);
+
+        if (isOpen) {
+            launchBtn.style.display = "none";
+            userInput.focus();
+
+            // Send welcome message if first time opening
+            if (chatBox.children.length === 0) {
+                addBotMessage("Hi there! I'm the Clinical Trials Assistant. How can I help you today? Feel free to ask about our clinical trials, check your eligibility, or learn more about research opportunities.");
+            }
+        } else {
+            launchBtn.style.display = "flex";
+        }
+    }
+
+    // Utility Functions
+    function scrollToBottom() {
+        chatBox.scrollTop = chatBox.scrollHeight;
+    }
+
+    function formatMessage(text) {
+        if (!text) return "";
+        text = text.replace(/\*\*(.*?)\*\*/g, '<strong>$1</strong>');
+        text = text.replace(/\*(.*?)\*/g, '<em>$1</em>');
+        text = text.replace(/\n/g, '<br>');
+        return text;
+    }
+
+    function addUserMessage(content) {
+        const messageDiv = document.createElement("div");
+        messageDiv.classList.add("widget-message", "user");
+        messageDiv.textContent = content;
+        chatBox.appendChild(messageDiv);
+        scrollToBottom();
+    }
+
+    function addBotMessage(content, quickReplies = null) {
+        if (!content || content === "undefined") {
+            content = "I apologize, but I'm having trouble connecting. Please try again or contact us at (504) 336-2667.";
+        }
+
+        const messageDiv = document.createElement("div");
+        messageDiv.classList.add("widget-message", "bot");
+        messageDiv.innerHTML = formatMessage(content);
+        chatBox.appendChild(messageDiv);
+
+        // Add quick reply buttons if provided
+        if (quickReplies && quickReplies.length > 0) {
+            addQuickReplies(quickReplies);
+        }
+
+        scrollToBottom();
+    }
+
+    function addQuickReplies(replies) {
+        const quickRepliesDiv = document.createElement("div");
+        quickRepliesDiv.classList.add("widget-quick-replies");
+
+        replies.forEach(reply => {
+            const btn = document.createElement("button");
+            btn.classList.add("widget-quick-reply-btn");
+            btn.textContent = reply.label || reply;
+            btn.onclick = () => {
+                quickRepliesDiv.remove();
+                const valueToSend = reply.value || reply.label || reply;
+                userInput.value = valueToSend;
+                sendMessage();
+            };
+            quickRepliesDiv.appendChild(btn);
+        });
+
+        chatBox.appendChild(quickRepliesDiv);
+        scrollToBottom();
+    }
+
+    function showTypingIndicator() {
+        const typingDiv = document.createElement("div");
+        typingDiv.classList.add("widget-typing");
+        typingDiv.id = "widget-typing-indicator";
+
+        for (let i = 0; i < 3; i++) {
+            const dot = document.createElement("div");
+            dot.classList.add("widget-typing-dot");
+            typingDiv.appendChild(dot);
+        }
+
+        chatBox.appendChild(typingDiv);
+        scrollToBottom();
+    }
+
+    function hideTypingIndicator() {
+        const typingIndicator = document.getElementById("widget-typing-indicator");
+        if (typingIndicator) {
+            typingIndicator.remove();
+        }
+    }
+
+    function sendMessage() {
+        const message = userInput.value.trim();
+        if (message === "") return;
+
+        userInput.disabled = true;
+        sendButton.disabled = true;
+
+        addUserMessage(message);
+        userInput.value = "";
+
+        showTypingIndicator();
+
+        fetch("https://gemini-chatbot-480267397633.us-central1.run.app/api/gemini/chat", {
+            method: "POST",
+            headers: {
+                "Content-Type": "application/json",
+            },
+            body: JSON.stringify({
+                message: message,
+                session_id: sessionID,
+                user_id: userID
+            }),
+        })
+        .then(response => {
+            if (!response.ok) throw new Error("Network response was not ok");
+            return response.json();
+        })
+        .then(data => {
+            hideTypingIndicator();
+
+            const botResponse = data.response || data.message || "I'm sorry, I couldn't process your request.";
+            const quickReplies = data.quick_replies || null;
+
+            addBotMessage(botResponse, quickReplies);
+
+            // Debug logging
+            if (data.metadata) console.log("Metadata:", data.metadata);
+            if (data.intent) console.log("Intent:", data.intent);
+            if (quickReplies) console.log("Quick Replies:", quickReplies);
+        })
+        .catch(error => {
+            hideTypingIndicator();
+            addBotMessage("I apologize, but I'm having trouble connecting. Please try again or contact us at (504) 336-2667.");
+            console.error("Error:", error);
+        })
+        .finally(() => {
+            userInput.disabled = false;
+            sendButton.disabled = false;
+            userInput.focus();
+        });
+    }
+
+    // Event Listeners
+    launchBtn.addEventListener("click", toggleChat);
+    closeBtn.addEventListener("click", toggleChat);
+
+    sendButton.addEventListener("click", sendMessage);
+    userInput.addEventListener("keypress", function(event) {
+        if (event.key === "Enter") {
+            event.preventDefault();
+            if (userInput.value.trim() !== "") sendMessage();
+        }
+    });
+
+    // Allow ESC key to close chat
+    document.addEventListener("keydown", function(event) {
+        if (event.key === "Escape" && isOpen) {
+            toggleChat();
+        }
+    });
+})();
+</script>

@@ -1,0 +1,1955 @@
+{
+  "summary": {
+    "contact_partial_data_not_initialized": {
+      "sessions_affected": [],
+      "frequency": 0,
+      "severity": "HIGH",
+      "code_file": "core/conversation/gemini_conversation_manager.py",
+      "code_lines": [
+        1904,
+        1930,
+        1949,
+        1968,
+        1987
+      ],
+      "description": "contact_partial_data dict accessed before initialization",
+      "fix_recommendation": "Add defensive checks before accessing dict, ensure initialization",
+      "impact_score": 0
+    },
+    "wrong_trial_selected": {
+      "sessions_affected": [],
+      "frequency": 0,
+      "severity": "CRITICAL",
+      "code_file": "core/conversation/gemini_conversation_manager.py",
+      "code_lines": [
+        1363,
+        1375
+      ],
+      "description": "User searches condition X but gets prescreening for condition Y",
+      "fix_recommendation": "Verify condition matching logic is working correctly",
+      "impact_score": 0
+    },
+    "availability_not_shown": {
+      "sessions_affected": [],
+      "frequency": 0,
+      "severity": "MEDIUM",
+      "code_file": "core/conversation/gemini_conversation_manager.py",
+      "code_lines": [
+        2276,
+        2329
+      ],
+      "description": "Eligible users not shown availability due to cascading failures",
+      "fix_recommendation": "Add error handling and fallback flow in eligibility completion",
+      "impact_score": 0
+    },
+    "question_type_mismatch": {
+      "sessions_affected": [],
+      "frequency": 0,
+      "severity": "MEDIUM",
+      "code_file": "core/prescreening/gemini_prescreening_manager.py",
+      "code_lines": [
+        "answer parsing logic"
+      ],
+      "description": "Question type doesn't match expected answer format",
+      "fix_recommendation": "Improve question type detection based on keywords",
+      "impact_score": 0
+    },
+    "async_operation_error": {
+      "sessions_affected": [],
+      "frequency": 0,
+      "severity": "CRITICAL",
+      "code_file": "core/conversation/gemini_conversation_manager.py",
+      "code_lines": [
+        "async function calls"
+      ],
+      "description": "Missing await on async operations or unhandled exceptions",
+      "fix_recommendation": "Audit all async function calls for proper await",
+      "impact_score": 0
+    }
+  },
+  "all_detections": {
+    "session_icurtr7ef": {
+      "contact_partial_data_not_initialized": {
+        "detected": false,
+        "confidence": 0.0,
+        "indicators": {
+          "bot_asked_for_consent": false,
+          "user_provided_name_like_response": false,
+          "bot_confused_by_name": false,
+          "contact_record_incomplete": false,
+          "state_was_collecting_first_name": false
+        },
+        "code_location": "core/conversation/gemini_conversation_manager.py:1904",
+        "issue_type": "contact_partial_data_not_initialized",
+        "severity": "HIGH",
+        "description": "Contact collection loses first name - contact_partial_data dict may not be initialized"
+      },
+      "wrong_trial_selected": {
+        "detected": false,
+        "confidence": 0.0,
+        "indicators": {
+          "user_mentioned_condition": null,
+          "bot_showed_trials": false,
+          "prescreening_started": false,
+          "condition_mismatch": false
+        },
+        "code_location": "core/conversation/gemini_conversation_manager.py:1363-1375",
+        "issue_type": "wrong_trial_selected",
+        "severity": "CRITICAL",
+        "description": "User searches condition X but gets prescreening for condition Y"
+      },
+      "availability_not_shown": {
+        "detected": false,
+        "confidence": 0.25,
+        "indicators": {
+          "prescreening_completed": false,
+          "eligible_status": false,
+          "availability_mentioned": false,
+          "scheduling_mentioned": false,
+          "error_after_eligibility": false,
+          "conversation_ended_without_scheduling": false
+        },
+        "code_location": "core/conversation/gemini_conversation_manager.py:2276-2329",
+        "issue_type": "availability_not_shown",
+        "severity": "MEDIUM",
+        "description": "Eligible users not shown availability due to cascading failures"
+      },
+      "question_type_mismatch": {
+        "detected": false,
+        "confidence": 0.0,
+        "indicators": {
+          "numeric_question_indices": [],
+          "user_provided_number_indices": [],
+          "processing_error_indices": [],
+          "mismatches_detected": 0
+        },
+        "code_location": "core/prescreening/gemini_prescreening_manager.py (answer parsing)",
+        "issue_type": "question_type_mismatch",
+        "severity": "MEDIUM",
+        "description": "Question wording expects numeric answer but type expects yes/no"
+      },
+      "async_operation_error": {
+        "detected": false,
+        "confidence": 0.0,
+        "indicators": {
+          "trouble_processing_answer_indices": [],
+          "trouble_evaluating_eligibility_indices": [],
+          "error_during_prescreening": false,
+          "error_count": 0
+        },
+        "code_location": "core/conversation/gemini_conversation_manager.py (async operations)",
+        "issue_type": "async_operation_error",
+        "severity": "CRITICAL",
+        "description": "Missing await on async operations or unhandled async exceptions"
+      }
+    },
+    "session_2s179vkjo": {
+      "contact_partial_data_not_initialized": {
+        "detected": false,
+        "confidence": 0.0,
+        "indicators": {
+          "bot_asked_for_consent": false,
+          "user_provided_name_like_response": false,
+          "bot_confused_by_name": false,
+          "contact_record_incomplete": false,
+          "state_was_collecting_first_name": false
+        },
+        "code_location": "core/conversation/gemini_conversation_manager.py:1904",
+        "issue_type": "contact_partial_data_not_initialized",
+        "severity": "HIGH",
+        "description": "Contact collection loses first name - contact_partial_data dict may not be initialized"
+      },
+      "wrong_trial_selected": {
+        "detected": false,
+        "confidence": 0.0,
+        "indicators": {
+          "user_mentioned_condition": null,
+          "bot_showed_trials": false,
+          "prescreening_started": false,
+          "condition_mismatch": false
+        },
+        "code_location": "core/conversation/gemini_conversation_manager.py:1363-1375",
+        "issue_type": "wrong_trial_selected",
+        "severity": "CRITICAL",
+        "description": "User searches condition X but gets prescreening for condition Y"
+      },
+      "availability_not_shown": {
+        "detected": false,
+        "confidence": 0.25,
+        "indicators": {
+          "prescreening_completed": false,
+          "eligible_status": false,
+          "availability_mentioned": false,
+          "scheduling_mentioned": false,
+          "error_after_eligibility": false,
+          "conversation_ended_without_scheduling": false
+        },
+        "code_location": "core/conversation/gemini_conversation_manager.py:2276-2329",
+        "issue_type": "availability_not_shown",
+        "severity": "MEDIUM",
+        "description": "Eligible users not shown availability due to cascading failures"
+      },
+      "question_type_mismatch": {
+        "detected": false,
+        "confidence": 0.0,
+        "indicators": {
+          "numeric_question_indices": [],
+          "user_provided_number_indices": [],
+          "processing_error_indices": [],
+          "mismatches_detected": 0
+        },
+        "code_location": "core/prescreening/gemini_prescreening_manager.py (answer parsing)",
+        "issue_type": "question_type_mismatch",
+        "severity": "MEDIUM",
+        "description": "Question wording expects numeric answer but type expects yes/no"
+      },
+      "async_operation_error": {
+        "detected": false,
+        "confidence": 0.0,
+        "indicators": {
+          "trouble_processing_answer_indices": [],
+          "trouble_evaluating_eligibility_indices": [],
+          "error_during_prescreening": false,
+          "error_count": 0
+        },
+        "code_location": "core/conversation/gemini_conversation_manager.py (async operations)",
+        "issue_type": "async_operation_error",
+        "severity": "CRITICAL",
+        "description": "Missing await on async operations or unhandled async exceptions"
+      }
+    },
+    "session_cf3b1vven": {
+      "contact_partial_data_not_initialized": {
+        "detected": false,
+        "confidence": 0.0,
+        "indicators": {
+          "bot_asked_for_consent": false,
+          "user_provided_name_like_response": false,
+          "bot_confused_by_name": false,
+          "contact_record_incomplete": false,
+          "state_was_collecting_first_name": false
+        },
+        "code_location": "core/conversation/gemini_conversation_manager.py:1904",
+        "issue_type": "contact_partial_data_not_initialized",
+        "severity": "HIGH",
+        "description": "Contact collection loses first name - contact_partial_data dict may not be initialized"
+      },
+      "wrong_trial_selected": {
+        "detected": false,
+        "confidence": 0.25,
+        "indicators": {
+          "user_mentioned_condition": "",
+          "bot_showed_trials": false,
+          "prescreening_started": false,
+          "condition_mismatch": false
+        },
+        "code_location": "core/conversation/gemini_conversation_manager.py:1363-1375",
+        "issue_type": "wrong_trial_selected",
+        "severity": "CRITICAL",
+        "description": "User searches condition X but gets prescreening for condition Y"
+      },
+      "availability_not_shown": {
+        "detected": false,
+        "confidence": 0.25,
+        "indicators": {
+          "prescreening_completed": false,
+          "eligible_status": false,
+          "availability_mentioned": false,
+          "scheduling_mentioned": false,
+          "error_after_eligibility": false,
+          "conversation_ended_without_scheduling": false
+        },
+        "code_location": "core/conversation/gemini_conversation_manager.py:2276-2329",
+        "issue_type": "availability_not_shown",
+        "severity": "MEDIUM",
+        "description": "Eligible users not shown availability due to cascading failures"
+      },
+      "question_type_mismatch": {
+        "detected": false,
+        "confidence": 0.0,
+        "indicators": {
+          "numeric_question_indices": [],
+          "user_provided_number_indices": [],
+          "processing_error_indices": [],
+          "mismatches_detected": 0
+        },
+        "code_location": "core/prescreening/gemini_prescreening_manager.py (answer parsing)",
+        "issue_type": "question_type_mismatch",
+        "severity": "MEDIUM",
+        "description": "Question wording expects numeric answer but type expects yes/no"
+      },
+      "async_operation_error": {
+        "detected": false,
+        "confidence": 0.0,
+        "indicators": {
+          "trouble_processing_answer_indices": [],
+          "trouble_evaluating_eligibility_indices": [],
+          "error_during_prescreening": false,
+          "error_count": 0
+        },
+        "code_location": "core/conversation/gemini_conversation_manager.py (async operations)",
+        "issue_type": "async_operation_error",
+        "severity": "CRITICAL",
+        "description": "Missing await on async operations or unhandled async exceptions"
+      }
+    },
+    "session_6u65d0nhe": {
+      "contact_partial_data_not_initialized": {
+        "detected": false,
+        "confidence": 0.0,
+        "indicators": {
+          "bot_asked_for_consent": false,
+          "user_provided_name_like_response": false,
+          "bot_confused_by_name": false,
+          "contact_record_incomplete": false,
+          "state_was_collecting_first_name": false
+        },
+        "code_location": "core/conversation/gemini_conversation_manager.py:1904",
+        "issue_type": "contact_partial_data_not_initialized",
+        "severity": "HIGH",
+        "description": "Contact collection loses first name - contact_partial_data dict may not be initialized"
+      },
+      "wrong_trial_selected": {
+        "detected": false,
+        "confidence": 0.0,
+        "indicators": {
+          "user_mentioned_condition": null,
+          "bot_showed_trials": false,
+          "prescreening_started": false,
+          "condition_mismatch": false
+        },
+        "code_location": "core/conversation/gemini_conversation_manager.py:1363-1375",
+        "issue_type": "wrong_trial_selected",
+        "severity": "CRITICAL",
+        "description": "User searches condition X but gets prescreening for condition Y"
+      },
+      "availability_not_shown": {
+        "detected": false,
+        "confidence": 0.25,
+        "indicators": {
+          "prescreening_completed": false,
+          "eligible_status": false,
+          "availability_mentioned": false,
+          "scheduling_mentioned": false,
+          "error_after_eligibility": false,
+          "conversation_ended_without_scheduling": false
+        },
+        "code_location": "core/conversation/gemini_conversation_manager.py:2276-2329",
+        "issue_type": "availability_not_shown",
+        "severity": "MEDIUM",
+        "description": "Eligible users not shown availability due to cascading failures"
+      },
+      "question_type_mismatch": {
+        "detected": false,
+        "confidence": 0.0,
+        "indicators": {
+          "numeric_question_indices": [],
+          "user_provided_number_indices": [],
+          "processing_error_indices": [],
+          "mismatches_detected": 0
+        },
+        "code_location": "core/prescreening/gemini_prescreening_manager.py (answer parsing)",
+        "issue_type": "question_type_mismatch",
+        "severity": "MEDIUM",
+        "description": "Question wording expects numeric answer but type expects yes/no"
+      },
+      "async_operation_error": {
+        "detected": false,
+        "confidence": 0.0,
+        "indicators": {
+          "trouble_processing_answer_indices": [],
+          "trouble_evaluating_eligibility_indices": [],
+          "error_during_prescreening": false,
+          "error_count": 0
+        },
+        "code_location": "core/conversation/gemini_conversation_manager.py (async operations)",
+        "issue_type": "async_operation_error",
+        "severity": "CRITICAL",
+        "description": "Missing await on async operations or unhandled async exceptions"
+      }
+    },
+    "session_meo5jt2fw": {
+      "contact_partial_data_not_initialized": {
+        "detected": false,
+        "confidence": 0.0,
+        "indicators": {
+          "bot_asked_for_consent": false,
+          "user_provided_name_like_response": false,
+          "bot_confused_by_name": false,
+          "contact_record_incomplete": false,
+          "state_was_collecting_first_name": false
+        },
+        "code_location": "core/conversation/gemini_conversation_manager.py:1904",
+        "issue_type": "contact_partial_data_not_initialized",
+        "severity": "HIGH",
+        "description": "Contact collection loses first name - contact_partial_data dict may not be initialized"
+      },
+      "wrong_trial_selected": {
+        "detected": false,
+        "confidence": 0.0,
+        "indicators": {
+          "user_mentioned_condition": null,
+          "bot_showed_trials": false,
+          "prescreening_started": false,
+          "condition_mismatch": false
+        },
+        "code_location": "core/conversation/gemini_conversation_manager.py:1363-1375",
+        "issue_type": "wrong_trial_selected",
+        "severity": "CRITICAL",
+        "description": "User searches condition X but gets prescreening for condition Y"
+      },
+      "availability_not_shown": {
+        "detected": false,
+        "confidence": 0.25,
+        "indicators": {
+          "prescreening_completed": false,
+          "eligible_status": false,
+          "availability_mentioned": false,
+          "scheduling_mentioned": false,
+          "error_after_eligibility": false,
+          "conversation_ended_without_scheduling": false
+        },
+        "code_location": "core/conversation/gemini_conversation_manager.py:2276-2329",
+        "issue_type": "availability_not_shown",
+        "severity": "MEDIUM",
+        "description": "Eligible users not shown availability due to cascading failures"
+      },
+      "question_type_mismatch": {
+        "detected": false,
+        "confidence": 0.0,
+        "indicators": {
+          "numeric_question_indices": [],
+          "user_provided_number_indices": [],
+          "processing_error_indices": [],
+          "mismatches_detected": 0
+        },
+        "code_location": "core/prescreening/gemini_prescreening_manager.py (answer parsing)",
+        "issue_type": "question_type_mismatch",
+        "severity": "MEDIUM",
+        "description": "Question wording expects numeric answer but type expects yes/no"
+      },
+      "async_operation_error": {
+        "detected": false,
+        "confidence": 0.0,
+        "indicators": {
+          "trouble_processing_answer_indices": [],
+          "trouble_evaluating_eligibility_indices": [],
+          "error_during_prescreening": false,
+          "error_count": 0
+        },
+        "code_location": "core/conversation/gemini_conversation_manager.py (async operations)",
+        "issue_type": "async_operation_error",
+        "severity": "CRITICAL",
+        "description": "Missing await on async operations or unhandled async exceptions"
+      }
+    },
+    "session_r3y82h8jq": {
+      "contact_partial_data_not_initialized": {
+        "detected": false,
+        "confidence": 0.0,
+        "indicators": {
+          "bot_asked_for_consent": false,
+          "user_provided_name_like_response": false,
+          "bot_confused_by_name": false,
+          "contact_record_incomplete": false,
+          "state_was_collecting_first_name": false
+        },
+        "code_location": "core/conversation/gemini_conversation_manager.py:1904",
+        "issue_type": "contact_partial_data_not_initialized",
+        "severity": "HIGH",
+        "description": "Contact collection loses first name - contact_partial_data dict may not be initialized"
+      },
+      "wrong_trial_selected": {
+        "detected": false,
+        "confidence": 0.75,
+        "indicators": {
+          "user_mentioned_condition": "",
+          "bot_showed_trials": true,
+          "prescreening_started": true,
+          "condition_mismatch": false
+        },
+        "code_location": "core/conversation/gemini_conversation_manager.py:1363-1375",
+        "issue_type": "wrong_trial_selected",
+        "severity": "CRITICAL",
+        "description": "User searches condition X but gets prescreening for condition Y"
+      },
+      "availability_not_shown": {
+        "detected": false,
+        "confidence": 0.25,
+        "indicators": {
+          "prescreening_completed": true,
+          "eligible_status": false,
+          "availability_mentioned": true,
+          "scheduling_mentioned": true,
+          "error_after_eligibility": false,
+          "conversation_ended_without_scheduling": false
+        },
+        "code_location": "core/conversation/gemini_conversation_manager.py:2276-2329",
+        "issue_type": "availability_not_shown",
+        "severity": "MEDIUM",
+        "description": "Eligible users not shown availability due to cascading failures"
+      },
+      "question_type_mismatch": {
+        "detected": false,
+        "confidence": 0.0,
+        "indicators": {
+          "numeric_question_indices": [
+            10
+          ],
+          "user_provided_number_indices": [],
+          "processing_error_indices": [],
+          "mismatches_detected": 0
+        },
+        "code_location": "core/prescreening/gemini_prescreening_manager.py (answer parsing)",
+        "issue_type": "question_type_mismatch",
+        "severity": "MEDIUM",
+        "description": "Question wording expects numeric answer but type expects yes/no"
+      },
+      "async_operation_error": {
+        "detected": false,
+        "confidence": 0.0,
+        "indicators": {
+          "trouble_processing_answer_indices": [],
+          "trouble_evaluating_eligibility_indices": [],
+          "error_during_prescreening": false,
+          "error_count": 0
+        },
+        "code_location": "core/conversation/gemini_conversation_manager.py (async operations)",
+        "issue_type": "async_operation_error",
+        "severity": "CRITICAL",
+        "description": "Missing await on async operations or unhandled async exceptions"
+      }
+    },
+    "session_w91tk12rx": {
+      "contact_partial_data_not_initialized": {
+        "detected": false,
+        "confidence": 0.0,
+        "indicators": {
+          "bot_asked_for_consent": false,
+          "user_provided_name_like_response": false,
+          "bot_confused_by_name": false,
+          "contact_record_incomplete": false,
+          "state_was_collecting_first_name": false
+        },
+        "code_location": "core/conversation/gemini_conversation_manager.py:1904",
+        "issue_type": "contact_partial_data_not_initialized",
+        "severity": "HIGH",
+        "description": "Contact collection loses first name - contact_partial_data dict may not be initialized"
+      },
+      "wrong_trial_selected": {
+        "detected": false,
+        "confidence": 0.5,
+        "indicators": {
+          "user_mentioned_condition": "",
+          "bot_showed_trials": true,
+          "prescreening_started": false,
+          "condition_mismatch": false
+        },
+        "code_location": "core/conversation/gemini_conversation_manager.py:1363-1375",
+        "issue_type": "wrong_trial_selected",
+        "severity": "CRITICAL",
+        "description": "User searches condition X but gets prescreening for condition Y"
+      },
+      "availability_not_shown": {
+        "detected": false,
+        "confidence": 0.25,
+        "indicators": {
+          "prescreening_completed": false,
+          "eligible_status": false,
+          "availability_mentioned": false,
+          "scheduling_mentioned": false,
+          "error_after_eligibility": false,
+          "conversation_ended_without_scheduling": false
+        },
+        "code_location": "core/conversation/gemini_conversation_manager.py:2276-2329",
+        "issue_type": "availability_not_shown",
+        "severity": "MEDIUM",
+        "description": "Eligible users not shown availability due to cascading failures"
+      },
+      "question_type_mismatch": {
+        "detected": false,
+        "confidence": 0.0,
+        "indicators": {
+          "numeric_question_indices": [],
+          "user_provided_number_indices": [],
+          "processing_error_indices": [],
+          "mismatches_detected": 0
+        },
+        "code_location": "core/prescreening/gemini_prescreening_manager.py (answer parsing)",
+        "issue_type": "question_type_mismatch",
+        "severity": "MEDIUM",
+        "description": "Question wording expects numeric answer but type expects yes/no"
+      },
+      "async_operation_error": {
+        "detected": false,
+        "confidence": 0.0,
+        "indicators": {
+          "trouble_processing_answer_indices": [],
+          "trouble_evaluating_eligibility_indices": [],
+          "error_during_prescreening": false,
+          "error_count": 0
+        },
+        "code_location": "core/conversation/gemini_conversation_manager.py (async operations)",
+        "issue_type": "async_operation_error",
+        "severity": "CRITICAL",
+        "description": "Missing await on async operations or unhandled async exceptions"
+      }
+    },
+    "session_kjih6js40": {
+      "contact_partial_data_not_initialized": {
+        "detected": false,
+        "confidence": 0.0,
+        "indicators": {
+          "bot_asked_for_consent": false,
+          "user_provided_name_like_response": false,
+          "bot_confused_by_name": false,
+          "contact_record_incomplete": false,
+          "state_was_collecting_first_name": false
+        },
+        "code_location": "core/conversation/gemini_conversation_manager.py:1904",
+        "issue_type": "contact_partial_data_not_initialized",
+        "severity": "HIGH",
+        "description": "Contact collection loses first name - contact_partial_data dict may not be initialized"
+      },
+      "wrong_trial_selected": {
+        "detected": false,
+        "confidence": 0.0,
+        "indicators": {
+          "user_mentioned_condition": null,
+          "bot_showed_trials": false,
+          "prescreening_started": false,
+          "condition_mismatch": false
+        },
+        "code_location": "core/conversation/gemini_conversation_manager.py:1363-1375",
+        "issue_type": "wrong_trial_selected",
+        "severity": "CRITICAL",
+        "description": "User searches condition X but gets prescreening for condition Y"
+      },
+      "availability_not_shown": {
+        "detected": false,
+        "confidence": 0.25,
+        "indicators": {
+          "prescreening_completed": false,
+          "eligible_status": false,
+          "availability_mentioned": false,
+          "scheduling_mentioned": false,
+          "error_after_eligibility": false,
+          "conversation_ended_without_scheduling": false
+        },
+        "code_location": "core/conversation/gemini_conversation_manager.py:2276-2329",
+        "issue_type": "availability_not_shown",
+        "severity": "MEDIUM",
+        "description": "Eligible users not shown availability due to cascading failures"
+      },
+      "question_type_mismatch": {
+        "detected": false,
+        "confidence": 0.0,
+        "indicators": {
+          "numeric_question_indices": [],
+          "user_provided_number_indices": [],
+          "processing_error_indices": [],
+          "mismatches_detected": 0
+        },
+        "code_location": "core/prescreening/gemini_prescreening_manager.py (answer parsing)",
+        "issue_type": "question_type_mismatch",
+        "severity": "MEDIUM",
+        "description": "Question wording expects numeric answer but type expects yes/no"
+      },
+      "async_operation_error": {
+        "detected": false,
+        "confidence": 0.0,
+        "indicators": {
+          "trouble_processing_answer_indices": [],
+          "trouble_evaluating_eligibility_indices": [],
+          "error_during_prescreening": false,
+          "error_count": 0
+        },
+        "code_location": "core/conversation/gemini_conversation_manager.py (async operations)",
+        "issue_type": "async_operation_error",
+        "severity": "CRITICAL",
+        "description": "Missing await on async operations or unhandled async exceptions"
+      }
+    },
+    "session_k9kcxbg9k": {
+      "contact_partial_data_not_initialized": {
+        "detected": false,
+        "confidence": 0.0,
+        "indicators": {
+          "bot_asked_for_consent": false,
+          "user_provided_name_like_response": false,
+          "bot_confused_by_name": false,
+          "contact_record_incomplete": false,
+          "state_was_collecting_first_name": false
+        },
+        "code_location": "core/conversation/gemini_conversation_manager.py:1904",
+        "issue_type": "contact_partial_data_not_initialized",
+        "severity": "HIGH",
+        "description": "Contact collection loses first name - contact_partial_data dict may not be initialized"
+      },
+      "wrong_trial_selected": {
+        "detected": false,
+        "confidence": 0.75,
+        "indicators": {
+          "user_mentioned_condition": "",
+          "bot_showed_trials": true,
+          "prescreening_started": true,
+          "condition_mismatch": false
+        },
+        "code_location": "core/conversation/gemini_conversation_manager.py:1363-1375",
+        "issue_type": "wrong_trial_selected",
+        "severity": "CRITICAL",
+        "description": "User searches condition X but gets prescreening for condition Y"
+      },
+      "availability_not_shown": {
+        "detected": false,
+        "confidence": 0.0,
+        "indicators": {
+          "prescreening_completed": false,
+          "eligible_status": false,
+          "availability_mentioned": true,
+          "scheduling_mentioned": false,
+          "error_after_eligibility": false,
+          "conversation_ended_without_scheduling": false
+        },
+        "code_location": "core/conversation/gemini_conversation_manager.py:2276-2329",
+        "issue_type": "availability_not_shown",
+        "severity": "MEDIUM",
+        "description": "Eligible users not shown availability due to cascading failures"
+      },
+      "question_type_mismatch": {
+        "detected": false,
+        "confidence": 0.0,
+        "indicators": {
+          "numeric_question_indices": [],
+          "user_provided_number_indices": [],
+          "processing_error_indices": [],
+          "mismatches_detected": 0
+        },
+        "code_location": "core/prescreening/gemini_prescreening_manager.py (answer parsing)",
+        "issue_type": "question_type_mismatch",
+        "severity": "MEDIUM",
+        "description": "Question wording expects numeric answer but type expects yes/no"
+      },
+      "async_operation_error": {
+        "detected": false,
+        "confidence": 0.0,
+        "indicators": {
+          "trouble_processing_answer_indices": [],
+          "trouble_evaluating_eligibility_indices": [],
+          "error_during_prescreening": false,
+          "error_count": 0
+        },
+        "code_location": "core/conversation/gemini_conversation_manager.py (async operations)",
+        "issue_type": "async_operation_error",
+        "severity": "CRITICAL",
+        "description": "Missing await on async operations or unhandled async exceptions"
+      }
+    },
+    "dev_session_1ulnjqis4": {
+      "contact_partial_data_not_initialized": {
+        "detected": false,
+        "confidence": 0.0,
+        "indicators": {
+          "bot_asked_for_consent": false,
+          "user_provided_name_like_response": false,
+          "bot_confused_by_name": false,
+          "contact_record_incomplete": false,
+          "state_was_collecting_first_name": false
+        },
+        "code_location": "core/conversation/gemini_conversation_manager.py:1904",
+        "issue_type": "contact_partial_data_not_initialized",
+        "severity": "HIGH",
+        "description": "Contact collection loses first name - contact_partial_data dict may not be initialized"
+      },
+      "wrong_trial_selected": {
+        "detected": false,
+        "confidence": 0.25,
+        "indicators": {
+          "user_mentioned_condition": null,
+          "bot_showed_trials": true,
+          "prescreening_started": false,
+          "condition_mismatch": false
+        },
+        "code_location": "core/conversation/gemini_conversation_manager.py:1363-1375",
+        "issue_type": "wrong_trial_selected",
+        "severity": "CRITICAL",
+        "description": "User searches condition X but gets prescreening for condition Y"
+      },
+      "availability_not_shown": {
+        "detected": false,
+        "confidence": 0.25,
+        "indicators": {
+          "prescreening_completed": false,
+          "eligible_status": false,
+          "availability_mentioned": false,
+          "scheduling_mentioned": false,
+          "error_after_eligibility": false,
+          "conversation_ended_without_scheduling": false
+        },
+        "code_location": "core/conversation/gemini_conversation_manager.py:2276-2329",
+        "issue_type": "availability_not_shown",
+        "severity": "MEDIUM",
+        "description": "Eligible users not shown availability due to cascading failures"
+      },
+      "question_type_mismatch": {
+        "detected": false,
+        "confidence": 0.0,
+        "indicators": {
+          "numeric_question_indices": [],
+          "user_provided_number_indices": [],
+          "processing_error_indices": [],
+          "mismatches_detected": 0
+        },
+        "code_location": "core/prescreening/gemini_prescreening_manager.py (answer parsing)",
+        "issue_type": "question_type_mismatch",
+        "severity": "MEDIUM",
+        "description": "Question wording expects numeric answer but type expects yes/no"
+      },
+      "async_operation_error": {
+        "detected": false,
+        "confidence": 0.0,
+        "indicators": {
+          "trouble_processing_answer_indices": [],
+          "trouble_evaluating_eligibility_indices": [],
+          "error_during_prescreening": false,
+          "error_count": 0
+        },
+        "code_location": "core/conversation/gemini_conversation_manager.py (async operations)",
+        "issue_type": "async_operation_error",
+        "severity": "CRITICAL",
+        "description": "Missing await on async operations or unhandled async exceptions"
+      }
+    },
+    "session_8vmle8qj6": {
+      "contact_partial_data_not_initialized": {
+        "detected": false,
+        "confidence": 0.0,
+        "indicators": {
+          "bot_asked_for_consent": false,
+          "user_provided_name_like_response": false,
+          "bot_confused_by_name": false,
+          "contact_record_incomplete": false,
+          "state_was_collecting_first_name": false
+        },
+        "code_location": "core/conversation/gemini_conversation_manager.py:1904",
+        "issue_type": "contact_partial_data_not_initialized",
+        "severity": "HIGH",
+        "description": "Contact collection loses first name - contact_partial_data dict may not be initialized"
+      },
+      "wrong_trial_selected": {
+        "detected": false,
+        "confidence": 0.0,
+        "indicators": {
+          "user_mentioned_condition": null,
+          "bot_showed_trials": false,
+          "prescreening_started": false,
+          "condition_mismatch": false
+        },
+        "code_location": "core/conversation/gemini_conversation_manager.py:1363-1375",
+        "issue_type": "wrong_trial_selected",
+        "severity": "CRITICAL",
+        "description": "User searches condition X but gets prescreening for condition Y"
+      },
+      "availability_not_shown": {
+        "detected": false,
+        "confidence": 0.25,
+        "indicators": {
+          "prescreening_completed": false,
+          "eligible_status": false,
+          "availability_mentioned": false,
+          "scheduling_mentioned": false,
+          "error_after_eligibility": false,
+          "conversation_ended_without_scheduling": false
+        },
+        "code_location": "core/conversation/gemini_conversation_manager.py:2276-2329",
+        "issue_type": "availability_not_shown",
+        "severity": "MEDIUM",
+        "description": "Eligible users not shown availability due to cascading failures"
+      },
+      "question_type_mismatch": {
+        "detected": false,
+        "confidence": 0.0,
+        "indicators": {
+          "numeric_question_indices": [],
+          "user_provided_number_indices": [],
+          "processing_error_indices": [],
+          "mismatches_detected": 0
+        },
+        "code_location": "core/prescreening/gemini_prescreening_manager.py (answer parsing)",
+        "issue_type": "question_type_mismatch",
+        "severity": "MEDIUM",
+        "description": "Question wording expects numeric answer but type expects yes/no"
+      },
+      "async_operation_error": {
+        "detected": false,
+        "confidence": 0.0,
+        "indicators": {
+          "trouble_processing_answer_indices": [],
+          "trouble_evaluating_eligibility_indices": [],
+          "error_during_prescreening": false,
+          "error_count": 0
+        },
+        "code_location": "core/conversation/gemini_conversation_manager.py (async operations)",
+        "issue_type": "async_operation_error",
+        "severity": "CRITICAL",
+        "description": "Missing await on async operations or unhandled async exceptions"
+      }
+    },
+    "session_on7r3eko9": {
+      "contact_partial_data_not_initialized": {
+        "detected": false,
+        "confidence": 0.0,
+        "indicators": {
+          "bot_asked_for_consent": false,
+          "user_provided_name_like_response": false,
+          "bot_confused_by_name": false,
+          "contact_record_incomplete": false,
+          "state_was_collecting_first_name": false
+        },
+        "code_location": "core/conversation/gemini_conversation_manager.py:1904",
+        "issue_type": "contact_partial_data_not_initialized",
+        "severity": "HIGH",
+        "description": "Contact collection loses first name - contact_partial_data dict may not be initialized"
+      },
+      "wrong_trial_selected": {
+        "detected": false,
+        "confidence": 0.0,
+        "indicators": {
+          "user_mentioned_condition": null,
+          "bot_showed_trials": false,
+          "prescreening_started": false,
+          "condition_mismatch": false
+        },
+        "code_location": "core/conversation/gemini_conversation_manager.py:1363-1375",
+        "issue_type": "wrong_trial_selected",
+        "severity": "CRITICAL",
+        "description": "User searches condition X but gets prescreening for condition Y"
+      },
+      "availability_not_shown": {
+        "detected": false,
+        "confidence": 0.25,
+        "indicators": {
+          "prescreening_completed": false,
+          "eligible_status": false,
+          "availability_mentioned": false,
+          "scheduling_mentioned": false,
+          "error_after_eligibility": false,
+          "conversation_ended_without_scheduling": false
+        },
+        "code_location": "core/conversation/gemini_conversation_manager.py:2276-2329",
+        "issue_type": "availability_not_shown",
+        "severity": "MEDIUM",
+        "description": "Eligible users not shown availability due to cascading failures"
+      },
+      "question_type_mismatch": {
+        "detected": false,
+        "confidence": 0.0,
+        "indicators": {
+          "numeric_question_indices": [],
+          "user_provided_number_indices": [],
+          "processing_error_indices": [],
+          "mismatches_detected": 0
+        },
+        "code_location": "core/prescreening/gemini_prescreening_manager.py (answer parsing)",
+        "issue_type": "question_type_mismatch",
+        "severity": "MEDIUM",
+        "description": "Question wording expects numeric answer but type expects yes/no"
+      },
+      "async_operation_error": {
+        "detected": false,
+        "confidence": 0.0,
+        "indicators": {
+          "trouble_processing_answer_indices": [],
+          "trouble_evaluating_eligibility_indices": [],
+          "error_during_prescreening": false,
+          "error_count": 0
+        },
+        "code_location": "core/conversation/gemini_conversation_manager.py (async operations)",
+        "issue_type": "async_operation_error",
+        "severity": "CRITICAL",
+        "description": "Missing await on async operations or unhandled async exceptions"
+      }
+    },
+    "session_coa26fwy7": {
+      "contact_partial_data_not_initialized": {
+        "detected": false,
+        "confidence": 0.0,
+        "indicators": {
+          "bot_asked_for_consent": false,
+          "user_provided_name_like_response": false,
+          "bot_confused_by_name": false,
+          "contact_record_incomplete": false,
+          "state_was_collecting_first_name": false
+        },
+        "code_location": "core/conversation/gemini_conversation_manager.py:1904",
+        "issue_type": "contact_partial_data_not_initialized",
+        "severity": "HIGH",
+        "description": "Contact collection loses first name - contact_partial_data dict may not be initialized"
+      },
+      "wrong_trial_selected": {
+        "detected": false,
+        "confidence": 0.0,
+        "indicators": {
+          "user_mentioned_condition": null,
+          "bot_showed_trials": false,
+          "prescreening_started": false,
+          "condition_mismatch": false
+        },
+        "code_location": "core/conversation/gemini_conversation_manager.py:1363-1375",
+        "issue_type": "wrong_trial_selected",
+        "severity": "CRITICAL",
+        "description": "User searches condition X but gets prescreening for condition Y"
+      },
+      "availability_not_shown": {
+        "detected": false,
+        "confidence": 0.0,
+        "indicators": {
+          "prescreening_completed": false,
+          "eligible_status": false,
+          "availability_mentioned": true,
+          "scheduling_mentioned": false,
+          "error_after_eligibility": false,
+          "conversation_ended_without_scheduling": false
+        },
+        "code_location": "core/conversation/gemini_conversation_manager.py:2276-2329",
+        "issue_type": "availability_not_shown",
+        "severity": "MEDIUM",
+        "description": "Eligible users not shown availability due to cascading failures"
+      },
+      "question_type_mismatch": {
+        "detected": false,
+        "confidence": 0.0,
+        "indicators": {
+          "numeric_question_indices": [],
+          "user_provided_number_indices": [],
+          "processing_error_indices": [],
+          "mismatches_detected": 0
+        },
+        "code_location": "core/prescreening/gemini_prescreening_manager.py (answer parsing)",
+        "issue_type": "question_type_mismatch",
+        "severity": "MEDIUM",
+        "description": "Question wording expects numeric answer but type expects yes/no"
+      },
+      "async_operation_error": {
+        "detected": false,
+        "confidence": 0.0,
+        "indicators": {
+          "trouble_processing_answer_indices": [],
+          "trouble_evaluating_eligibility_indices": [],
+          "error_during_prescreening": false,
+          "error_count": 0
+        },
+        "code_location": "core/conversation/gemini_conversation_manager.py (async operations)",
+        "issue_type": "async_operation_error",
+        "severity": "CRITICAL",
+        "description": "Missing await on async operations or unhandled async exceptions"
+      }
+    },
+    "session_rnnhmpq6u": {
+      "contact_partial_data_not_initialized": {
+        "detected": false,
+        "confidence": 0.0,
+        "indicators": {
+          "bot_asked_for_consent": false,
+          "user_provided_name_like_response": false,
+          "bot_confused_by_name": false,
+          "contact_record_incomplete": false,
+          "state_was_collecting_first_name": false
+        },
+        "code_location": "core/conversation/gemini_conversation_manager.py:1904",
+        "issue_type": "contact_partial_data_not_initialized",
+        "severity": "HIGH",
+        "description": "Contact collection loses first name - contact_partial_data dict may not be initialized"
+      },
+      "wrong_trial_selected": {
+        "detected": false,
+        "confidence": 0.25,
+        "indicators": {
+          "user_mentioned_condition": null,
+          "bot_showed_trials": true,
+          "prescreening_started": false,
+          "condition_mismatch": false
+        },
+        "code_location": "core/conversation/gemini_conversation_manager.py:1363-1375",
+        "issue_type": "wrong_trial_selected",
+        "severity": "CRITICAL",
+        "description": "User searches condition X but gets prescreening for condition Y"
+      },
+      "availability_not_shown": {
+        "detected": false,
+        "confidence": 0.25,
+        "indicators": {
+          "prescreening_completed": false,
+          "eligible_status": false,
+          "availability_mentioned": false,
+          "scheduling_mentioned": false,
+          "error_after_eligibility": false,
+          "conversation_ended_without_scheduling": false
+        },
+        "code_location": "core/conversation/gemini_conversation_manager.py:2276-2329",
+        "issue_type": "availability_not_shown",
+        "severity": "MEDIUM",
+        "description": "Eligible users not shown availability due to cascading failures"
+      },
+      "question_type_mismatch": {
+        "detected": false,
+        "confidence": 0.0,
+        "indicators": {
+          "numeric_question_indices": [],
+          "user_provided_number_indices": [],
+          "processing_error_indices": [],
+          "mismatches_detected": 0
+        },
+        "code_location": "core/prescreening/gemini_prescreening_manager.py (answer parsing)",
+        "issue_type": "question_type_mismatch",
+        "severity": "MEDIUM",
+        "description": "Question wording expects numeric answer but type expects yes/no"
+      },
+      "async_operation_error": {
+        "detected": false,
+        "confidence": 0.0,
+        "indicators": {
+          "trouble_processing_answer_indices": [],
+          "trouble_evaluating_eligibility_indices": [],
+          "error_during_prescreening": false,
+          "error_count": 0
+        },
+        "code_location": "core/conversation/gemini_conversation_manager.py (async operations)",
+        "issue_type": "async_operation_error",
+        "severity": "CRITICAL",
+        "description": "Missing await on async operations or unhandled async exceptions"
+      }
+    },
+    "session_c6cniwwyu": {
+      "contact_partial_data_not_initialized": {
+        "detected": false,
+        "confidence": 0.0,
+        "indicators": {
+          "bot_asked_for_consent": false,
+          "user_provided_name_like_response": false,
+          "bot_confused_by_name": false,
+          "contact_record_incomplete": false,
+          "state_was_collecting_first_name": false
+        },
+        "code_location": "core/conversation/gemini_conversation_manager.py:1904",
+        "issue_type": "contact_partial_data_not_initialized",
+        "severity": "HIGH",
+        "description": "Contact collection loses first name - contact_partial_data dict may not be initialized"
+      },
+      "wrong_trial_selected": {
+        "detected": false,
+        "confidence": 0.5,
+        "indicators": {
+          "user_mentioned_condition": "",
+          "bot_showed_trials": true,
+          "prescreening_started": false,
+          "condition_mismatch": false
+        },
+        "code_location": "core/conversation/gemini_conversation_manager.py:1363-1375",
+        "issue_type": "wrong_trial_selected",
+        "severity": "CRITICAL",
+        "description": "User searches condition X but gets prescreening for condition Y"
+      },
+      "availability_not_shown": {
+        "detected": false,
+        "confidence": 0.25,
+        "indicators": {
+          "prescreening_completed": false,
+          "eligible_status": false,
+          "availability_mentioned": false,
+          "scheduling_mentioned": false,
+          "error_after_eligibility": false,
+          "conversation_ended_without_scheduling": false
+        },
+        "code_location": "core/conversation/gemini_conversation_manager.py:2276-2329",
+        "issue_type": "availability_not_shown",
+        "severity": "MEDIUM",
+        "description": "Eligible users not shown availability due to cascading failures"
+      },
+      "question_type_mismatch": {
+        "detected": false,
+        "confidence": 0.0,
+        "indicators": {
+          "numeric_question_indices": [],
+          "user_provided_number_indices": [],
+          "processing_error_indices": [],
+          "mismatches_detected": 0
+        },
+        "code_location": "core/prescreening/gemini_prescreening_manager.py (answer parsing)",
+        "issue_type": "question_type_mismatch",
+        "severity": "MEDIUM",
+        "description": "Question wording expects numeric answer but type expects yes/no"
+      },
+      "async_operation_error": {
+        "detected": false,
+        "confidence": 0.0,
+        "indicators": {
+          "trouble_processing_answer_indices": [],
+          "trouble_evaluating_eligibility_indices": [],
+          "error_during_prescreening": false,
+          "error_count": 0
+        },
+        "code_location": "core/conversation/gemini_conversation_manager.py (async operations)",
+        "issue_type": "async_operation_error",
+        "severity": "CRITICAL",
+        "description": "Missing await on async operations or unhandled async exceptions"
+      }
+    },
+    "session_o7mkz6nrb": {
+      "contact_partial_data_not_initialized": {
+        "detected": false,
+        "confidence": 0.0,
+        "indicators": {
+          "bot_asked_for_consent": false,
+          "user_provided_name_like_response": false,
+          "bot_confused_by_name": false,
+          "contact_record_incomplete": false,
+          "state_was_collecting_first_name": false
+        },
+        "code_location": "core/conversation/gemini_conversation_manager.py:1904",
+        "issue_type": "contact_partial_data_not_initialized",
+        "severity": "HIGH",
+        "description": "Contact collection loses first name - contact_partial_data dict may not be initialized"
+      },
+      "wrong_trial_selected": {
+        "detected": false,
+        "confidence": 0.25,
+        "indicators": {
+          "user_mentioned_condition": "",
+          "bot_showed_trials": false,
+          "prescreening_started": false,
+          "condition_mismatch": false
+        },
+        "code_location": "core/conversation/gemini_conversation_manager.py:1363-1375",
+        "issue_type": "wrong_trial_selected",
+        "severity": "CRITICAL",
+        "description": "User searches condition X but gets prescreening for condition Y"
+      },
+      "availability_not_shown": {
+        "detected": false,
+        "confidence": 0.25,
+        "indicators": {
+          "prescreening_completed": false,
+          "eligible_status": false,
+          "availability_mentioned": false,
+          "scheduling_mentioned": false,
+          "error_after_eligibility": false,
+          "conversation_ended_without_scheduling": false
+        },
+        "code_location": "core/conversation/gemini_conversation_manager.py:2276-2329",
+        "issue_type": "availability_not_shown",
+        "severity": "MEDIUM",
+        "description": "Eligible users not shown availability due to cascading failures"
+      },
+      "question_type_mismatch": {
+        "detected": false,
+        "confidence": 0.0,
+        "indicators": {
+          "numeric_question_indices": [],
+          "user_provided_number_indices": [],
+          "processing_error_indices": [],
+          "mismatches_detected": 0
+        },
+        "code_location": "core/prescreening/gemini_prescreening_manager.py (answer parsing)",
+        "issue_type": "question_type_mismatch",
+        "severity": "MEDIUM",
+        "description": "Question wording expects numeric answer but type expects yes/no"
+      },
+      "async_operation_error": {
+        "detected": false,
+        "confidence": 0.0,
+        "indicators": {
+          "trouble_processing_answer_indices": [],
+          "trouble_evaluating_eligibility_indices": [],
+          "error_during_prescreening": false,
+          "error_count": 0
+        },
+        "code_location": "core/conversation/gemini_conversation_manager.py (async operations)",
+        "issue_type": "async_operation_error",
+        "severity": "CRITICAL",
+        "description": "Missing await on async operations or unhandled async exceptions"
+      }
+    },
+    "session_cyrgnffi8": {
+      "contact_partial_data_not_initialized": {
+        "detected": false,
+        "confidence": 0.0,
+        "indicators": {
+          "bot_asked_for_consent": false,
+          "user_provided_name_like_response": false,
+          "bot_confused_by_name": false,
+          "contact_record_incomplete": false,
+          "state_was_collecting_first_name": false
+        },
+        "code_location": "core/conversation/gemini_conversation_manager.py:1904",
+        "issue_type": "contact_partial_data_not_initialized",
+        "severity": "HIGH",
+        "description": "Contact collection loses first name - contact_partial_data dict may not be initialized"
+      },
+      "wrong_trial_selected": {
+        "detected": false,
+        "confidence": 0.25,
+        "indicators": {
+          "user_mentioned_condition": "",
+          "bot_showed_trials": false,
+          "prescreening_started": false,
+          "condition_mismatch": false
+        },
+        "code_location": "core/conversation/gemini_conversation_manager.py:1363-1375",
+        "issue_type": "wrong_trial_selected",
+        "severity": "CRITICAL",
+        "description": "User searches condition X but gets prescreening for condition Y"
+      },
+      "availability_not_shown": {
+        "detected": false,
+        "confidence": 0.25,
+        "indicators": {
+          "prescreening_completed": false,
+          "eligible_status": false,
+          "availability_mentioned": false,
+          "scheduling_mentioned": false,
+          "error_after_eligibility": false,
+          "conversation_ended_without_scheduling": false
+        },
+        "code_location": "core/conversation/gemini_conversation_manager.py:2276-2329",
+        "issue_type": "availability_not_shown",
+        "severity": "MEDIUM",
+        "description": "Eligible users not shown availability due to cascading failures"
+      },
+      "question_type_mismatch": {
+        "detected": false,
+        "confidence": 0.0,
+        "indicators": {
+          "numeric_question_indices": [],
+          "user_provided_number_indices": [],
+          "processing_error_indices": [],
+          "mismatches_detected": 0
+        },
+        "code_location": "core/prescreening/gemini_prescreening_manager.py (answer parsing)",
+        "issue_type": "question_type_mismatch",
+        "severity": "MEDIUM",
+        "description": "Question wording expects numeric answer but type expects yes/no"
+      },
+      "async_operation_error": {
+        "detected": false,
+        "confidence": 0.0,
+        "indicators": {
+          "trouble_processing_answer_indices": [],
+          "trouble_evaluating_eligibility_indices": [],
+          "error_during_prescreening": false,
+          "error_count": 0
+        },
+        "code_location": "core/conversation/gemini_conversation_manager.py (async operations)",
+        "issue_type": "async_operation_error",
+        "severity": "CRITICAL",
+        "description": "Missing await on async operations or unhandled async exceptions"
+      }
+    },
+    "session_xojg86flg": {
+      "contact_partial_data_not_initialized": {
+        "detected": false,
+        "confidence": 0.0,
+        "indicators": {
+          "bot_asked_for_consent": false,
+          "user_provided_name_like_response": false,
+          "bot_confused_by_name": false,
+          "contact_record_incomplete": false,
+          "state_was_collecting_first_name": false
+        },
+        "code_location": "core/conversation/gemini_conversation_manager.py:1904",
+        "issue_type": "contact_partial_data_not_initialized",
+        "severity": "HIGH",
+        "description": "Contact collection loses first name - contact_partial_data dict may not be initialized"
+      },
+      "wrong_trial_selected": {
+        "detected": false,
+        "confidence": 0.25,
+        "indicators": {
+          "user_mentioned_condition": null,
+          "bot_showed_trials": true,
+          "prescreening_started": false,
+          "condition_mismatch": false
+        },
+        "code_location": "core/conversation/gemini_conversation_manager.py:1363-1375",
+        "issue_type": "wrong_trial_selected",
+        "severity": "CRITICAL",
+        "description": "User searches condition X but gets prescreening for condition Y"
+      },
+      "availability_not_shown": {
+        "detected": false,
+        "confidence": 0.25,
+        "indicators": {
+          "prescreening_completed": false,
+          "eligible_status": false,
+          "availability_mentioned": false,
+          "scheduling_mentioned": false,
+          "error_after_eligibility": false,
+          "conversation_ended_without_scheduling": false
+        },
+        "code_location": "core/conversation/gemini_conversation_manager.py:2276-2329",
+        "issue_type": "availability_not_shown",
+        "severity": "MEDIUM",
+        "description": "Eligible users not shown availability due to cascading failures"
+      },
+      "question_type_mismatch": {
+        "detected": false,
+        "confidence": 0.0,
+        "indicators": {
+          "numeric_question_indices": [],
+          "user_provided_number_indices": [],
+          "processing_error_indices": [],
+          "mismatches_detected": 0
+        },
+        "code_location": "core/prescreening/gemini_prescreening_manager.py (answer parsing)",
+        "issue_type": "question_type_mismatch",
+        "severity": "MEDIUM",
+        "description": "Question wording expects numeric answer but type expects yes/no"
+      },
+      "async_operation_error": {
+        "detected": false,
+        "confidence": 0.0,
+        "indicators": {
+          "trouble_processing_answer_indices": [],
+          "trouble_evaluating_eligibility_indices": [],
+          "error_during_prescreening": false,
+          "error_count": 0
+        },
+        "code_location": "core/conversation/gemini_conversation_manager.py (async operations)",
+        "issue_type": "async_operation_error",
+        "severity": "CRITICAL",
+        "description": "Missing await on async operations or unhandled async exceptions"
+      }
+    },
+    "session_0lzra20t4": {
+      "contact_partial_data_not_initialized": {
+        "detected": false,
+        "confidence": 0.0,
+        "indicators": {
+          "bot_asked_for_consent": false,
+          "user_provided_name_like_response": false,
+          "bot_confused_by_name": false,
+          "contact_record_incomplete": false,
+          "state_was_collecting_first_name": false
+        },
+        "code_location": "core/conversation/gemini_conversation_manager.py:1904",
+        "issue_type": "contact_partial_data_not_initialized",
+        "severity": "HIGH",
+        "description": "Contact collection loses first name - contact_partial_data dict may not be initialized"
+      },
+      "wrong_trial_selected": {
+        "detected": false,
+        "confidence": 0.0,
+        "indicators": {
+          "user_mentioned_condition": null,
+          "bot_showed_trials": false,
+          "prescreening_started": false,
+          "condition_mismatch": false
+        },
+        "code_location": "core/conversation/gemini_conversation_manager.py:1363-1375",
+        "issue_type": "wrong_trial_selected",
+        "severity": "CRITICAL",
+        "description": "User searches condition X but gets prescreening for condition Y"
+      },
+      "availability_not_shown": {
+        "detected": false,
+        "confidence": 0.25,
+        "indicators": {
+          "prescreening_completed": false,
+          "eligible_status": false,
+          "availability_mentioned": false,
+          "scheduling_mentioned": false,
+          "error_after_eligibility": false,
+          "conversation_ended_without_scheduling": false
+        },
+        "code_location": "core/conversation/gemini_conversation_manager.py:2276-2329",
+        "issue_type": "availability_not_shown",
+        "severity": "MEDIUM",
+        "description": "Eligible users not shown availability due to cascading failures"
+      },
+      "question_type_mismatch": {
+        "detected": false,
+        "confidence": 0.0,
+        "indicators": {
+          "numeric_question_indices": [],
+          "user_provided_number_indices": [],
+          "processing_error_indices": [],
+          "mismatches_detected": 0
+        },
+        "code_location": "core/prescreening/gemini_prescreening_manager.py (answer parsing)",
+        "issue_type": "question_type_mismatch",
+        "severity": "MEDIUM",
+        "description": "Question wording expects numeric answer but type expects yes/no"
+      },
+      "async_operation_error": {
+        "detected": false,
+        "confidence": 0.0,
+        "indicators": {
+          "trouble_processing_answer_indices": [],
+          "trouble_evaluating_eligibility_indices": [],
+          "error_during_prescreening": false,
+          "error_count": 0
+        },
+        "code_location": "core/conversation/gemini_conversation_manager.py (async operations)",
+        "issue_type": "async_operation_error",
+        "severity": "CRITICAL",
+        "description": "Missing await on async operations or unhandled async exceptions"
+      }
+    },
+    "session_6v0sps3xu": {
+      "contact_partial_data_not_initialized": {
+        "detected": false,
+        "confidence": 0.0,
+        "indicators": {
+          "bot_asked_for_consent": false,
+          "user_provided_name_like_response": false,
+          "bot_confused_by_name": false,
+          "contact_record_incomplete": false,
+          "state_was_collecting_first_name": false
+        },
+        "code_location": "core/conversation/gemini_conversation_manager.py:1904",
+        "issue_type": "contact_partial_data_not_initialized",
+        "severity": "HIGH",
+        "description": "Contact collection loses first name - contact_partial_data dict may not be initialized"
+      },
+      "wrong_trial_selected": {
+        "detected": false,
+        "confidence": 0.25,
+        "indicators": {
+          "user_mentioned_condition": "",
+          "bot_showed_trials": false,
+          "prescreening_started": false,
+          "condition_mismatch": false
+        },
+        "code_location": "core/conversation/gemini_conversation_manager.py:1363-1375",
+        "issue_type": "wrong_trial_selected",
+        "severity": "CRITICAL",
+        "description": "User searches condition X but gets prescreening for condition Y"
+      },
+      "availability_not_shown": {
+        "detected": false,
+        "confidence": 0.0,
+        "indicators": {
+          "prescreening_completed": false,
+          "eligible_status": false,
+          "availability_mentioned": true,
+          "scheduling_mentioned": false,
+          "error_after_eligibility": false,
+          "conversation_ended_without_scheduling": false
+        },
+        "code_location": "core/conversation/gemini_conversation_manager.py:2276-2329",
+        "issue_type": "availability_not_shown",
+        "severity": "MEDIUM",
+        "description": "Eligible users not shown availability due to cascading failures"
+      },
+      "question_type_mismatch": {
+        "detected": false,
+        "confidence": 0.0,
+        "indicators": {
+          "numeric_question_indices": [],
+          "user_provided_number_indices": [],
+          "processing_error_indices": [],
+          "mismatches_detected": 0
+        },
+        "code_location": "core/prescreening/gemini_prescreening_manager.py (answer parsing)",
+        "issue_type": "question_type_mismatch",
+        "severity": "MEDIUM",
+        "description": "Question wording expects numeric answer but type expects yes/no"
+      },
+      "async_operation_error": {
+        "detected": false,
+        "confidence": 0.0,
+        "indicators": {
+          "trouble_processing_answer_indices": [],
+          "trouble_evaluating_eligibility_indices": [],
+          "error_during_prescreening": false,
+          "error_count": 0
+        },
+        "code_location": "core/conversation/gemini_conversation_manager.py (async operations)",
+        "issue_type": "async_operation_error",
+        "severity": "CRITICAL",
+        "description": "Missing await on async operations or unhandled async exceptions"
+      }
+    },
+    "session_3ibif95fl": {
+      "contact_partial_data_not_initialized": {
+        "detected": false,
+        "confidence": 0.0,
+        "indicators": {
+          "bot_asked_for_consent": false,
+          "user_provided_name_like_response": false,
+          "bot_confused_by_name": false,
+          "contact_record_incomplete": false,
+          "state_was_collecting_first_name": false
+        },
+        "code_location": "core/conversation/gemini_conversation_manager.py:1904",
+        "issue_type": "contact_partial_data_not_initialized",
+        "severity": "HIGH",
+        "description": "Contact collection loses first name - contact_partial_data dict may not be initialized"
+      },
+      "wrong_trial_selected": {
+        "detected": false,
+        "confidence": 0.0,
+        "indicators": {
+          "user_mentioned_condition": null,
+          "bot_showed_trials": false,
+          "prescreening_started": false,
+          "condition_mismatch": false
+        },
+        "code_location": "core/conversation/gemini_conversation_manager.py:1363-1375",
+        "issue_type": "wrong_trial_selected",
+        "severity": "CRITICAL",
+        "description": "User searches condition X but gets prescreening for condition Y"
+      },
+      "availability_not_shown": {
+        "detected": false,
+        "confidence": 0.25,
+        "indicators": {
+          "prescreening_completed": false,
+          "eligible_status": false,
+          "availability_mentioned": false,
+          "scheduling_mentioned": false,
+          "error_after_eligibility": false,
+          "conversation_ended_without_scheduling": false
+        },
+        "code_location": "core/conversation/gemini_conversation_manager.py:2276-2329",
+        "issue_type": "availability_not_shown",
+        "severity": "MEDIUM",
+        "description": "Eligible users not shown availability due to cascading failures"
+      },
+      "question_type_mismatch": {
+        "detected": false,
+        "confidence": 0.0,
+        "indicators": {
+          "numeric_question_indices": [],
+          "user_provided_number_indices": [],
+          "processing_error_indices": [],
+          "mismatches_detected": 0
+        },
+        "code_location": "core/prescreening/gemini_prescreening_manager.py (answer parsing)",
+        "issue_type": "question_type_mismatch",
+        "severity": "MEDIUM",
+        "description": "Question wording expects numeric answer but type expects yes/no"
+      },
+      "async_operation_error": {
+        "detected": false,
+        "confidence": 0.0,
+        "indicators": {
+          "trouble_processing_answer_indices": [],
+          "trouble_evaluating_eligibility_indices": [],
+          "error_during_prescreening": false,
+          "error_count": 0
+        },
+        "code_location": "core/conversation/gemini_conversation_manager.py (async operations)",
+        "issue_type": "async_operation_error",
+        "severity": "CRITICAL",
+        "description": "Missing await on async operations or unhandled async exceptions"
+      }
+    },
+    "session_4slliuz1z": {
+      "contact_partial_data_not_initialized": {
+        "detected": false,
+        "confidence": 0.0,
+        "indicators": {
+          "bot_asked_for_consent": false,
+          "user_provided_name_like_response": false,
+          "bot_confused_by_name": false,
+          "contact_record_incomplete": false,
+          "state_was_collecting_first_name": false
+        },
+        "code_location": "core/conversation/gemini_conversation_manager.py:1904",
+        "issue_type": "contact_partial_data_not_initialized",
+        "severity": "HIGH",
+        "description": "Contact collection loses first name - contact_partial_data dict may not be initialized"
+      },
+      "wrong_trial_selected": {
+        "detected": false,
+        "confidence": 0.25,
+        "indicators": {
+          "user_mentioned_condition": null,
+          "bot_showed_trials": true,
+          "prescreening_started": false,
+          "condition_mismatch": false
+        },
+        "code_location": "core/conversation/gemini_conversation_manager.py:1363-1375",
+        "issue_type": "wrong_trial_selected",
+        "severity": "CRITICAL",
+        "description": "User searches condition X but gets prescreening for condition Y"
+      },
+      "availability_not_shown": {
+        "detected": false,
+        "confidence": 0.25,
+        "indicators": {
+          "prescreening_completed": false,
+          "eligible_status": false,
+          "availability_mentioned": false,
+          "scheduling_mentioned": false,
+          "error_after_eligibility": false,
+          "conversation_ended_without_scheduling": false
+        },
+        "code_location": "core/conversation/gemini_conversation_manager.py:2276-2329",
+        "issue_type": "availability_not_shown",
+        "severity": "MEDIUM",
+        "description": "Eligible users not shown availability due to cascading failures"
+      },
+      "question_type_mismatch": {
+        "detected": false,
+        "confidence": 0.0,
+        "indicators": {
+          "numeric_question_indices": [],
+          "user_provided_number_indices": [],
+          "processing_error_indices": [],
+          "mismatches_detected": 0
+        },
+        "code_location": "core/prescreening/gemini_prescreening_manager.py (answer parsing)",
+        "issue_type": "question_type_mismatch",
+        "severity": "MEDIUM",
+        "description": "Question wording expects numeric answer but type expects yes/no"
+      },
+      "async_operation_error": {
+        "detected": false,
+        "confidence": 0.0,
+        "indicators": {
+          "trouble_processing_answer_indices": [],
+          "trouble_evaluating_eligibility_indices": [],
+          "error_during_prescreening": false,
+          "error_count": 0
+        },
+        "code_location": "core/conversation/gemini_conversation_manager.py (async operations)",
+        "issue_type": "async_operation_error",
+        "severity": "CRITICAL",
+        "description": "Missing await on async operations or unhandled async exceptions"
+      }
+    },
+    "session_w839u6kzz": {
+      "contact_partial_data_not_initialized": {
+        "detected": false,
+        "confidence": 0.0,
+        "indicators": {
+          "bot_asked_for_consent": false,
+          "user_provided_name_like_response": false,
+          "bot_confused_by_name": false,
+          "contact_record_incomplete": false,
+          "state_was_collecting_first_name": false
+        },
+        "code_location": "core/conversation/gemini_conversation_manager.py:1904",
+        "issue_type": "contact_partial_data_not_initialized",
+        "severity": "HIGH",
+        "description": "Contact collection loses first name - contact_partial_data dict may not be initialized"
+      },
+      "wrong_trial_selected": {
+        "detected": false,
+        "confidence": 0.0,
+        "indicators": {
+          "user_mentioned_condition": null,
+          "bot_showed_trials": false,
+          "prescreening_started": false,
+          "condition_mismatch": false
+        },
+        "code_location": "core/conversation/gemini_conversation_manager.py:1363-1375",
+        "issue_type": "wrong_trial_selected",
+        "severity": "CRITICAL",
+        "description": "User searches condition X but gets prescreening for condition Y"
+      },
+      "availability_not_shown": {
+        "detected": false,
+        "confidence": 0.25,
+        "indicators": {
+          "prescreening_completed": false,
+          "eligible_status": false,
+          "availability_mentioned": false,
+          "scheduling_mentioned": false,
+          "error_after_eligibility": false,
+          "conversation_ended_without_scheduling": false
+        },
+        "code_location": "core/conversation/gemini_conversation_manager.py:2276-2329",
+        "issue_type": "availability_not_shown",
+        "severity": "MEDIUM",
+        "description": "Eligible users not shown availability due to cascading failures"
+      },
+      "question_type_mismatch": {
+        "detected": false,
+        "confidence": 0.0,
+        "indicators": {
+          "numeric_question_indices": [],
+          "user_provided_number_indices": [],
+          "processing_error_indices": [],
+          "mismatches_detected": 0
+        },
+        "code_location": "core/prescreening/gemini_prescreening_manager.py (answer parsing)",
+        "issue_type": "question_type_mismatch",
+        "severity": "MEDIUM",
+        "description": "Question wording expects numeric answer but type expects yes/no"
+      },
+      "async_operation_error": {
+        "detected": false,
+        "confidence": 0.0,
+        "indicators": {
+          "trouble_processing_answer_indices": [],
+          "trouble_evaluating_eligibility_indices": [],
+          "error_during_prescreening": false,
+          "error_count": 0
+        },
+        "code_location": "core/conversation/gemini_conversation_manager.py (async operations)",
+        "issue_type": "async_operation_error",
+        "severity": "CRITICAL",
+        "description": "Missing await on async operations or unhandled async exceptions"
+      }
+    },
+    "session_05sy15nbu": {
+      "contact_partial_data_not_initialized": {
+        "detected": false,
+        "confidence": 0.0,
+        "indicators": {
+          "bot_asked_for_consent": false,
+          "user_provided_name_like_response": false,
+          "bot_confused_by_name": false,
+          "contact_record_incomplete": false,
+          "state_was_collecting_first_name": false
+        },
+        "code_location": "core/conversation/gemini_conversation_manager.py:1904",
+        "issue_type": "contact_partial_data_not_initialized",
+        "severity": "HIGH",
+        "description": "Contact collection loses first name - contact_partial_data dict may not be initialized"
+      },
+      "wrong_trial_selected": {
+        "detected": false,
+        "confidence": 0.0,
+        "indicators": {
+          "user_mentioned_condition": null,
+          "bot_showed_trials": false,
+          "prescreening_started": false,
+          "condition_mismatch": false
+        },
+        "code_location": "core/conversation/gemini_conversation_manager.py:1363-1375",
+        "issue_type": "wrong_trial_selected",
+        "severity": "CRITICAL",
+        "description": "User searches condition X but gets prescreening for condition Y"
+      },
+      "availability_not_shown": {
+        "detected": false,
+        "confidence": 0.25,
+        "indicators": {
+          "prescreening_completed": false,
+          "eligible_status": false,
+          "availability_mentioned": false,
+          "scheduling_mentioned": false,
+          "error_after_eligibility": false,
+          "conversation_ended_without_scheduling": false
+        },
+        "code_location": "core/conversation/gemini_conversation_manager.py:2276-2329",
+        "issue_type": "availability_not_shown",
+        "severity": "MEDIUM",
+        "description": "Eligible users not shown availability due to cascading failures"
+      },
+      "question_type_mismatch": {
+        "detected": false,
+        "confidence": 0.0,
+        "indicators": {
+          "numeric_question_indices": [],
+          "user_provided_number_indices": [],
+          "processing_error_indices": [],
+          "mismatches_detected": 0
+        },
+        "code_location": "core/prescreening/gemini_prescreening_manager.py (answer parsing)",
+        "issue_type": "question_type_mismatch",
+        "severity": "MEDIUM",
+        "description": "Question wording expects numeric answer but type expects yes/no"
+      },
+      "async_operation_error": {
+        "detected": false,
+        "confidence": 0.0,
+        "indicators": {
+          "trouble_processing_answer_indices": [],
+          "trouble_evaluating_eligibility_indices": [],
+          "error_during_prescreening": false,
+          "error_count": 0
+        },
+        "code_location": "core/conversation/gemini_conversation_manager.py (async operations)",
+        "issue_type": "async_operation_error",
+        "severity": "CRITICAL",
+        "description": "Missing await on async operations or unhandled async exceptions"
+      }
+    },
+    "session_l4ligdxdt": {
+      "contact_partial_data_not_initialized": {
+        "detected": false,
+        "confidence": 0.0,
+        "indicators": {
+          "bot_asked_for_consent": false,
+          "user_provided_name_like_response": false,
+          "bot_confused_by_name": false,
+          "contact_record_incomplete": false,
+          "state_was_collecting_first_name": false
+        },
+        "code_location": "core/conversation/gemini_conversation_manager.py:1904",
+        "issue_type": "contact_partial_data_not_initialized",
+        "severity": "HIGH",
+        "description": "Contact collection loses first name - contact_partial_data dict may not be initialized"
+      },
+      "wrong_trial_selected": {
+        "detected": false,
+        "confidence": 0.0,
+        "indicators": {
+          "user_mentioned_condition": null,
+          "bot_showed_trials": false,
+          "prescreening_started": false,
+          "condition_mismatch": false
+        },
+        "code_location": "core/conversation/gemini_conversation_manager.py:1363-1375",
+        "issue_type": "wrong_trial_selected",
+        "severity": "CRITICAL",
+        "description": "User searches condition X but gets prescreening for condition Y"
+      },
+      "availability_not_shown": {
+        "detected": false,
+        "confidence": 0.0,
+        "indicators": {
+          "prescreening_completed": false,
+          "eligible_status": false,
+          "availability_mentioned": true,
+          "scheduling_mentioned": false,
+          "error_after_eligibility": false,
+          "conversation_ended_without_scheduling": false
+        },
+        "code_location": "core/conversation/gemini_conversation_manager.py:2276-2329",
+        "issue_type": "availability_not_shown",
+        "severity": "MEDIUM",
+        "description": "Eligible users not shown availability due to cascading failures"
+      },
+      "question_type_mismatch": {
+        "detected": false,
+        "confidence": 0.0,
+        "indicators": {
+          "numeric_question_indices": [],
+          "user_provided_number_indices": [],
+          "processing_error_indices": [],
+          "mismatches_detected": 0
+        },
+        "code_location": "core/prescreening/gemini_prescreening_manager.py (answer parsing)",
+        "issue_type": "question_type_mismatch",
+        "severity": "MEDIUM",
+        "description": "Question wording expects numeric answer but type expects yes/no"
+      },
+      "async_operation_error": {
+        "detected": false,
+        "confidence": 0.0,
+        "indicators": {
+          "trouble_processing_answer_indices": [],
+          "trouble_evaluating_eligibility_indices": [],
+          "error_during_prescreening": false,
+          "error_count": 0
+        },
+        "code_location": "core/conversation/gemini_conversation_manager.py (async operations)",
+        "issue_type": "async_operation_error",
+        "severity": "CRITICAL",
+        "description": "Missing await on async operations or unhandled async exceptions"
+      }
+    }
+  },
+  "metadata": {
+    "total_sessions": 25,
+    "time_window_hours": 6,
+    "generated_at": "2026-01-06T11:46:28.486794",
+    "total_issues": 0
+  }
+}

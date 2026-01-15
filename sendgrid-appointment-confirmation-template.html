@@ -1,0 +1,164 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+    <title>Appointment Confirmed - DelRicht Research</title>
+</head>
+<body style="margin: 0; padding: 0; font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Arial, sans-serif; background-color: #f4f4f4;">
+    <!-- Wrapper Table -->
+    <table width="100%" cellpadding="0" cellspacing="0" border="0" style="background-color: #f4f4f4; padding: 20px 0;">
+        <tr>
+            <td align="center">
+                <!-- Main Container Table -->
+                <table width="600" cellpadding="0" cellspacing="0" border="0" style="background-color: #ffffff; border-radius: 8px; box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1); overflow: hidden;">
+
+                    <!-- Header with DelRicht Branding -->
+                    <tr>
+                        <td style="background-color: #00265E; padding: 40px 20px; text-align: center; position: relative;">
+                            <table width="100%" cellpadding="0" cellspacing="0" border="0">
+                                <tr>
+                                    <td style="text-align: center;">
+                                        <div style="font-family: 'Poppins', Arial, sans-serif; font-size: 28px; font-weight: 700; color: #ffffff; text-transform: uppercase; letter-spacing: 1px; margin: 0;">
+                                            DELRICHT RESEARCH
+                                        </div>
+                                    </td>
+                                </tr>
+                            </table>
+                            <!-- Accent Bar -->
+                            <div style="position: absolute; bottom: 0; left: 0; right: 0; height: 4px; background: linear-gradient(90deg, #00999D 0%, #D4AF37 100%);"></div>
+                        </td>
+                    </tr>
+
+                    <!-- Content Section -->
+                    <tr>
+                        <td style="padding: 40px 30px; text-align: center;">
+
+                            <!-- Calendar Icon with Checkmark -->
+                            <table width="100%" cellpadding="0" cellspacing="0" border="0">
+                                <tr>
+                                    <td align="center" style="padding-bottom: 30px;">
+                                        <div style="position: relative; display: inline-block;">
+                                            <!-- Calendar Icon Background -->
+                                            <div style="width: 70px; height: 70px; background-color: #E6F5F5; border-radius: 12px; display: inline-flex; align-items: center; justify-content: center; font-size: 36px; position: relative;">
+                                                📅
+                                                <!-- Checkmark Badge -->
+                                                <div style="position: absolute; bottom: -5px; right: -5px; background-color: #00999D; color: white; border-radius: 50%; width: 28px; height: 28px; display: flex; align-items: center; justify-content: center; font-size: 16px; font-weight: bold; box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);">
+                                                    ✓
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </td>
+                                </tr>
+                            </table>
+
+                            <!-- Greeting -->
+                            <h1 style="font-family: 'Poppins', Arial, sans-serif; color: #00999D; font-size: 32px; font-weight: 600; margin: 0 0 20px 0; text-transform: capitalize;">
+                                Appointment Confirmed!
+                            </h1>
+
+                            <!-- Confirmation Text -->
+                            <p style="font-size: 18px; color: #00265E; line-height: 1.6; margin: 0 0 30px 0;">
+                                Hi <strong>{{patient_first_name}}</strong>, your appointment has been scheduled!
+                            </p>
+
+                            <!-- Appointment Details Card -->
+                            <table width="100%" cellpadding="0" cellspacing="0" border="0" style="background: linear-gradient(135deg, #E6F5F5 0%, #F0F8F8 100%); border-left: 5px solid #00999D; border-radius: 8px; margin: 0 0 30px 0;">
+                                <tr>
+                                    <td style="padding: 25px;">
+
+                                        <!-- Date & Time -->
+                                        <table width="100%" cellpadding="0" cellspacing="0" border="0" style="margin-bottom: 15px;">
+                                            <tr>
+                                                <td style="width: 40px; vertical-align: top; font-size: 24px;">🕐</td>
+                                                <td style="vertical-align: top;">
+                                                    <div style="font-size: 14px; color: #666; margin-bottom: 4px;">Date & Time</div>
+                                                    <div style="font-size: 20px; font-weight: 700; color: #00265E;">{{appointment_datetime_formatted}}</div>
+                                                </td>
+                                            </tr>
+                                        </table>
+
+                                        <!-- Location -->
+                                        <table width="100%" cellpadding="0" cellspacing="0" border="0">
+                                            <tr>
+                                                <td style="width: 40px; vertical-align: top; font-size: 24px;">📍</td>
+                                                <td style="vertical-align: top;">
+                                                    <div style="font-size: 14px; color: #666; margin-bottom: 4px;">Location</div>
+                                                    <div style="font-size: 18px; font-weight: 700; color: #00265E; margin-bottom: 6px;">{{site_name}}</div>
+                                                    <div style="font-size: 14px; color: #555; line-height: 1.4;">{{site_address}}</div>
+                                                </td>
+                                            </tr>
+                                        </table>
+
+                                    </td>
+                                </tr>
+                            </table>
+
+                            <!-- Get Directions Button -->
+                            <table width="100%" cellpadding="0" cellspacing="0" border="0" style="margin-bottom: 30px;">
+                                <tr>
+                                    <td align="center">
+                                        <a href="{{maps_link}}" style="display: inline-block; background-color: #00265E; color: #ffffff; padding: 14px 32px; text-decoration: none; border-radius: 6px; font-weight: 600; font-size: 16px; box-shadow: 0 4px 8px rgba(0, 38, 94, 0.2);">
+                                            Get Directions
+                                        </a>
+                                    </td>
+                                </tr>
+                            </table>
+
+                            <!-- Next Steps -->
+                            <table width="100%" cellpadding="0" cellspacing="0" border="0" style="background-color: #FFF9E6; border-radius: 8px; padding: 20px; margin-bottom: 30px;">
+                                <tr>
+                                    <td>
+                                        <div style="font-size: 16px; font-weight: 700; color: #00265E; margin-bottom: 12px; text-align: left;">
+                                            What to Expect:
+                                        </div>
+                                        <ul style="margin: 0; padding-left: 20px; text-align: left; color: #555; font-size: 14px; line-height: 1.8;">
+                                            <li>A coordinator will contact you shortly to confirm details</li>
+                                            <li>Please arrive 10 minutes early for check-in</li>
+                                            <li>Bring a valid ID and insurance card (if applicable)</li>
+                                            <li>If you need to reschedule, please call us at least 24 hours in advance</li>
+                                        </ul>
+                                    </td>
+                                </tr>
+                            </table>
+
+                            <!-- Contact Information -->
+                            <table width="100%" cellpadding="0" cellspacing="0" border="0">
+                                <tr>
+                                    <td style="text-align: center; padding: 20px 0; border-top: 2px solid #E6F5F5;">
+                                        <div style="font-size: 14px; color: #666; margin-bottom: 8px;">
+                                            Questions or need to reschedule?
+                                        </div>
+                                        <div style="font-size: 16px; font-weight: 700; color: #00265E;">
+                                            📞 (504) 336-2667
+                                        </div>
+                                        <div style="font-size: 14px; color: #00999D; margin-top: 4px;">
+                                            <a href="mailto:info@delricht.com" style="color: #00999D; text-decoration: none;">info@delricht.com</a>
+                                        </div>
+                                    </td>
+                                </tr>
+                            </table>
+
+                        </td>
+                    </tr>
+
+                    <!-- Footer -->
+                    <tr>
+                        <td style="background-color: #F8F9FA; padding: 25px 30px; text-align: center; border-top: 1px solid #E0E0E0;">
+                            <div style="font-size: 12px; color: #999; line-height: 1.6; margin-bottom: 10px;">
+                                This is an automated confirmation email from DelRicht Research.<br>
+                                Please do not reply directly to this email.
+                            </div>
+                            <div style="font-size: 11px; color: #999; margin-top: 10px;">
+                                © 2025 DelRicht Research. All rights reserved.
+                            </div>
+                        </td>
+                    </tr>
+
+                </table>
+            </td>
+        </tr>
+    </table>
+</body>
+</html>

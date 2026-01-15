@@ -1,0 +1,543 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Clinical Research Chatbot</title>
+    <style>
+        /* Global Styles */
+        body {
+            font-family: 'Poppins', Arial, sans-serif;
+            background-color: #f8f9fa;
+            margin: 0;
+            color: #333;
+            line-height: 1.4;
+        }
+
+        /* Header */
+        .header {
+            text-align: center;
+            font-size: 24px;
+            font-weight: 700;
+            color: white;
+            background: #00265e;
+            padding: 18px;
+            border-radius: 12px;
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+
+        /* Container Layout */
+        .container {
+            display: flex;
+            max-width: 1200px;
+            margin: 8px auto;
+            padding: 0 18px;
+            gap: 25px;
+        }
+
+        /* Left Section */
+        .left-section {
+            flex: 1;
+            display: flex;
+            flex-direction: column;
+            gap: 18px;
+        }
+
+        .info-card, .benefits-section {
+            background: white;
+            border-radius: 12px;
+            box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+            padding: 18px;
+        }
+
+        .info-card h2 {
+            color: #00265e;
+            font-size: 24px;
+            font-weight: 700;
+            margin: 0 0 8px;  /* Reduced from 12px */
+        }
+
+        .benefits-section h2 {
+            color: #00265e;
+            font-size: 24px;
+            font-weight: 700;
+            margin: 0 0 16px;
+        }
+
+        .info-card p {
+            font-size: 16px;
+            color: #555;
+            margin: 0;
+        }
+
+        /* Benefits Grid */
+        .benefits-grid {
+            display: grid;
+            grid-template-columns: repeat(2, 1fr);
+            gap: 16px;
+        }
+
+        .benefit-card {
+            display: flex;
+            align-items: flex-start;  /* Changed from flex-direction: column */
+            gap: 12px;  /* Added gap between icon and text */
+        }
+
+        .icon-element {
+            flex-shrink: 0;  /* Prevent icon from shrinking */
+        }
+
+        .icon-element img {
+            width: 32px;  /* Increased from 25px */
+            height: 32px;
+            object-fit: contain;
+        }
+
+        .benefit-content {
+            flex: 1;
+        }
+
+        .benefit-title {
+            color: #00265e;
+            font-weight: 700;
+            font-size: 16px;  /* Reduced from 18px */
+            margin: 0 0 4px 0;
+        }
+
+        .benefit-text {
+            color: #555;
+            font-size: 13px;  /* Reduced from 14px */
+            margin: 0;
+            line-height: 1.4;
+        }
+
+        /* Chatbot Section */
+        .chatbot-section {
+            flex: 1;
+            max-width: 450px;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+        }
+
+        #chat-header {
+            font-size: 20px;
+            font-weight: 600;
+            color: #00265e;
+            margin-bottom: 12px;
+            text-align: center;
+        }
+
+        #chat-container {
+            width: 100%;
+            height: 550px;
+            background: white;
+            border-radius: 12px;
+            box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15);
+            display: flex;
+            flex-direction: column;
+            overflow: hidden;
+        }
+
+        #chat-box {
+            flex: 1;
+            padding: 12px;
+            overflow-y: auto;
+            display: flex;
+            flex-direction: column;
+            gap: 8px;
+        }
+
+        .message {
+            padding: 10px 12px;
+            border-radius: 20px;
+            max-width: 75%;
+            font-size: 14px;
+            word-wrap: break-word;
+            white-space: pre-wrap;
+            box-sizing: border-box;
+        }
+
+        .user {
+            background-color: #00265e;
+            color: white;
+            margin-left: auto;
+            text-align: right;
+        }
+
+        .bot {
+            background-color: #f1f1f1;
+            color: black;
+            margin-right: auto;
+            text-align: left;
+        }
+
+        /* Quick Replies (Slot Selection Buttons) */
+        .quick-replies {
+            display: flex;
+            flex-direction: column;
+            gap: 8px;
+            margin: 8px 0;
+            max-width: 75%;
+        }
+
+        .quick-reply-btn {
+            padding: 12px 16px;
+            background: white;
+            border: 2px solid #00265e;
+            color: #00265e;
+            border-radius: 8px;
+            font-size: 14px;
+            font-weight: 600;
+            cursor: pointer;
+            transition: all 0.3s;
+            text-align: left;
+            width: 100%;
+        }
+
+        .quick-reply-btn:hover {
+            background: #00265e;
+            color: white;
+            transform: translateX(4px);
+        }
+
+        .quick-reply-btn:active {
+            transform: scale(0.98);
+        }
+
+        /* Typing Indicator */
+        .typing-indicator {
+            background-color: #f1f1f1;
+            color: black;
+            margin-right: auto;
+            text-align: left;
+            padding: 10px 12px;
+            border-radius: 20px;
+            max-width: 75px;
+            display: flex;
+            align-items: center;
+            gap: 4px;
+        }
+
+        .typing-dot {
+            width: 6px;
+            height: 6px;
+            background-color: #999;
+            border-radius: 50%;
+            animation: typing 1.4s infinite;
+        }
+
+        .typing-dot:nth-child(1) { animation-delay: 0s; }
+        .typing-dot:nth-child(2) { animation-delay: 0.2s; }
+        .typing-dot:nth-child(3) { animation-delay: 0.4s; }
+
+        @keyframes typing {
+            0%, 60%, 100% {
+                transform: translateY(0);
+                opacity: 0.4;
+            }
+            30% {
+                transform: translateY(-8px);
+                opacity: 1;
+            }
+        }
+
+        #input-container {
+            display: flex;
+            padding: 10px;
+            background: #fff;
+            border-top: 1px solid #ddd;
+            align-items: center;
+            gap: 6px;
+        }
+
+        #user-input {
+            flex: 1;
+            padding: 10px;
+            border: 1px solid #ddd;
+            border-radius: 8px;
+            font-size: 14px;
+        }
+
+        #send-button {
+            background: #00265e;
+            color: white;
+            border: none;
+            padding: 10px 15px;
+            border-radius: 8px;
+            cursor: pointer;
+            font-size: 14px;
+            transition: background 0.3s;
+        }
+
+        #send-button:hover:not(:disabled) {
+            background: #001b45;
+        }
+
+        #send-button:disabled {
+            background: #999;
+            cursor: not-allowed;
+        }
+
+        /* Responsive Design */
+        @media (max-width: 940px) {
+            .container {
+                flex-direction: column;
+                align-items: center;
+            }
+
+            .left-section, .chatbot-section {
+                width: 100%;
+                max-width: 600px;
+            }
+
+            .benefits-grid {
+                grid-template-columns: 1fr;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="header">WE'RE EXCITED TO SEE YOU AT THE CLINIC!</div>
+    <div class="container">
+        <!-- Left Section: Stacked Content -->
+        <div class="left-section">
+            <!-- Information Card -->
+            <div class="info-card">
+                <h2>Participate in a Clinical Trial</h2>
+                <p>Clinical research helps bring new medical treatments to patients who need them most. By joining a study, you may gain access to innovative therapies, receive expert medical care, and contribute to the advancement of medicine.</p>
+            </div>
+
+            <!-- Benefits Section -->
+            <div class="benefits-section">
+                <h2>Benefits of Participation</h2>
+                <div class="benefits-grid">
+                    <div class="benefit-card">
+                        <div class="icon-element">
+                            <img src="https://delrichtresearch.com/wp-content/uploads/2023/10/electric-car.png" alt="Help Move Medicine Forward">
+                        </div>
+                        <div class="benefit-content">
+                            <div class="benefit-title">Help Move Medicine Forward</div>
+                            <div class="benefit-text">Be a key player in medical breakthroughs by participating in our clinical trials.</div>
+                        </div>
+                    </div>
+
+                    <div class="benefit-card">
+                        <div class="icon-element">
+                            <img src="https://delrichtresearch.com/wp-content/uploads/2023/09/insurance-1-1.png" alt="Compensation for Time and Travel">
+                        </div>
+                        <div class="benefit-content">
+                            <div class="benefit-title">Compensation for Time and Travel</div>
+                            <div class="benefit-text">We acknowledge your effort with fair compensation for your participation time and travel expenses.</div>
+                        </div>
+                    </div>
+
+                    <div class="benefit-card">
+                        <div class="icon-element">
+                            <img src="https://delrichtresearch.com/wp-content/uploads/2023/09/access-1.png" alt="Free Medical Assessments">
+                        </div>
+                        <div class="benefit-content">
+                            <div class="benefit-title">Free Medical Assessments</div>
+                            <div class="benefit-text">Experience top-notch medical care and health assessments at no personal expense.</div>
+                        </div>
+                    </div>
+
+                    <div class="benefit-card">
+                        <div class="icon-element">
+                            <img src="https://delrichtresearch.com/wp-content/uploads/2023/10/pills.png" alt="Access to New Treatments">
+                        </div>
+                        <div class="benefit-content">
+                            <div class="benefit-title">Access to New Treatments</div>
+                            <div class="benefit-text">Explore tomorrow's treatments today by accessing potential breakthrough therapies before they become widely available.</div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Right Section: Chatbot -->
+        <div class="chatbot-section">
+            <div id="chat-header">Chat with our Clinical Trials Assistant</div>
+            <div id="chat-container">
+                <div id="chat-box"></div>
+                <div id="input-container">
+                    <input type="text" id="user-input" placeholder="Type a message..." autofocus />
+                    <button id="send-button">Send</button>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <script>
+    document.addEventListener("DOMContentLoaded", function () {
+        const chatBox = document.getElementById("chat-box");
+        const userInput = document.getElementById("user-input");
+        const sendButton = document.getElementById("send-button");
+
+        // Generate or retrieve User ID and Session ID
+        let userID = "user_" + Math.random().toString(36).substr(2, 9);
+        let sessionID = "session_" + Math.random().toString(36).substr(2, 9);
+
+        // Utility Functions
+        function scrollToBottom() {
+            chatBox.scrollTop = chatBox.scrollHeight;
+        }
+
+        function formatMessage(text) {
+            if (!text) return "";
+
+            // Convert markdown to HTML
+            text = text.replace(/\*\*(.*?)\*\*/g, '<strong>$1</strong>');
+            text = text.replace(/\*(.*?)\*/g, '<em>$1</em>');
+            text = text.replace(/\n/g, '<br>');
+
+            return text;
+        }
+
+        function addUserMessage(content) {
+            const messageDiv = document.createElement("div");
+            messageDiv.classList.add("message", "user");
+            messageDiv.textContent = content;
+            chatBox.appendChild(messageDiv);
+            scrollToBottom();
+        }
+
+        function addBotMessage(content, quickReplies = null) {
+            if (!content || content === "undefined") {
+                content = "I apologize, but I'm having trouble connecting to our research database. Please try again or contact us directly at (504) 336-2667.";
+            }
+
+            const messageDiv = document.createElement("div");
+            messageDiv.classList.add("message", "bot");
+            messageDiv.innerHTML = formatMessage(content);
+            chatBox.appendChild(messageDiv);
+
+            // Add quick reply buttons if provided
+            if (quickReplies && quickReplies.length > 0) {
+                addQuickReplies(quickReplies);
+            }
+
+            scrollToBottom();
+        }
+
+        function addQuickReplies(replies) {
+            const quickRepliesDiv = document.createElement("div");
+            quickRepliesDiv.classList.add("quick-replies");
+
+            replies.forEach(reply => {
+                const btn = document.createElement("button");
+                btn.classList.add("quick-reply-btn");
+                btn.textContent = reply.label || reply;
+                btn.onclick = () => {
+                    // Remove quick reply buttons after selection
+                    quickRepliesDiv.remove();
+
+                    // Send the reply value as user message
+                    const valueToSend = reply.value || reply.label || reply;
+                    userInput.value = valueToSend;
+                    sendMessage();
+                };
+                quickRepliesDiv.appendChild(btn);
+            });
+
+            chatBox.appendChild(quickRepliesDiv);
+            scrollToBottom();
+        }
+
+        function showTypingIndicator() {
+            const typingDiv = document.createElement("div");
+            typingDiv.classList.add("typing-indicator");
+            typingDiv.id = "typing-indicator";
+
+            for (let i = 0; i < 3; i++) {
+                const dot = document.createElement("div");
+                dot.classList.add("typing-dot");
+                typingDiv.appendChild(dot);
+            }
+
+            chatBox.appendChild(typingDiv);
+            scrollToBottom();
+        }
+
+        function hideTypingIndicator() {
+            const typingIndicator = document.getElementById("typing-indicator");
+            if (typingIndicator) {
+                typingIndicator.remove();
+            }
+        }
+
+        function sendMessage() {
+            const message = userInput.value.trim();
+            if (message === "") return;
+
+            userInput.disabled = true;
+            sendButton.disabled = true;
+
+            addUserMessage(message);
+            userInput.value = "";
+
+            showTypingIndicator();
+
+            fetch("https://gemini-chatbot-480267397633.us-central1.run.app/api/gemini/chat", {
+                method: "POST",
+                headers: {
+                    "Content-Type": "application/json",
+                },
+                body: JSON.stringify({
+                    message: message,
+                    session_id: sessionID,
+                    user_id: userID
+                }),
+            })
+            .then(response => {
+                if (!response.ok) throw new Error("Network response was not ok");
+                return response.json();
+            })
+            .then(data => {
+                hideTypingIndicator();
+
+                // Handle the response from Gemini API
+                const botResponse = data.response || data.message || "I'm sorry, I couldn't process your request at this time.";
+                const quickReplies = data.quick_replies || null;
+
+                addBotMessage(botResponse, quickReplies);
+
+                // Log metadata for debugging
+                if (data.metadata) {
+                    console.log("Metadata:", data.metadata);
+                }
+                if (data.intent) {
+                    console.log("Intent:", data.intent);
+                }
+                if (quickReplies) {
+                    console.log("Quick Replies:", quickReplies);
+                }
+            })
+            .catch(error => {
+                hideTypingIndicator();
+                addBotMessage("I apologize, but I'm having trouble connecting to our research database. Please try again or contact us directly at (504) 336-2667.");
+                console.error("Error:", error);
+            })
+            .finally(() => {
+                userInput.disabled = false;
+                sendButton.disabled = false;
+                userInput.focus();
+            });
+        }
+
+        // Event listeners
+        sendButton.addEventListener("click", sendMessage);
+        userInput.addEventListener("keypress", function(event) {
+            if (event.key === "Enter") {
+                event.preventDefault();
+                if (userInput.value.trim() !== "") sendMessage();
+            }
+        });
+
+        // Initial welcome message
+        addBotMessage("Hi there! I'm the Clinical Trials Assistant. How can I help you today? Feel free to ask about our clinical trials, check your eligibility, or learn more about research opportunities.");
+    });
+    </script>
+</body>
+</html>

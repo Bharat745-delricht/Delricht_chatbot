@@ -1,0 +1,101 @@
+<style>
+/* Quick Reply Button Styling Updates - December 31, 2024 */
+
+/* Make buttons appear in a horizontal row */
+.quick-replies {
+  display: flex;
+  flex-direction: row !important;  /* Override to horizontal */
+  gap: 12px;
+  margin: 12px 0;
+  max-width: 100% !important;  /* Use full width */
+  flex-wrap: wrap;  /* Wrap on smaller screens */
+}
+
+/* Style individual buttons with two-line text */
+.quick-reply-btn {
+  padding: 14px 18px !important;
+  background: white !important;
+  border: 2px solid #00265e !important;
+  color: #00265e !important;
+  border-radius: 8px !important;
+  font-size: 14px !important;
+  font-weight: 600 !important;
+  cursor: pointer !important;
+  transition: all 0.3s !important;
+  text-align: center !important;  /* Center the text */
+  flex: 1 !important;  /* Equal width buttons */
+  min-width: 150px !important;  /* Minimum readable width */
+  white-space: pre-line !important;  /* CRITICAL: Allows \n to create line breaks */
+  line-height: 1.4 !important;  /* Better spacing between lines */
+}
+
+.quick-reply-btn:hover {
+  background: #00265e !important;
+  color: white !important;
+  transform: translateX(4px) !important;
+}
+
+.quick-reply-btn:active {
+  transform: scale(0.98) !important;
+}
+
+/* Chat Modal Header Fixes */
+.chat-modal-header,
+#chat-window .header {
+  background: #00265e !important;
+  color: white !important;
+  padding: 16px 20px !important;
+  display: flex !important;
+  justify-content: space-between !important;
+  align-items: center !important;
+  border-radius: 12px 12px 0 0 !important;
+  position: relative !important;
+}
+
+.chat-modal-title,
+#chat-window .header h2 {
+  font-size: 18px !important;
+  font-weight: 700 !important;
+  margin: 0 !important;
+  flex: 1 !important;
+  text-align: center !important;
+  padding-right: 30px !important;  /* Make room for close button */
+}
+
+.chat-modal-close,
+#chat-window .close-btn,
+.close-chat {
+  position: absolute !important;
+  right: 16px !important;
+  top: 50% !important;
+  transform: translateY(-50%) !important;
+  background: transparent !important;
+  border: none !important;
+  color: white !important;
+  font-size: 24px !important;
+  cursor: pointer !important;
+  padding: 4px 8px !important;
+  line-height: 1 !important;
+  opacity: 0.9 !important;
+  transition: opacity 0.2s !important;
+}
+
+.chat-modal-close:hover,
+#chat-window .close-btn:hover,
+.close-chat:hover {
+  opacity: 1 !important;
+}
+
+/* Mobile responsiveness */
+@media (max-width: 768px) {
+  .quick-replies {
+    flex-direction: column !important;  /* Stack vertically on mobile */
+    gap: 8px !important;
+  }
+
+  .quick-reply-btn {
+    width: 100% !important;
+    min-width: unset !important;
+  }
+}
+</style>

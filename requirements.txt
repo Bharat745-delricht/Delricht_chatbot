@@ -1,0 +1,51 @@
+# HTTP client for direct Gemini API calls
+aiohttp>=3.9.0
+
+# Core FastAPI framework
+fastapi>=0.104.1
+uvicorn[standard]>=0.24.0
+
+# Database dependencies
+sqlalchemy>=2.0.23
+psycopg2-binary>=2.9.9
+pgvector>=0.2.4
+
+# PDF processing
+PyPDF2>=3.0.1
+
+# Email service
+sendgrid>=6.10.0
+
+# SMS service
+twilio>=8.10.0
+
+# Request handling and validation
+python-multipart>=0.0.6
+pydantic>=2.5.0
+pydantic-settings>=2.1.0
+
+# Template engine
+jinja2>=3.1.2
+
+# Authentication
+python-jose[cryptography]>=3.3.0
+passlib[bcrypt]>=1.7.4
+
+# Additional utilities
+python-dotenv>=1.0.0
+requests>=2.31.0
+colorama>=0.4.6
+pytz>=2024.1
+email-validator>=2.1.1
+
+# Google Cloud Document AI
+google-cloud-documentai>=2.20.1
+
+# BigQuery integration
+google-cloud-bigquery>=3.11.4
+
+# Google Sheets and Drive APIs for availability export
+google-api-python-client>=2.110.0
+google-auth>=2.25.2
+google-auth-oauthlib>=1.2.0
+google-auth-httplib2>=0.2.0

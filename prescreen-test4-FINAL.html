@@ -1,0 +1,603 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>DelRicht Research</title>
+    <style>
+        /* Global Styles */
+        body {
+            font-family: 'Poppins', Arial, sans-serif;
+            background-color: #f8f9fa;
+            margin: 0;
+            color: #333;
+            line-height: 1.4;
+        }
+
+        /* Header */
+        .header {
+            text-align: center;
+            font-size: 24px;
+            font-weight: 700;
+            color: white;
+            background: #00265e;
+            padding: 18px;
+            border-radius: 12px;
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+
+        /* Container Layout */
+        .container {
+            display: flex;
+            max-width: 1200px;
+            margin: 8px auto;
+            padding: 0 18px;
+            gap: 25px;
+        }
+
+        /* Left Section */
+        .left-section {
+            flex: 1;
+            display: flex;
+            flex-direction: column;
+            gap: 18px;
+        }
+
+        .info-card, .benefits-section {
+            background: white;
+            border-radius: 12px;
+            box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+            padding: 18px;
+        }
+
+        .info-card h2 {
+            color: #00265e;
+            font-size: 24px;
+            font-weight: 700;
+            margin: 0 0 8px;
+        }
+
+        .benefits-section h2 {
+            color: #00265e;
+            font-size: 24px;
+            font-weight: 700;
+            margin: 0 0 16px;
+        }
+
+        .info-card p {
+            font-size: 16px;
+            color: #555;
+            margin: 0;
+        }
+
+        /* Benefits Grid */
+        .benefits-grid {
+            display: grid;
+            grid-template-columns: repeat(2, 1fr);
+            gap: 16px;
+        }
+
+        .benefit-card {
+            display: flex;
+            align-items: flex-start;
+            gap: 12px;
+        }
+
+        .icon-element {
+            flex-shrink: 0;
+        }
+
+        .icon-element img {
+            width: 32px;
+            height: 32px;
+            object-fit: contain;
+        }
+
+        .benefit-content {
+            flex: 1;
+        }
+
+        .benefit-title {
+            color: #00265e;
+            font-weight: 700;
+            font-size: 16px;
+            margin: 0 0 4px 0;
+        }
+
+        .benefit-text {
+            color: #555;
+            font-size: 13px;
+            margin: 0;
+            line-height: 1.4;
+        }
+
+        /* Chatbot Section */
+        .chatbot-section {
+            flex: 1;
+            max-width: 450px;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+        }
+
+        /* Chat Header - SLEEKER WITH BETA TAG */
+        #chat-header {
+            font-size: 18px !important;
+            font-weight: 600 !important;
+            color: #00265e !important;
+            margin-bottom: 8px !important;
+            text-align: center !important;
+            padding: 0 !important;
+            font-family: 'Poppins', Arial, sans-serif !important;
+        }
+
+        .beta-tag {
+            font-style: italic !important;
+            font-weight: 700 !important;
+            font-size: 11px !important;
+            color: #00999D !important;
+            margin-left: 6px !important;
+        }
+
+        #chat-container {
+            width: 100% !important;
+            height: 550px !important;
+            background: white !important;
+            border-radius: 12px !important;
+            box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15) !important;
+            display: flex !important;
+            flex-direction: column !important;
+            overflow: hidden !important;
+        }
+
+        #chat-box {
+            flex: 1 !important;
+            padding: 12px !important;
+            overflow-y: auto !important;
+            display: flex !important;
+            flex-direction: column !important;
+            gap: 8px !important;
+            background: #f8f9fa !important;
+        }
+
+        .message {
+            padding: 10px 12px !important;
+            border-radius: 20px !important;
+            max-width: 75% !important;
+            font-size: 14px !important;
+            word-wrap: break-word !important;
+            white-space: pre-wrap !important;
+            box-sizing: border-box !important;
+            line-height: 1.5 !important;
+        }
+
+        .message.user {
+            background-color: #00265e !important;
+            color: white !important;
+            margin-left: auto !important;
+            margin-right: 0 !important;
+            text-align: right !important;
+        }
+
+        .message.bot {
+            background-color: #f1f1f1 !important;
+            color: black !important;
+            margin-right: auto !important;
+            margin-left: 0 !important;
+            text-align: left !important;
+        }
+
+        /* Quick Reply Buttons Container - HORIZONTAL LAYOUT */
+        .quick-replies {
+            display: flex !important;
+            flex-direction: row !important;
+            gap: 12px !important;
+            margin: 12px 0 !important;
+            max-width: 100% !important;
+            flex-wrap: wrap !important;
+            padding: 0 !important;
+        }
+
+        /* Quick Reply Buttons - TWO-LINE FORMAT */
+        .quick-reply-btn {
+            padding: 14px 18px !important;
+            background: white !important;
+            border: 2px solid #00265e !important;
+            color: #00265e !important;
+            border-radius: 8px !important;
+            font-size: 14px !important;
+            font-weight: 600 !important;
+            cursor: pointer !important;
+            transition: all 0.3s !important;
+            text-align: center !important;
+            box-shadow: 0 2px 4px rgba(0, 0, 0, 0.05) !important;
+            flex: 1 !important;
+            min-width: 150px !important;
+            white-space: pre-line !important;
+            line-height: 1.4 !important;
+            font-family: 'Poppins', Arial, sans-serif !important;
+            margin: 0 !important;
+        }
+
+        .quick-reply-btn:hover {
+            background: #00265e !important;
+            color: white !important;
+            transform: translateX(4px) !important;
+        }
+
+        .quick-reply-btn:active {
+            transform: scale(0.98) !important;
+        }
+
+        /* Typing Indicator */
+        .typing-indicator {
+            background-color: #f1f1f1 !important;
+            color: black !important;
+            margin-right: auto !important;
+            margin-left: 0 !important;
+            text-align: left !important;
+            padding: 10px 12px !important;
+            border-radius: 20px !important;
+            max-width: 75px !important;
+            display: flex !important;
+            align-items: center !important;
+            gap: 4px !important;
+        }
+
+        .typing-dot {
+            width: 6px !important;
+            height: 6px !important;
+            background-color: #999 !important;
+            border-radius: 50% !important;
+            animation: typing 1.4s infinite !important;
+        }
+
+        .typing-dot:nth-child(1) { animation-delay: 0s !important; }
+        .typing-dot:nth-child(2) { animation-delay: 0.2s !important; }
+        .typing-dot:nth-child(3) { animation-delay: 0.4s !important; }
+
+        @keyframes typing {
+            0%, 60%, 100% {
+                transform: translateY(0) !important;
+                opacity: 0.4 !important;
+            }
+            30% {
+                transform: translateY(-8px) !important;
+                opacity: 1 !important;
+            }
+        }
+
+        #input-container {
+            display: flex !important;
+            padding: 10px !important;
+            background: #fff !important;
+            border-top: 1px solid #ddd !important;
+            align-items: center !important;
+            gap: 6px !important;
+        }
+
+        #user-input {
+            flex: 1 !important;
+            padding: 10px !important;
+            border: 1px solid #ddd !important;
+            border-radius: 8px !important;
+            font-size: 14px !important;
+            font-family: 'Poppins', Arial, sans-serif !important;
+        }
+
+        #send-button {
+            background: #00265e !important;
+            color: white !important;
+            border: none !important;
+            padding: 10px 15px !important;
+            border-radius: 8px !important;
+            cursor: pointer !important;
+            font-size: 14px !important;
+            transition: background 0.3s !important;
+            font-weight: 600 !important;
+            font-family: 'Poppins', Arial, sans-serif !important;
+        }
+
+        #send-button:hover:not(:disabled) {
+            background: #001b45 !important;
+        }
+
+        #send-button:disabled {
+            background: #999 !important;
+            cursor: not-allowed !important;
+            opacity: 0.6 !important;
+        }
+
+        /* Scrollbar Styling */
+        #chat-box::-webkit-scrollbar {
+            width: 6px !important;
+        }
+
+        #chat-box::-webkit-scrollbar-track {
+            background: #f1f1f1 !important;
+        }
+
+        #chat-box::-webkit-scrollbar-thumb {
+            background: #888 !important;
+            border-radius: 3px !important;
+        }
+
+        #chat-box::-webkit-scrollbar-thumb:hover {
+            background: #555 !important;
+        }
+
+        /* Responsive Design */
+        @media (max-width: 940px) {
+            .container {
+                flex-direction: column;
+                align-items: center;
+            }
+
+            .left-section, .chatbot-section {
+                width: 100%;
+                max-width: 600px;
+            }
+
+            .benefits-grid {
+                grid-template-columns: 1fr;
+            }
+        }
+
+        /* Mobile - Stack Buttons Vertically */
+        @media (max-width: 768px) {
+            .quick-replies {
+                flex-direction: column !important;
+                gap: 8px !important;
+            }
+
+            .quick-reply-btn {
+                width: 100% !important;
+                min-width: unset !important;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="header">WE'RE EXCITED TO SEE YOU AT THE CLINIC!</div>
+    <div class="container">
+        <!-- Left Section: Stacked Content -->
+        <div class="left-section">
+            <!-- Information Card -->
+            <div class="info-card">
+                <h2>Participate in a Clinical Trial</h2>
+                <p>Clinical research helps bring new medical treatments to patients who need them most. By joining a study, you may gain access to innovative therapies, receive expert medical care, and contribute to the advancement of medicine.</p>
+            </div>
+
+            <!-- Benefits Section -->
+            <div class="benefits-section">
+                <h2>Benefits of Participation</h2>
+                <div class="benefits-grid">
+                    <div class="benefit-card">
+                        <div class="icon-element">
+                            <img src="https://delrichtresearch.com/wp-content/uploads/2023/10/electric-car.png" alt="Help Move Medicine Forward">
+                        </div>
+                        <div class="benefit-content">
+                            <div class="benefit-title">Help Move Medicine Forward</div>
+                            <div class="benefit-text">Be a key player in medical breakthroughs by participating in our clinical trials.</div>
+                        </div>
+                    </div>
+
+                    <div class="benefit-card">
+                        <div class="icon-element">
+                            <img src="https://delrichtresearch.com/wp-content/uploads/2023/09/insurance-1-1.png" alt="Compensation for Time and Travel">
+                        </div>
+                        <div class="benefit-content">
+                            <div class="benefit-title">Compensation for Time and Travel</div>
+                            <div class="benefit-text">We acknowledge your effort with fair compensation for your participation time and travel expenses.</div>
+                        </div>
+                    </div>
+
+                    <div class="benefit-card">
+                        <div class="icon-element">
+                            <img src="https://delrichtresearch.com/wp-content/uploads/2023/09/access-1.png" alt="Free Medical Assessments">
+                        </div>
+                        <div class="benefit-content">
+                            <div class="benefit-title">Free Medical Assessments</div>
+                            <div class="benefit-text">Experience top-notch medical care and health assessments at no personal expense.</div>
+                        </div>
+                    </div>
+
+                    <div class="benefit-card">
+                        <div class="icon-element">
+                            <img src="https://delrichtresearch.com/wp-content/uploads/2023/10/pills.png" alt="Access to New Treatments">
+                        </div>
+                        <div class="benefit-content">
+                            <div class="benefit-title">Access to New Treatments</div>
+                            <div class="benefit-text">Explore tomorrow's treatments today by accessing potential breakthrough therapies before they become widely available.</div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Right Section: Chatbot -->
+        <div class="chatbot-section">
+            <div id="chat-header">Chat with Eric <span class="beta-tag">BETA</span></div>
+            <div id="chat-container">
+                <div id="chat-box"></div>
+                <div id="input-container">
+                    <input type="text" id="user-input" placeholder="Type a message..." autofocus />
+                    <button id="send-button">Send</button>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <script>
+    document.addEventListener("DOMContentLoaded", function () {
+        const chatBox = document.getElementById("chat-box");
+        const userInput = document.getElementById("user-input");
+        const sendButton = document.getElementById("send-button");
+
+        // Generate or retrieve User ID and Session ID
+        let userID = "user_" + Math.random().toString(36).substr(2, 9);
+        let sessionID = "session_" + Math.random().toString(36).substr(2, 9);
+
+        // Utility Functions
+        function scrollToBottom() {
+            chatBox.scrollTop = chatBox.scrollHeight;
+        }
+
+        function formatMessage(text) {
+            if (!text) return "";
+
+            // Convert markdown to HTML
+            text = text.replace(/\*\*(.*?)\*\*/g, '<strong>$1</strong>');
+            text = text.replace(/\*(.*?)\*/g, '<em>$1</em>');
+            text = text.replace(/\n/g, '<br>');
+
+            return text;
+        }
+
+        function addUserMessage(content) {
+            const messageDiv = document.createElement("div");
+            messageDiv.classList.add("message", "user");
+            messageDiv.textContent = content;
+            chatBox.appendChild(messageDiv);
+            scrollToBottom();
+        }
+
+        function addBotMessage(content, quickReplies = null) {
+            if (!content || content === "undefined") {
+                content = "I apologize, but I'm having trouble connecting to our research database. Please try again or contact us directly at (504) 336-2667.";
+            }
+
+            const messageDiv = document.createElement("div");
+            messageDiv.classList.add("message", "bot");
+            messageDiv.innerHTML = formatMessage(content);
+            chatBox.appendChild(messageDiv);
+
+            // Add quick reply buttons if provided
+            if (quickReplies && quickReplies.length > 0) {
+                addQuickReplies(quickReplies);
+            }
+
+            scrollToBottom();
+        }
+
+        function addQuickReplies(replies) {
+            const quickRepliesDiv = document.createElement("div");
+            quickRepliesDiv.classList.add("quick-replies");
+
+            replies.forEach(reply => {
+                const btn = document.createElement("button");
+                btn.classList.add("quick-reply-btn");
+                btn.textContent = reply.label || reply;
+                btn.onclick = () => {
+                    // Remove quick reply buttons after selection
+                    quickRepliesDiv.remove();
+
+                    // Send the reply value as user message
+                    const valueToSend = reply.value || reply.label || reply;
+                    userInput.value = valueToSend;
+                    sendMessage();
+                };
+                quickRepliesDiv.appendChild(btn);
+            });
+
+            chatBox.appendChild(quickRepliesDiv);
+            scrollToBottom();
+        }
+
+        function showTypingIndicator() {
+            const typingDiv = document.createElement("div");
+            typingDiv.classList.add("typing-indicator");
+            typingDiv.id = "typing-indicator";
+
+            for (let i = 0; i < 3; i++) {
+                const dot = document.createElement("div");
+                dot.classList.add("typing-dot");
+                typingDiv.appendChild(dot);
+            }
+
+            chatBox.appendChild(typingDiv);
+            scrollToBottom();
+        }
+
+        function hideTypingIndicator() {
+            const typingIndicator = document.getElementById("typing-indicator");
+            if (typingIndicator) {
+                typingIndicator.remove();
+            }
+        }
+
+        function sendMessage() {
+            const message = userInput.value.trim();
+            if (message === "") return;
+
+            userInput.disabled = true;
+            sendButton.disabled = true;
+
+            addUserMessage(message);
+            userInput.value = "";
+
+            showTypingIndicator();
+
+            fetch("https://gemini-chatbot-480267397633.us-central1.run.app/api/gemini/chat", {
+                method: "POST",
+                headers: {
+                    "Content-Type": "application/json",
+                },
+                body: JSON.stringify({
+                    message: message,
+                    session_id: sessionID,
+                    user_id: userID
+                }),
+            })
+            .then(response => {
+                if (!response.ok) throw new Error("Network response was not ok");
+                return response.json();
+            })
+            .then(data => {
+                hideTypingIndicator();
+
+                // Handle the response from Gemini API
+                const botResponse = data.response || data.message || "I'm sorry, I couldn't process your request at this time.";
+                const quickReplies = data.quick_replies || null;
+
+                addBotMessage(botResponse, quickReplies);
+
+                // Log metadata for debugging
+                if (data.metadata) {
+                    console.log("Metadata:", data.metadata);
+                }
+                if (data.intent) {
+                    console.log("Intent:", data.intent);
+                }
+                if (quickReplies) {
+                    console.log("Quick Replies:", quickReplies);
+                }
+            })
+            .catch(error => {
+                hideTypingIndicator();
+                addBotMessage("I apologize, but I'm having trouble connecting to our research database. Please try again or contact us directly at (504) 336-2667.");
+                console.error("Error:", error);
+            })
+            .finally(() => {
+                userInput.disabled = false;
+                sendButton.disabled = false;
+                userInput.focus();
+            });
+        }
+
+        // Event listeners
+        sendButton.addEventListener("click", sendMessage);
+        userInput.addEventListener("keypress", function(event) {
+            if (event.key === "Enter") {
+                event.preventDefault();
+                if (userInput.value.trim() !== "") sendMessage();
+            }
+        });
+
+        // Initial welcome message - WARM AND FRIENDLY
+        addBotMessage("Hey! I'm Eric. I help people find clinical trials that might be a good match for them. What brings you here today?");
+    });
+    </script>
+</body>
+</html>

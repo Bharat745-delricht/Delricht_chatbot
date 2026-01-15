@@ -1,0 +1,459 @@
+[
+  {
+    "site_id": "2054",
+    "site_name": "ATL - Dermatology",
+    "coordinator_email": "atldermatology@delricht.com",
+    "coordinator_user_key": "310918",
+    "has_coordinator": true,
+    "tyler_user_key": "5540",
+    "status": "CONFIGURED"
+  },
+  {
+    "site_id": "2327",
+    "site_name": "ATL - General Medicine",
+    "coordinator_email": "atlgenmed@delricht.com",
+    "coordinator_user_key": "312846",
+    "has_coordinator": true,
+    "tyler_user_key": "5540",
+    "status": "CONFIGURED"
+  },
+  {
+    "site_id": "3863",
+    "site_name": "ATL - Psych",
+    "coordinator_email": "atlpsych@delricht.com",
+    "coordinator_user_key": "346651",
+    "has_coordinator": true,
+    "tyler_user_key": "5540",
+    "status": "CONFIGURED"
+  },
+  {
+    "site_id": "2842",
+    "site_name": "BET - General Medicine",
+    "coordinator_email": "betgenmed@delricht.com",
+    "coordinator_user_key": "328897",
+    "has_coordinator": true,
+    "tyler_user_key": "5540",
+    "status": "CONFIGURED"
+  },
+  {
+    "site_id": "5383",
+    "site_name": "BET - Psych",
+    "coordinator_email": "betpsych@delricht.com",
+    "coordinator_user_key": "370210",
+    "has_coordinator": true,
+    "tyler_user_key": "5540",
+    "status": "CONFIGURED"
+  },
+  {
+    "site_id": "1266",
+    "site_name": "BR - Dermatology",
+    "coordinator_email": "brdermatology@delricht.com",
+    "coordinator_user_key": "5665",
+    "has_coordinator": true,
+    "tyler_user_key": "5540",
+    "status": "CONFIGURED"
+  },
+  {
+    "site_id": "1265",
+    "site_name": "BR - General Medicine",
+    "coordinator_email": "brurgentcare@delricht.com",
+    "coordinator_user_key": "5540",
+    "has_coordinator": true,
+    "tyler_user_key": "5540",
+    "status": "CONFIGURED"
+  },
+  {
+    "site_id": "1316",
+    "site_name": "BR - Neuro Medical",
+    "coordinator_email": "klemoine@delricht.com",
+    "coordinator_user_key": "5540",
+    "has_coordinator": true,
+    "tyler_user_key": "5540",
+    "status": "CONFIGURED"
+  },
+  {
+    "site_id": "3957",
+    "site_name": "BR - Psych",
+    "coordinator_email": "brpsych@delricht.com",
+    "coordinator_user_key": "347976",
+    "has_coordinator": true,
+    "tyler_user_key": "5540",
+    "status": "CONFIGURED"
+  },
+  {
+    "site_id": "4556",
+    "site_name": "CHS - Dermatology",
+    "coordinator_email": "chsgenmed@delricht.com",
+    "coordinator_user_key": "324995",
+    "has_coordinator": true,
+    "tyler_user_key": "5540",
+    "status": "CONFIGURED"
+  },
+  {
+    "site_id": "2693",
+    "site_name": "CHS - General Medicine",
+    "coordinator_email": "chsgenmed@delricht.com",
+    "coordinator_user_key": "324995",
+    "has_coordinator": true,
+    "tyler_user_key": "5540",
+    "status": "CONFIGURED"
+  },
+  {
+    "site_id": "4886",
+    "site_name": "CIN - General Medicine",
+    "coordinator_email": "cincycalendar@delricht.com",
+    "coordinator_user_key": "360357",
+    "has_coordinator": true,
+    "tyler_user_key": "5540",
+    "status": "CONFIGURED"
+  },
+  {
+    "site_id": "3466",
+    "site_name": "CLT - General Medicine",
+    "coordinator_email": "cltgenmed@delricht.com",
+    "coordinator_user_key": "338005",
+    "has_coordinator": true,
+    "tyler_user_key": "5540",
+    "status": "CONFIGURED"
+  },
+  {
+    "site_id": "5384",
+    "site_name": "CLT - Psych",
+    "coordinator_email": "cltpsych@delricht.com",
+    "coordinator_user_key": "369309",
+    "has_coordinator": true,
+    "tyler_user_key": "5540",
+    "status": "CONFIGURED"
+  },
+  {
+    "site_id": "2373",
+    "site_name": "DAL - Dermatology",
+    "coordinator_email": "dalderm@delricht.com",
+    "coordinator_user_key": "315915",
+    "has_coordinator": true,
+    "tyler_user_key": "5540",
+    "status": "CONFIGURED"
+  },
+  {
+    "site_id": "1867",
+    "site_name": "DAL - General Medicine",
+    "coordinator_email": "dalgenmed@delricht.com",
+    "coordinator_user_key": "312958",
+    "has_coordinator": true,
+    "tyler_user_key": "5540",
+    "status": "CONFIGURED"
+  },
+  {
+    "site_id": "4913",
+    "site_name": "DAL - Psych",
+    "coordinator_email": "dalpsych@delricht.com",
+    "coordinator_user_key": "361227",
+    "has_coordinator": true,
+    "tyler_user_key": "5540",
+    "status": "CONFIGURED"
+  },
+  {
+    "site_id": "2306",
+    "site_name": "GU - General Medicine (Kerby)",
+    "coordinator_email": "gulfportgenmed@delricht.com",
+    "coordinator_user_key": "306840",
+    "has_coordinator": true,
+    "tyler_user_key": "5540",
+    "status": "CONFIGURED"
+  },
+  {
+    "site_id": "1853",
+    "site_name": "GU - General Medicine (Tamboli)",
+    "coordinator_email": "gulfportgenmed@delricht.com",
+    "coordinator_user_key": "306840",
+    "has_coordinator": true,
+    "tyler_user_key": "5540",
+    "status": "CONFIGURED"
+  },
+  {
+    "site_id": "5386",
+    "site_name": "HEN - General Medicine",
+    "coordinator_email": "hendersonville@delricht.com",
+    "coordinator_user_key": null,
+    "has_coordinator": false,
+    "tyler_events": "SKIP",
+    "patient_visits": "SKIP",
+    "status": "NO_COORDINATOR"
+  },
+  {
+    "site_id": "1884",
+    "site_name": "HMA - Dermatology",
+    "coordinator_email": "houmaderm@delricht.com",
+    "coordinator_user_key": "314175",
+    "has_coordinator": true,
+    "tyler_user_key": "5540",
+    "status": "CONFIGURED"
+  },
+  {
+    "site_id": "4957",
+    "site_name": "IND - General Medicine",
+    "coordinator_email": "indycalendar@delricht.com",
+    "coordinator_user_key": "360522",
+    "has_coordinator": true,
+    "tyler_user_key": "5540",
+    "status": "CONFIGURED"
+  },
+  {
+    "site_id": "3500",
+    "site_name": "LOU - General Medicine",
+    "coordinator_email": "lougenmed@delricht.com",
+    "coordinator_user_key": "337955",
+    "has_coordinator": true,
+    "tyler_user_key": "5540",
+    "status": "CONFIGURED"
+  },
+  {
+    "site_id": "1818",
+    "site_name": "Master Site",
+    "coordinator_email": "thastings@delricht.com",
+    "coordinator_user_key": "5540",
+    "has_coordinator": true,
+    "tyler_user_key": "5540",
+    "status": "CONFIGURED"
+  },
+  {
+    "site_id": "5390",
+    "site_name": "MTP - General Medicine",
+    "coordinator_email": "mtpleasant@delricht.com",
+    "coordinator_user_key": null,
+    "has_coordinator": false,
+    "tyler_events": "SKIP",
+    "patient_visits": "SKIP",
+    "status": "NO_COORDINATOR"
+  },
+  {
+    "site_id": "2881",
+    "site_name": "NAS - Dermatology",
+    "coordinator_email": "nasderm@delricht.com",
+    "coordinator_user_key": "330213",
+    "has_coordinator": true,
+    "tyler_user_key": "5540",
+    "status": "CONFIGURED"
+  },
+  {
+    "site_id": "2518",
+    "site_name": "NAS - General Medicine",
+    "coordinator_email": "nasgenmed@delricht.com",
+    "coordinator_user_key": "320866",
+    "has_coordinator": true,
+    "tyler_user_key": "5540",
+    "status": "CONFIGURED"
+  },
+  {
+    "site_id": "1262",
+    "site_name": "NO - Dermatology",
+    "coordinator_email": "audubonderm@delricht.com",
+    "coordinator_user_key": "5540",
+    "has_coordinator": true,
+    "tyler_user_key": "5540",
+    "status": "CONFIGURED"
+  },
+  {
+    "site_id": "1261",
+    "site_name": "NO - General Medicine",
+    "coordinator_email": "urgentcare@delricht.com",
+    "coordinator_user_key": "URGENT_CARE",
+    "has_coordinator": true,
+    "tyler_user_key": "5540",
+    "status": "CONFIGURED"
+  },
+  {
+    "site_id": "5088",
+    "site_name": "NO - Ophthalmology",
+    "coordinator_email": "thastings@delricht.com",
+    "coordinator_user_key": "5540",
+    "has_coordinator": true,
+    "tyler_user_key": "5540",
+    "status": "CONFIGURED"
+  },
+  {
+    "site_id": "3834",
+    "site_name": "NO - Psych/ Rheum",
+    "coordinator_email": "nopsych@delricht.com",
+    "coordinator_user_key": "345628",
+    "has_coordinator": true,
+    "tyler_user_key": "5540",
+    "status": "CONFIGURED"
+  },
+  {
+    "site_id": "1263",
+    "site_name": "NO - Urology",
+    "coordinator_email": "drfischman@delricht.com",
+    "coordinator_user_key": "5540",
+    "has_coordinator": true,
+    "tyler_user_key": "5540",
+    "status": "CONFIGURED"
+  },
+  {
+    "site_id": "1264",
+    "site_name": "NO - Vax",
+    "coordinator_email": "suite321@delricht.com",
+    "coordinator_user_key": "5540",
+    "has_coordinator": true,
+    "tyler_user_key": "5540",
+    "status": "CONFIGURED"
+  },
+  {
+    "site_id": "1642",
+    "site_name": "NS - Dermatology",
+    "coordinator_email": "nsdermatology@delricht.com",
+    "coordinator_user_key": "14035",
+    "has_coordinator": true,
+    "tyler_user_key": "5540",
+    "status": "CONFIGURED"
+  },
+  {
+    "site_id": "2181",
+    "site_name": "NS - General Medicine",
+    "coordinator_email": "nsgenmed@delricht.com",
+    "coordinator_user_key": "309360",
+    "has_coordinator": true,
+    "tyler_user_key": "5540",
+    "status": "CONFIGURED"
+  },
+  {
+    "site_id": "2372",
+    "site_name": "NS - Neurology",
+    "coordinator_email": "nsneuro@delricht.com",
+    "coordinator_user_key": "314656",
+    "has_coordinator": true,
+    "tyler_user_key": "5540",
+    "status": "CONFIGURED"
+  },
+  {
+    "site_id": "3468",
+    "site_name": "OVP - General Medicine",
+    "coordinator_email": "ovpgenmed@delricht.com",
+    "coordinator_user_key": "337206",
+    "has_coordinator": true,
+    "tyler_user_key": "5540",
+    "status": "CONFIGURED"
+  },
+  {
+    "site_id": "5391",
+    "site_name": "PRO - General Medicine",
+    "coordinator_email": "prosper@delricht.com",
+    "coordinator_user_key": null,
+    "has_coordinator": false,
+    "tyler_events": "SKIP",
+    "patient_visits": "SKIP",
+    "status": "NO_COORDINATOR"
+  },
+  {
+    "site_id": "5387",
+    "site_name": "ROC - General Medicine",
+    "coordinator_email": "rockville@delricht.com",
+    "coordinator_user_key": null,
+    "has_coordinator": false,
+    "tyler_events": "SKIP",
+    "patient_visits": "SKIP",
+    "status": "NO_COORDINATOR"
+  },
+  {
+    "site_id": "5282",
+    "site_name": "SLC - Gen Med",
+    "coordinator_email": "thastings@delricht.com",
+    "coordinator_user_key": "5540",
+    "has_coordinator": true,
+    "tyler_user_key": "5540",
+    "status": "CONFIGURED"
+  },
+  {
+    "site_id": "5388",
+    "site_name": "SMY - General Medicine",
+    "coordinator_email": "smyrna@delricht.com",
+    "coordinator_user_key": null,
+    "has_coordinator": false,
+    "tyler_events": "SKIP",
+    "patient_visits": "SKIP",
+    "status": "NO_COORDINATOR"
+  },
+  {
+    "site_id": "2517",
+    "site_name": "SPR - General Medicine",
+    "coordinator_email": "sprgenmed@delricht.com",
+    "coordinator_user_key": "320868",
+    "has_coordinator": true,
+    "tyler_user_key": "5540",
+    "status": "CONFIGURED"
+  },
+  {
+    "site_id": "3502",
+    "site_name": "STE - General Medicine",
+    "coordinator_email": "stegenmed@delricht.com",
+    "coordinator_user_key": "337954",
+    "has_coordinator": true,
+    "tyler_user_key": "5540",
+    "status": "CONFIGURED"
+  },
+  {
+    "site_id": "2071",
+    "site_name": "STL - Dermatology",
+    "coordinator_email": "stlderm@delricht.com",
+    "coordinator_user_key": "342088",
+    "has_coordinator": true,
+    "tyler_user_key": "5540",
+    "status": "CONFIGURED"
+  },
+  {
+    "site_id": "2840",
+    "site_name": "STL - General Medicine",
+    "coordinator_email": "stlgenmed@delricht.com",
+    "coordinator_user_key": "328936",
+    "has_coordinator": true,
+    "tyler_user_key": "5540",
+    "status": "CONFIGURED"
+  },
+  {
+    "site_id": "5389",
+    "site_name": "TC - General Medicine",
+    "coordinator_email": "towncountry@delricht.com",
+    "coordinator_user_key": null,
+    "has_coordinator": false,
+    "tyler_events": "SKIP",
+    "patient_visits": "SKIP",
+    "status": "NO_COORDINATOR"
+  },
+  {
+    "site_id": "1409",
+    "site_name": "TUL - Dermatology",
+    "coordinator_email": "tulsa@delricht.com",
+    "coordinator_user_key": "6458",
+    "has_coordinator": true,
+    "tyler_user_key": "5540",
+    "status": "CONFIGURED"
+  },
+  {
+    "site_id": "1305",
+    "site_name": "TUL - General Medicine",
+    "coordinator_email": "tulsa@delricht.com",
+    "coordinator_user_key": "6458",
+    "has_coordinator": true,
+    "tyler_user_key": "5540",
+    "status": "CONFIGURED"
+  },
+  {
+    "site_id": "3941",
+    "site_name": "TUL - Psych",
+    "coordinator_email": "tulsapsych@delricht.com",
+    "coordinator_user_key": "347425",
+    "has_coordinator": true,
+    "tyler_user_key": "5540",
+    "status": "CONFIGURED"
+  },
+  {
+    "site_id": "5385",
+    "site_name": "VIE - General Medicine",
+    "coordinator_email": "vienna@delricht.com",
+    "coordinator_user_key": null,
+    "has_coordinator": false,
+    "tyler_events": "SKIP",
+    "patient_visits": "SKIP",
+    "status": "NO_COORDINATOR"
+  }
+]
