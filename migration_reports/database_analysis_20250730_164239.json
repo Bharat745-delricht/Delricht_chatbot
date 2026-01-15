@@ -1,0 +1,16 @@
+{
+  "analysis_metadata": {
+    "timestamp": "2025-07-30T16:42:39.503407+00:00",
+    "analyst": "Database Migration Tool v1.0",
+    "configuration": {
+      "original_only": true,
+      "quality_threshold": 6.0,
+      "completion_threshold": 60
+    }
+  },
+  "original_database": {
+    "error": ""
+  },
+  "new_database": null,
+  "migration_recommendations": null
+}
