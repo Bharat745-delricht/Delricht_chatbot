@@ -1,0 +1,501 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>AI Analytics - CRIO BigQuery Interface</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" rel="stylesheet">
+    <style>
+        body {
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            min-height: 100vh;
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+        }
+        
+        .main-container {
+            max-width: 1400px;
+            margin: 0 auto;
+            padding: 2rem;
+        }
+        
+        .chat-interface {
+            background: rgba(255, 255, 255, 0.95);
+            backdrop-filter: blur(10px);
+            border-radius: 20px;
+            box-shadow: 0 20px 40px rgba(0, 0, 0, 0.1);
+            overflow: hidden;
+            transition: all 0.3s ease;
+        }
+        
+        .header-section {
+            background: linear-gradient(135deg, #2c3e50, #3498db);
+            color: white;
+            padding: 2rem;
+            text-align: center;
+        }
+        
+        .header-section h1 {
+            margin: 0;
+            font-size: 2.5rem;
+            font-weight: 300;
+        }
+        
+        .header-section p {
+            margin: 0.5rem 0 0 0;
+            opacity: 0.9;
+            font-size: 1.1rem;
+        }
+        
+        .content-area {
+            display: flex;
+            min-height: 70vh;
+        }
+        
+        .chat-panel {
+            flex: 1;
+            padding: 2rem;
+            transition: all 0.5s ease;
+        }
+        
+        .chat-panel.shifted {
+            flex: 0.6;
+        }
+        
+        .analytics-panel {
+            flex: 0;
+            width: 0;
+            background: #f8f9fa;
+            border-left: 1px solid #e9ecef;
+            transition: all 0.5s ease;
+            overflow: hidden;
+        }
+        
+        .analytics-panel.visible {
+            flex: 0.4;
+            width: auto;
+            padding: 2rem;
+        }
+        
+        .input-container {
+            position: relative;
+            margin: 2rem 0;
+            transition: all 0.5s ease;
+        }
+        
+        .input-container.centered {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            min-height: 300px;
+        }
+        
+        .query-input {
+            width: 100%;
+            max-width: 600px;
+            padding: 1.5rem;
+            border: 2px solid #e9ecef;
+            border-radius: 50px;
+            font-size: 1.1rem;
+            outline: none;
+            transition: all 0.3s ease;
+            background: white;
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+        }
+        
+        .query-input:focus {
+            border-color: #007bff;
+            box-shadow: 0 5px 20px rgba(0, 123, 255, 0.3);
+        }
+        
+        .submit-btn {
+            position: absolute;
+            right: 10px;
+            top: 50%;
+            transform: translateY(-50%);
+            background: #007bff;
+            border: none;
+            border-radius: 50%;
+            width: 50px;
+            height: 50px;
+            color: white;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            cursor: pointer;
+            transition: all 0.3s ease;
+        }
+        
+        .submit-btn:hover {
+            background: #0056b3;
+            transform: translateY(-50%) scale(1.05);
+        }
+        
+        .loading-spinner {
+            display: none;
+            text-align: center;
+            margin: 2rem 0;
+        }
+        
+        .results-container {
+            margin-top: 2rem;
+            opacity: 0;
+            transform: translateY(20px);
+            transition: all 0.5s ease;
+        }
+        
+        .results-container.visible {
+            opacity: 1;
+            transform: translateY(0);
+        }
+        
+        .result-card {
+            background: white;
+            border: 1px solid #e9ecef;
+            border-radius: 15px;
+            padding: 1.5rem;
+            margin: 1rem 0;
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.08);
+        }
+        
+        .sql-display {
+            background: #2d3748;
+            color: #e2e8f0;
+            padding: 1rem;
+            border-radius: 10px;
+            font-family: 'Courier New', monospace;
+            margin: 1rem 0;
+            overflow-x: auto;
+        }
+        
+        .data-table {
+            margin: 1rem 0;
+        }
+        
+        .insights-list {
+            list-style: none;
+            padding: 0;
+        }
+        
+        .insights-list li {
+            background: #e3f2fd;
+            margin: 0.5rem 0;
+            padding: 0.8rem;
+            border-radius: 10px;
+            border-left: 4px solid #2196f3;
+        }
+        
+        .follow-up-suggestions {
+            margin-top: 1rem;
+        }
+        
+        .suggestion-btn {
+            display: inline-block;
+            background: #f8f9fa;
+            border: 1px solid #dee2e6;
+            border-radius: 20px;
+            padding: 0.5rem 1rem;
+            margin: 0.25rem;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            text-decoration: none;
+            color: #495057;
+        }
+        
+        .suggestion-btn:hover {
+            background: #007bff;
+            color: white;
+            text-decoration: none;
+        }
+        
+        .analytics-content h4 {
+            color: #2c3e50;
+            border-bottom: 2px solid #3498db;
+            padding-bottom: 0.5rem;
+            margin-bottom: 1rem;
+        }
+        
+        .metric-card {
+            background: white;
+            border-radius: 10px;
+            padding: 1rem;
+            margin: 1rem 0;
+            border-left: 4px solid #28a745;
+            box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+        }
+    </style>
+</head>
+<body>
+    <div class="main-container">
+        <div class="chat-interface">
+            <div class="header-section">
+                <h1><i class="fas fa-brain"></i> AI Analytics</h1>
+                <p>Natural Language Interface for CRIO BigQuery Data</p>
+            </div>
+            
+            <div class="content-area">
+                <div class="chat-panel" id="chatPanel">
+                    <div class="input-container centered" id="inputContainer">
+                        <div style="width: 100%; max-width: 600px;">
+                            <input type="text" 
+                                   class="query-input" 
+                                   id="queryInput" 
+                                   placeholder="Ask a question about your scheduling data..."
+                                   autocomplete="off">
+                            <button class="submit-btn" id="submitBtn">
+                                <i class="fas fa-arrow-right"></i>
+                            </button>
+                        </div>
+                    </div>
+                    
+                    <div class="loading-spinner" id="loadingSpinner">
+                        <div class="spinner-border text-primary" role="status">
+                            <span class="visually-hidden">Processing query...</span>
+                        </div>
+                        <p class="mt-2">Analyzing your question with AI...</p>
+                    </div>
+                    
+                    <div class="results-container" id="resultsContainer">
+                        <!-- Query results will be inserted here -->
+                    </div>
+                </div>
+                
+                <div class="analytics-panel" id="analyticsPanel">
+                    <div class="analytics-content">
+                        <h4><i class="fas fa-chart-line"></i> Query Analytics</h4>
+                        <div id="queryMetrics">
+                            <div class="metric-card">
+                                <strong>Query Time:</strong> <span id="queryTime">--</span>ms
+                            </div>
+                            <div class="metric-card">
+                                <strong>Rows Returned:</strong> <span id="rowCount">--</span>
+                            </div>
+                            <div class="metric-card">
+                                <strong>Generated SQL:</strong>
+                                <div class="sql-display" id="generatedSQL">
+                                    No query executed yet
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+    <script>
+        class AIAnalytics {
+            constructor() {
+                this.sessionId = this.generateSessionId();
+                this.conversationHistory = [];
+                this.initializeElements();
+                this.bindEvents();
+                this.showSampleQuestions();
+            }
+            
+            generateSessionId() {
+                return 'session_' + Date.now() + '_' + Math.random().toString(36).substr(2, 9);
+            }
+            
+            initializeElements() {
+                this.queryInput = document.getElementById('queryInput');
+                this.submitBtn = document.getElementById('submitBtn');
+                this.loadingSpinner = document.getElementById('loadingSpinner');
+                this.resultsContainer = document.getElementById('resultsContainer');
+                this.chatPanel = document.getElementById('chatPanel');
+                this.analyticsPanel = document.getElementById('analyticsPanel');
+                this.inputContainer = document.getElementById('inputContainer');
+                this.queryTime = document.getElementById('queryTime');
+                this.rowCount = document.getElementById('rowCount');
+                this.generatedSQL = document.getElementById('generatedSQL');
+            }
+            
+            bindEvents() {
+                this.submitBtn.addEventListener('click', () => this.processQuery());
+                this.queryInput.addEventListener('keypress', (e) => {
+                    if (e.key === 'Enter') this.processQuery();
+                });
+            }
+            
+            showSampleQuestions() {
+                const sampleQuestions = [
+                    "How many appointments are there in August 2025?",
+                    "How many Screens have been completed this week?",
+                    "Show me Atlanta data",
+                    "What About just Recruitment?"
+                ];
+                
+                const suggestionsHtml = sampleQuestions.map(q => 
+                    `<span class="suggestion-btn" onclick="aiAnalytics.fillQuery('${q}')">${q}</span>`
+                ).join('');
+                
+                this.resultsContainer.innerHTML = `
+                    <div class="result-card">
+                        <h5><i class="fas fa-lightbulb"></i> Try asking these questions:</h5>
+                        <div class="follow-up-suggestions">${suggestionsHtml}</div>
+                    </div>
+                `;
+            }
+            
+            fillQuery(question) {
+                this.queryInput.value = question;
+                this.queryInput.focus();
+            }
+            
+            async processQuery() {
+                const question = this.queryInput.value.trim();
+                if (!question) return;
+                
+                this.showLoading();
+                this.shiftLayout();
+                
+                try {
+                    const startTime = Date.now();
+                    const response = await fetch('/api/bigquery/natural-language', {
+                        method: 'POST',
+                        headers: {
+                            'Content-Type': 'application/json',
+                        },
+                        body: JSON.stringify({
+                            question: question,
+                            context: 'CRIO scheduling system with DelRicht sites',
+                            session_id: this.sessionId,
+                            conversation_history: this.conversationHistory
+                        }),
+                    });
+                    
+                    if (!response.ok) {
+                        throw new Error(`HTTP error! status: ${response.status}`);
+                    }
+                    
+                    const data = await response.json();
+                    const endTime = Date.now();
+                    const queryDuration = endTime - startTime;
+                    
+                    this.displayResults(data, queryDuration);
+                    this.updateAnalytics(data, queryDuration);
+                    
+                    // Store in conversation history
+                    this.conversationHistory.push({
+                        question: question,
+                        response: data,
+                        timestamp: new Date().toISOString()
+                    });
+                    
+                    // Keep only last 5 exchanges
+                    if (this.conversationHistory.length > 5) {
+                        this.conversationHistory = this.conversationHistory.slice(-5);
+                    }
+                    
+                } catch (error) {
+                    console.error('Query failed:', error);
+                    this.displayError(error.message);
+                } finally {
+                    this.hideLoading();
+                }
+            }
+            
+            shiftLayout() {
+                this.chatPanel.classList.add('shifted');
+                this.analyticsPanel.classList.add('visible');
+                this.inputContainer.classList.remove('centered');
+            }
+            
+            showLoading() {
+                this.loadingSpinner.style.display = 'block';
+                this.submitBtn.innerHTML = '<i class="fas fa-spinner fa-spin"></i>';
+            }
+            
+            hideLoading() {
+                this.loadingSpinner.style.display = 'none';
+                this.submitBtn.innerHTML = '<i class="fas fa-arrow-right"></i>';
+            }
+            
+            displayResults(data, duration) {
+                const resultData = data.result.data || [];
+                const tableHtml = this.createDataTable(resultData);
+                
+                const insightsHtml = data.insights.map(insight => 
+                    `<li><i class="fas fa-chart-bar"></i> ${insight}</li>`
+                ).join('');
+                
+                const suggestionsHtml = data.suggestedFollowUp.map(suggestion => 
+                    `<span class="suggestion-btn" onclick="aiAnalytics.fillQuery('${suggestion}')">${suggestion}</span>`
+                ).join('');
+                
+                const contextBadge = data.context_used ? 
+                    '<span class="badge bg-info ms-2"><i class="fas fa-brain"></i> Context Applied</span>' : '';
+                
+                this.resultsContainer.innerHTML = `
+                    <div class="result-card">
+                        <h5><i class="fas fa-question-circle"></i> ${data.userQuestion}${contextBadge}</h5>
+                        <div class="sql-display">${data.generatedSQL}</div>
+                        ${tableHtml}
+                        
+                        <h6><i class="fas fa-lightbulb"></i> Insights:</h6>
+                        <ul class="insights-list">${insightsHtml}</ul>
+                        
+                        <div class="follow-up-suggestions">
+                            <h6><i class="fas fa-arrow-right"></i> Follow-up Questions:</h6>
+                            ${suggestionsHtml}
+                        </div>
+                    </div>
+                `;
+                
+                this.resultsContainer.classList.add('visible');
+            }
+            
+            createDataTable(data) {
+                if (!data || data.length === 0) {
+                    return '<p class="text-muted">No data returned</p>';
+                }
+                
+                const headers = Object.keys(data[0]);
+                const headerRow = headers.map(h => `<th>${this.formatHeader(h)}</th>`).join('');
+                const dataRows = data.map(row => 
+                    `<tr>${headers.map(h => `<td><strong>${row[h]}</strong></td>`).join('')}</tr>`
+                ).join('');
+                
+                return `
+                    <div class="data-table">
+                        <h6><i class="fas fa-table"></i> Query Results (${data.length} rows)</h6>
+                        <table class="table table-hover">
+                            <thead class="table-primary">
+                                <tr>${headerRow}</tr>
+                            </thead>
+                            <tbody>${dataRows}</tbody>
+                        </table>
+                    </div>
+                `;
+            }
+            
+            formatHeader(header) {
+                return header.replace(/_/g, ' ')
+                            .replace(/\b\w/g, l => l.toUpperCase());
+            }
+            
+            updateAnalytics(data, duration) {
+                this.queryTime.textContent = duration;
+                this.rowCount.textContent = data.result.rowCount || 0;
+                this.generatedSQL.textContent = data.generatedSQL;
+            }
+            
+            displayError(message) {
+                this.resultsContainer.innerHTML = `
+                    <div class="result-card">
+                        <div class="alert alert-danger">
+                            <i class="fas fa-exclamation-triangle"></i>
+                            <strong>Query Error:</strong> ${message}
+                        </div>
+                    </div>
+                `;
+                this.resultsContainer.classList.add('visible');
+            }
+        }
+        
+        // Initialize the application
+        const aiAnalytics = new AIAnalytics();
+    </script>
+</body>
+</html>

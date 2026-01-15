@@ -1,0 +1,551 @@
+{
+  "test_run_id": "test_run_2025-12-15_19-09-01",
+  "timestamp": "2025-12-15T19:09:01.507126",
+  "configuration": {
+    "api_base_url": "https://gemini-chatbot-480267397633.us-central1.run.app",
+    "num_tests": 50,
+    "parallel": 5,
+    "timeout": 120,
+    "save_reports": true,
+    "report_dir": "automated_testing/reports"
+  },
+  "summary": {
+    "total_tests": 5,
+    "passed": 0,
+    "failed": 5,
+    "pass_rate": 0.0,
+    "average_overall_score": 0.0,
+    "average_response_time": 0
+  },
+  "metrics": {
+    "crash_prevention": {
+      "average_score": 0.0,
+      "passed": 0,
+      "failed": 5
+    },
+    "eligibility_accuracy": {
+      "average_score": 0.0,
+      "passed": 0,
+      "failed": 5
+    },
+    "conversation_quality": {
+      "average_score": 0.0,
+      "passed": 0,
+      "failed": 5
+    },
+    "edge_case_handling": {
+      "average_score": 100.0,
+      "applicable_tests": 0,
+      "passed": 0
+    },
+    "performance": {
+      "average_response_time": 0,
+      "passed": 0
+    }
+  },
+  "failure_summary": {
+    "total_failures": 5,
+    "by_type": {
+      "catastrophic_failure": 5
+    }
+  },
+  "failures": [
+    {
+      "test_id": "AUTO_TEST_edge_unclear_000",
+      "patient_profile": {
+        "age": 50,
+        "conditions": [
+          "Hypertension"
+        ],
+        "medications": [
+          "Lisinopril"
+        ]
+      },
+      "type": "catastrophic_failure",
+      "error": "name 'response_time' is not defined",
+      "traceback": "Traceback (most recent call last):\n  File \"/Users/marshallmorris/gemini-chatbot/automated_testing/test_runner.py\", line 167, in _run_single_test\n    conversation_result = await simulator.run_full_conversation()\n                          ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^\n  File \"/Users/marshallmorris/gemini-chatbot/automated_testing/simulators/conversation_simulator.py\", line 96, in run_full_conversation\n    \"conversation_log\": [turn.to_dict() for turn in self.conversation_log],\n                         ~~~~~~~~~~~~^^\n  File \"/Users/marshallmorris/gemini-chatbot/automated_testing/simulators/conversation_simulator.py\", line 32, in to_dict\n    \"response_time\": response_time,\n                     ^^^^^^^^^^^^^\nNameError: name 'response_time' is not defined. Did you mean: 'self.response_time'?\n"
+    },
+    {
+      "test_id": "AUTO_TEST_targeted_diabetes_001",
+      "patient_profile": {
+        "age": 40,
+        "conditions": [
+          "Type 2 Diabetes",
+          "Hypertension"
+        ],
+        "medications": [
+          "Metformin",
+          "Lisinopril"
+        ]
+      },
+      "type": "catastrophic_failure",
+      "error": "name 'response_time' is not defined",
+      "traceback": "Traceback (most recent call last):\n  File \"/Users/marshallmorris/gemini-chatbot/automated_testing/test_runner.py\", line 167, in _run_single_test\n    conversation_result = await simulator.run_full_conversation()\n                          ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^\n  File \"/Users/marshallmorris/gemini-chatbot/automated_testing/simulators/conversation_simulator.py\", line 96, in run_full_conversation\n    \"conversation_log\": [turn.to_dict() for turn in self.conversation_log],\n                         ~~~~~~~~~~~~^^\n  File \"/Users/marshallmorris/gemini-chatbot/automated_testing/simulators/conversation_simulator.py\", line 32, in to_dict\n    \"response_time\": response_time,\n                     ^^^^^^^^^^^^^\nNameError: name 'response_time' is not defined. Did you mean: 'self.response_time'?\n"
+    },
+    {
+      "test_id": "AUTO_TEST_targeted_diabetes_000",
+      "patient_profile": {
+        "age": 40,
+        "conditions": [
+          "Type 2 Diabetes",
+          "Hypertension"
+        ],
+        "medications": [
+          "Metformin",
+          "Lisinopril"
+        ]
+      },
+      "type": "catastrophic_failure",
+      "error": "name 'response_time' is not defined",
+      "traceback": "Traceback (most recent call last):\n  File \"/Users/marshallmorris/gemini-chatbot/automated_testing/test_runner.py\", line 167, in _run_single_test\n    conversation_result = await simulator.run_full_conversation()\n                          ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^\n  File \"/Users/marshallmorris/gemini-chatbot/automated_testing/simulators/conversation_simulator.py\", line 96, in run_full_conversation\n    \"conversation_log\": [turn.to_dict() for turn in self.conversation_log],\n                         ~~~~~~~~~~~~^^\n  File \"/Users/marshallmorris/gemini-chatbot/automated_testing/simulators/conversation_simulator.py\", line 32, in to_dict\n    \"response_time\": response_time,\n                     ^^^^^^^^^^^^^\nNameError: name 'response_time' is not defined. Did you mean: 'self.response_time'?\n"
+    },
+    {
+      "test_id": "AUTO_TEST_random_000",
+      "patient_profile": {
+        "age": 86,
+        "conditions": [
+          "Alzheimers"
+        ],
+        "medications": [
+          "Galantamine"
+        ]
+      },
+      "type": "catastrophic_failure",
+      "error": "name 'response_time' is not defined",
+      "traceback": "Traceback (most recent call last):\n  File \"/Users/marshallmorris/gemini-chatbot/automated_testing/test_runner.py\", line 167, in _run_single_test\n    conversation_result = await simulator.run_full_conversation()\n                          ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^\n  File \"/Users/marshallmorris/gemini-chatbot/automated_testing/simulators/conversation_simulator.py\", line 96, in run_full_conversation\n    \"conversation_log\": [turn.to_dict() for turn in self.conversation_log],\n                         ~~~~~~~~~~~~^^\n  File \"/Users/marshallmorris/gemini-chatbot/automated_testing/simulators/conversation_simulator.py\", line 32, in to_dict\n    \"response_time\": response_time,\n                     ^^^^^^^^^^^^^\nNameError: name 'response_time' is not defined. Did you mean: 'self.response_time'?\n"
+    },
+    {
+      "test_id": "AUTO_TEST_random_001",
+      "patient_profile": {
+        "age": 51,
+        "conditions": [
+          "Psoriasis"
+        ],
+        "medications": [
+          "Methotrexate",
+          "Biologics (Humira)",
+          "Topical Corticosteroids"
+        ]
+      },
+      "type": "catastrophic_failure",
+      "error": "name 'response_time' is not defined",
+      "traceback": "Traceback (most recent call last):\n  File \"/Users/marshallmorris/gemini-chatbot/automated_testing/test_runner.py\", line 167, in _run_single_test\n    conversation_result = await simulator.run_full_conversation()\n                          ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^\n  File \"/Users/marshallmorris/gemini-chatbot/automated_testing/simulators/conversation_simulator.py\", line 96, in run_full_conversation\n    \"conversation_log\": [turn.to_dict() for turn in self.conversation_log],\n                         ~~~~~~~~~~~~^^\n  File \"/Users/marshallmorris/gemini-chatbot/automated_testing/simulators/conversation_simulator.py\", line 32, in to_dict\n    \"response_time\": response_time,\n                     ^^^^^^^^^^^^^\nNameError: name 'response_time' is not defined. Did you mean: 'self.response_time'?\n"
+    }
+  ],
+  "detailed_results": [
+    {
+      "patient_id": "AUTO_TEST_edge_unclear_000",
+      "patient_profile": {
+        "patient_id": "AUTO_TEST_edge_unclear_000",
+        "profile_type": "edge_case",
+        "demographics": {
+          "age": 50,
+          "gender": "female",
+          "location": "Birmingham, AL",
+          "name": "Unclear Patient",
+          "first_name": "Unclear",
+          "last_name": "Patient"
+        },
+        "medical_history": {
+          "primary_condition": "Hypertension",
+          "conditions": [
+            "Hypertension"
+          ],
+          "medications": [
+            "Lisinopril"
+          ],
+          "duration_years": 5,
+          "response_style": "unclear"
+        },
+        "expected_behavior": {
+          "should_find_trials": true,
+          "likely_eligible": "unclear",
+          "expected_question_count_range": [
+            5,
+            12
+          ],
+          "edge_case_type": "unclear_responses",
+          "should_ask_for_clarification": true
+        }
+      },
+      "conversation_result": {
+        "final_state": "crashed",
+        "errors": [
+          {
+            "type": "catastrophic",
+            "error": "name 'response_time' is not defined"
+          }
+        ]
+      },
+      "validation": {
+        "passed": false,
+        "overall_score": 0.0,
+        "crash_prevention": {
+          "passed": false,
+          "score": 0.0
+        },
+        "eligibility_accuracy": {
+          "passed": false,
+          "score": 0.0
+        },
+        "conversation_quality": {
+          "passed": false,
+          "score": 0.0
+        },
+        "edge_case_handling": {
+          "passed": false,
+          "score": 0.0
+        },
+        "performance": {
+          "passed": false,
+          "score": 0.0
+        },
+        "failure_points": [
+          {
+            "type": "catastrophic_failure",
+            "error": "name 'response_time' is not defined",
+            "traceback": "Traceback (most recent call last):\n  File \"/Users/marshallmorris/gemini-chatbot/automated_testing/test_runner.py\", line 167, in _run_single_test\n    conversation_result = await simulator.run_full_conversation()\n                          ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^\n  File \"/Users/marshallmorris/gemini-chatbot/automated_testing/simulators/conversation_simulator.py\", line 96, in run_full_conversation\n    \"conversation_log\": [turn.to_dict() for turn in self.conversation_log],\n                         ~~~~~~~~~~~~^^\n  File \"/Users/marshallmorris/gemini-chatbot/automated_testing/simulators/conversation_simulator.py\", line 32, in to_dict\n    \"response_time\": response_time,\n                     ^^^^^^^^^^^^^\nNameError: name 'response_time' is not defined. Did you mean: 'self.response_time'?\n"
+          }
+        ],
+        "recommendations": [
+          "\ud83d\udea8 CRITICAL: Catastrophic failure - investigate immediately"
+        ]
+      },
+      "timestamp": "2025-12-15T19:00:17.036148",
+      "catastrophic_error": "name 'response_time' is not defined",
+      "traceback": "Traceback (most recent call last):\n  File \"/Users/marshallmorris/gemini-chatbot/automated_testing/test_runner.py\", line 167, in _run_single_test\n    conversation_result = await simulator.run_full_conversation()\n                          ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^\n  File \"/Users/marshallmorris/gemini-chatbot/automated_testing/simulators/conversation_simulator.py\", line 96, in run_full_conversation\n    \"conversation_log\": [turn.to_dict() for turn in self.conversation_log],\n                         ~~~~~~~~~~~~^^\n  File \"/Users/marshallmorris/gemini-chatbot/automated_testing/simulators/conversation_simulator.py\", line 32, in to_dict\n    \"response_time\": response_time,\n                     ^^^^^^^^^^^^^\nNameError: name 'response_time' is not defined. Did you mean: 'self.response_time'?\n"
+    },
+    {
+      "patient_id": "AUTO_TEST_targeted_diabetes_001",
+      "patient_profile": {
+        "patient_id": "AUTO_TEST_targeted_diabetes_001",
+        "profile_type": "targeted",
+        "demographics": {
+          "age": 40,
+          "gender": "female",
+          "location": "Baton Rouge, LA",
+          "name": "Test Diabetes Patient",
+          "first_name": "Test",
+          "last_name": "Patient"
+        },
+        "medical_history": {
+          "primary_condition": "Type 2 Diabetes",
+          "conditions": [
+            "Type 2 Diabetes",
+            "Hypertension"
+          ],
+          "medications": [
+            "Metformin",
+            "Lisinopril"
+          ],
+          "duration_years": 7,
+          "a1c": 8.2,
+          "blood_glucose": 180
+        },
+        "expected_behavior": {
+          "should_find_trials": true,
+          "likely_eligible": true,
+          "expected_question_count_range": [
+            5,
+            9
+          ],
+          "target_trial_keywords": [
+            "diabetes"
+          ]
+        }
+      },
+      "conversation_result": {
+        "final_state": "crashed",
+        "errors": [
+          {
+            "type": "catastrophic",
+            "error": "name 'response_time' is not defined"
+          }
+        ]
+      },
+      "validation": {
+        "passed": false,
+        "overall_score": 0.0,
+        "crash_prevention": {
+          "passed": false,
+          "score": 0.0
+        },
+        "eligibility_accuracy": {
+          "passed": false,
+          "score": 0.0
+        },
+        "conversation_quality": {
+          "passed": false,
+          "score": 0.0
+        },
+        "edge_case_handling": {
+          "passed": false,
+          "score": 0.0
+        },
+        "performance": {
+          "passed": false,
+          "score": 0.0
+        },
+        "failure_points": [
+          {
+            "type": "catastrophic_failure",
+            "error": "name 'response_time' is not defined",
+            "traceback": "Traceback (most recent call last):\n  File \"/Users/marshallmorris/gemini-chatbot/automated_testing/test_runner.py\", line 167, in _run_single_test\n    conversation_result = await simulator.run_full_conversation()\n                          ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^\n  File \"/Users/marshallmorris/gemini-chatbot/automated_testing/simulators/conversation_simulator.py\", line 96, in run_full_conversation\n    \"conversation_log\": [turn.to_dict() for turn in self.conversation_log],\n                         ~~~~~~~~~~~~^^\n  File \"/Users/marshallmorris/gemini-chatbot/automated_testing/simulators/conversation_simulator.py\", line 32, in to_dict\n    \"response_time\": response_time,\n                     ^^^^^^^^^^^^^\nNameError: name 'response_time' is not defined. Did you mean: 'self.response_time'?\n"
+          }
+        ],
+        "recommendations": [
+          "\ud83d\udea8 CRITICAL: Catastrophic failure - investigate immediately"
+        ]
+      },
+      "timestamp": "2025-12-15T19:00:16.039303",
+      "catastrophic_error": "name 'response_time' is not defined",
+      "traceback": "Traceback (most recent call last):\n  File \"/Users/marshallmorris/gemini-chatbot/automated_testing/test_runner.py\", line 167, in _run_single_test\n    conversation_result = await simulator.run_full_conversation()\n                          ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^\n  File \"/Users/marshallmorris/gemini-chatbot/automated_testing/simulators/conversation_simulator.py\", line 96, in run_full_conversation\n    \"conversation_log\": [turn.to_dict() for turn in self.conversation_log],\n                         ~~~~~~~~~~~~^^\n  File \"/Users/marshallmorris/gemini-chatbot/automated_testing/simulators/conversation_simulator.py\", line 32, in to_dict\n    \"response_time\": response_time,\n                     ^^^^^^^^^^^^^\nNameError: name 'response_time' is not defined. Did you mean: 'self.response_time'?\n"
+    },
+    {
+      "patient_id": "AUTO_TEST_targeted_diabetes_000",
+      "patient_profile": {
+        "patient_id": "AUTO_TEST_targeted_diabetes_000",
+        "profile_type": "targeted",
+        "demographics": {
+          "age": 40,
+          "gender": "female",
+          "location": "Memphis, TN",
+          "name": "Test Diabetes Patient",
+          "first_name": "Test",
+          "last_name": "Patient"
+        },
+        "medical_history": {
+          "primary_condition": "Type 2 Diabetes",
+          "conditions": [
+            "Type 2 Diabetes",
+            "Hypertension"
+          ],
+          "medications": [
+            "Metformin",
+            "Lisinopril"
+          ],
+          "duration_years": 7,
+          "a1c": 8.2,
+          "blood_glucose": 180
+        },
+        "expected_behavior": {
+          "should_find_trials": true,
+          "likely_eligible": true,
+          "expected_question_count_range": [
+            5,
+            9
+          ],
+          "target_trial_keywords": [
+            "diabetes"
+          ]
+        }
+      },
+      "conversation_result": {
+        "final_state": "crashed",
+        "errors": [
+          {
+            "type": "catastrophic",
+            "error": "name 'response_time' is not defined"
+          }
+        ]
+      },
+      "validation": {
+        "passed": false,
+        "overall_score": 0.0,
+        "crash_prevention": {
+          "passed": false,
+          "score": 0.0
+        },
+        "eligibility_accuracy": {
+          "passed": false,
+          "score": 0.0
+        },
+        "conversation_quality": {
+          "passed": false,
+          "score": 0.0
+        },
+        "edge_case_handling": {
+          "passed": false,
+          "score": 0.0
+        },
+        "performance": {
+          "passed": false,
+          "score": 0.0
+        },
+        "failure_points": [
+          {
+            "type": "catastrophic_failure",
+            "error": "name 'response_time' is not defined",
+            "traceback": "Traceback (most recent call last):\n  File \"/Users/marshallmorris/gemini-chatbot/automated_testing/test_runner.py\", line 167, in _run_single_test\n    conversation_result = await simulator.run_full_conversation()\n                          ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^\n  File \"/Users/marshallmorris/gemini-chatbot/automated_testing/simulators/conversation_simulator.py\", line 96, in run_full_conversation\n    \"conversation_log\": [turn.to_dict() for turn in self.conversation_log],\n                         ~~~~~~~~~~~~^^\n  File \"/Users/marshallmorris/gemini-chatbot/automated_testing/simulators/conversation_simulator.py\", line 32, in to_dict\n    \"response_time\": response_time,\n                     ^^^^^^^^^^^^^\nNameError: name 'response_time' is not defined. Did you mean: 'self.response_time'?\n"
+          }
+        ],
+        "recommendations": [
+          "\ud83d\udea8 CRITICAL: Catastrophic failure - investigate immediately"
+        ]
+      },
+      "timestamp": "2025-12-15T19:01:03.039574",
+      "catastrophic_error": "name 'response_time' is not defined",
+      "traceback": "Traceback (most recent call last):\n  File \"/Users/marshallmorris/gemini-chatbot/automated_testing/test_runner.py\", line 167, in _run_single_test\n    conversation_result = await simulator.run_full_conversation()\n                          ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^\n  File \"/Users/marshallmorris/gemini-chatbot/automated_testing/simulators/conversation_simulator.py\", line 96, in run_full_conversation\n    \"conversation_log\": [turn.to_dict() for turn in self.conversation_log],\n                         ~~~~~~~~~~~~^^\n  File \"/Users/marshallmorris/gemini-chatbot/automated_testing/simulators/conversation_simulator.py\", line 32, in to_dict\n    \"response_time\": response_time,\n                     ^^^^^^^^^^^^^\nNameError: name 'response_time' is not defined. Did you mean: 'self.response_time'?\n"
+    },
+    {
+      "patient_id": "AUTO_TEST_random_000",
+      "patient_profile": {
+        "patient_id": "AUTO_TEST_random_000",
+        "profile_type": "random",
+        "demographics": {
+          "age": 86,
+          "gender": "female",
+          "location": "New Orleans, LA",
+          "name": "Patricia Williams",
+          "first_name": "Patricia",
+          "last_name": "Williams"
+        },
+        "medical_history": {
+          "primary_condition": "Alzheimers",
+          "conditions": [
+            "Alzheimers"
+          ],
+          "medications": [
+            "Galantamine"
+          ],
+          "duration_years": 6
+        },
+        "expected_behavior": {
+          "should_find_trials": true,
+          "likely_eligible": true,
+          "expected_question_count_range": [
+            4,
+            8
+          ]
+        }
+      },
+      "conversation_result": {
+        "final_state": "crashed",
+        "errors": [
+          {
+            "type": "catastrophic",
+            "error": "name 'response_time' is not defined"
+          }
+        ]
+      },
+      "validation": {
+        "passed": false,
+        "overall_score": 0.0,
+        "crash_prevention": {
+          "passed": false,
+          "score": 0.0
+        },
+        "eligibility_accuracy": {
+          "passed": false,
+          "score": 0.0
+        },
+        "conversation_quality": {
+          "passed": false,
+          "score": 0.0
+        },
+        "edge_case_handling": {
+          "passed": false,
+          "score": 0.0
+        },
+        "performance": {
+          "passed": false,
+          "score": 0.0
+        },
+        "failure_points": [
+          {
+            "type": "catastrophic_failure",
+            "error": "name 'response_time' is not defined",
+            "traceback": "Traceback (most recent call last):\n  File \"/Users/marshallmorris/gemini-chatbot/automated_testing/test_runner.py\", line 167, in _run_single_test\n    conversation_result = await simulator.run_full_conversation()\n                          ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^\n  File \"/Users/marshallmorris/gemini-chatbot/automated_testing/simulators/conversation_simulator.py\", line 96, in run_full_conversation\n    \"conversation_log\": [turn.to_dict() for turn in self.conversation_log],\n                         ~~~~~~~~~~~~^^\n  File \"/Users/marshallmorris/gemini-chatbot/automated_testing/simulators/conversation_simulator.py\", line 32, in to_dict\n    \"response_time\": response_time,\n                     ^^^^^^^^^^^^^\nNameError: name 'response_time' is not defined. Did you mean: 'self.response_time'?\n"
+          }
+        ],
+        "recommendations": [
+          "\ud83d\udea8 CRITICAL: Catastrophic failure - investigate immediately"
+        ]
+      },
+      "timestamp": "2025-12-15T19:02:01.034963",
+      "catastrophic_error": "name 'response_time' is not defined",
+      "traceback": "Traceback (most recent call last):\n  File \"/Users/marshallmorris/gemini-chatbot/automated_testing/test_runner.py\", line 167, in _run_single_test\n    conversation_result = await simulator.run_full_conversation()\n                          ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^\n  File \"/Users/marshallmorris/gemini-chatbot/automated_testing/simulators/conversation_simulator.py\", line 96, in run_full_conversation\n    \"conversation_log\": [turn.to_dict() for turn in self.conversation_log],\n                         ~~~~~~~~~~~~^^\n  File \"/Users/marshallmorris/gemini-chatbot/automated_testing/simulators/conversation_simulator.py\", line 32, in to_dict\n    \"response_time\": response_time,\n                     ^^^^^^^^^^^^^\nNameError: name 'response_time' is not defined. Did you mean: 'self.response_time'?\n"
+    },
+    {
+      "patient_id": "AUTO_TEST_random_001",
+      "patient_profile": {
+        "patient_id": "AUTO_TEST_random_001",
+        "profile_type": "random",
+        "demographics": {
+          "age": 51,
+          "gender": "non-binary",
+          "location": "Atlanta, GA",
+          "name": "Elizabeth Brown",
+          "first_name": "Elizabeth",
+          "last_name": "Brown"
+        },
+        "medical_history": {
+          "primary_condition": "Psoriasis",
+          "conditions": [
+            "Psoriasis"
+          ],
+          "medications": [
+            "Methotrexate",
+            "Biologics (Humira)",
+            "Topical Corticosteroids"
+          ],
+          "duration_years": 6
+        },
+        "expected_behavior": {
+          "should_find_trials": true,
+          "likely_eligible": true,
+          "expected_question_count_range": [
+            4,
+            8
+          ]
+        }
+      },
+      "conversation_result": {
+        "final_state": "crashed",
+        "errors": [
+          {
+            "type": "catastrophic",
+            "error": "name 'response_time' is not defined"
+          }
+        ]
+      },
+      "validation": {
+        "passed": false,
+        "overall_score": 0.0,
+        "crash_prevention": {
+          "passed": false,
+          "score": 0.0
+        },
+        "eligibility_accuracy": {
+          "passed": false,
+          "score": 0.0
+        },
+        "conversation_quality": {
+          "passed": false,
+          "score": 0.0
+        },
+        "edge_case_handling": {
+          "passed": false,
+          "score": 0.0
+        },
+        "performance": {
+          "passed": false,
+          "score": 0.0
+        },
+        "failure_points": [
+          {
+            "type": "catastrophic_failure",
+            "error": "name 'response_time' is not defined",
+            "traceback": "Traceback (most recent call last):\n  File \"/Users/marshallmorris/gemini-chatbot/automated_testing/test_runner.py\", line 167, in _run_single_test\n    conversation_result = await simulator.run_full_conversation()\n                          ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^\n  File \"/Users/marshallmorris/gemini-chatbot/automated_testing/simulators/conversation_simulator.py\", line 96, in run_full_conversation\n    \"conversation_log\": [turn.to_dict() for turn in self.conversation_log],\n                         ~~~~~~~~~~~~^^\n  File \"/Users/marshallmorris/gemini-chatbot/automated_testing/simulators/conversation_simulator.py\", line 32, in to_dict\n    \"response_time\": response_time,\n                     ^^^^^^^^^^^^^\nNameError: name 'response_time' is not defined. Did you mean: 'self.response_time'?\n"
+          }
+        ],
+        "recommendations": [
+          "\ud83d\udea8 CRITICAL: Catastrophic failure - investigate immediately"
+        ]
+      },
+      "timestamp": "2025-12-15T19:09:01.504535",
+      "catastrophic_error": "name 'response_time' is not defined",
+      "traceback": "Traceback (most recent call last):\n  File \"/Users/marshallmorris/gemini-chatbot/automated_testing/test_runner.py\", line 167, in _run_single_test\n    conversation_result = await simulator.run_full_conversation()\n                          ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^\n  File \"/Users/marshallmorris/gemini-chatbot/automated_testing/simulators/conversation_simulator.py\", line 96, in run_full_conversation\n    \"conversation_log\": [turn.to_dict() for turn in self.conversation_log],\n                         ~~~~~~~~~~~~^^\n  File \"/Users/marshallmorris/gemini-chatbot/automated_testing/simulators/conversation_simulator.py\", line 32, in to_dict\n    \"response_time\": response_time,\n                     ^^^^^^^^^^^^^\nNameError: name 'response_time' is not defined. Did you mean: 'self.response_time'?\n"
+    }
+  ]
+}

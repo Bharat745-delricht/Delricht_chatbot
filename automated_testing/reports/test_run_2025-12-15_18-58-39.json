@@ -1,0 +1,1321 @@
+{
+  "test_run_id": "test_run_2025-12-15_18-58-39",
+  "timestamp": "2025-12-15T18:58:39.816031",
+  "configuration": {
+    "api_base_url": "https://gemini-chatbot-480267397633.us-central1.run.app",
+    "num_tests": 50,
+    "parallel": 5,
+    "timeout": 120,
+    "save_reports": true,
+    "report_dir": "automated_testing/reports"
+  },
+  "summary": {
+    "total_tests": 5,
+    "passed": 0,
+    "failed": 5,
+    "pass_rate": 0.0,
+    "average_overall_score": 24.6,
+    "average_response_time": 0
+  },
+  "metrics": {
+    "crash_prevention": {
+      "average_score": 0.0,
+      "passed": 0,
+      "failed": 5
+    },
+    "eligibility_accuracy": {
+      "average_score": 0.0,
+      "passed": 0,
+      "failed": 5
+    },
+    "conversation_quality": {
+      "average_score": 80.0,
+      "passed": 5,
+      "failed": 0
+    },
+    "edge_case_handling": {
+      "average_score": 30.0,
+      "applicable_tests": 1,
+      "passed": 4
+    },
+    "performance": {
+      "average_response_time": 0,
+      "passed": 5
+    }
+  },
+  "failure_summary": {
+    "total_failures": 21,
+    "by_type": {
+      "crash": 10,
+      "eligibility_logic_error": 5,
+      "conversation_quality_issue": 5,
+      "edge_case_handling_failure": 1
+    }
+  },
+  "failures": [
+    {
+      "test_id": "AUTO_TEST_random_001",
+      "patient_profile": {
+        "age": 41,
+        "conditions": [
+          "Hypertension",
+          "Diabetes"
+        ],
+        "medications": [
+          "Metoprolol",
+          "Amlodipine",
+          "Losartan"
+        ]
+      },
+      "type": "crash",
+      "error_type": "api_error",
+      "error_message": "Cannot connect to host gemini-chatbot-480267397633.us-central1.run.app:443 ssl:True [SSLCertVerificationError: (1, '[SSL: CERTIFICATE_VERIFY_FAILED] certificate verify failed: unable to get local issuer certificate (_ssl.c:1028)')]",
+      "likely_location": "core/services/gemini_service.py",
+      "severity": "critical"
+    },
+    {
+      "test_id": "AUTO_TEST_random_001",
+      "patient_profile": {
+        "age": 41,
+        "conditions": [
+          "Hypertension",
+          "Diabetes"
+        ],
+        "medications": [
+          "Metoprolol",
+          "Amlodipine",
+          "Losartan"
+        ]
+      },
+      "type": "crash",
+      "error_type": "conversation_failure",
+      "error_message": "Cannot connect to host gemini-chatbot-480267397633.us-central1.run.app:443 ssl:True [SSLCertVerificationError: (1, '[SSL: CERTIFICATE_VERIFY_FAILED] certificate verify failed: unable to get local issuer certificate (_ssl.c:1028)')]",
+      "likely_location": "core/services/gemini_service.py",
+      "severity": "critical"
+    },
+    {
+      "test_id": "AUTO_TEST_random_001",
+      "patient_profile": {
+        "age": 41,
+        "conditions": [
+          "Hypertension",
+          "Diabetes"
+        ],
+        "medications": [
+          "Metoprolol",
+          "Amlodipine",
+          "Losartan"
+        ]
+      },
+      "type": "eligibility_logic_error",
+      "reason": "Prescreening flow did not complete",
+      "final_state": "failed",
+      "likely_location": "core/conversation/gemini_conversation_manager.py or core/prescreening/gemini_prescreening_manager.py",
+      "severity": "high"
+    },
+    {
+      "test_id": "AUTO_TEST_random_001",
+      "patient_profile": {
+        "age": 41,
+        "conditions": [
+          "Hypertension",
+          "Diabetes"
+        ],
+        "medications": [
+          "Metoprolol",
+          "Amlodipine",
+          "Losartan"
+        ]
+      },
+      "type": "conversation_quality_issue",
+      "issue": "Too few questions asked (0, expected at least 4)",
+      "severity": "medium",
+      "likely_location": "core/conversation/gemini_conversation_manager.py or core/prescreening/gemini_prescreening_manager.py"
+    },
+    {
+      "test_id": "AUTO_TEST_targeted_psoriasis_001",
+      "patient_profile": {
+        "age": 29,
+        "conditions": [
+          "Plaque Psoriasis"
+        ],
+        "medications": [
+          "Topical Corticosteroids"
+        ]
+      },
+      "type": "crash",
+      "error_type": "api_error",
+      "error_message": "Cannot connect to host gemini-chatbot-480267397633.us-central1.run.app:443 ssl:True [SSLCertVerificationError: (1, '[SSL: CERTIFICATE_VERIFY_FAILED] certificate verify failed: unable to get local issuer certificate (_ssl.c:1028)')]",
+      "likely_location": "core/services/gemini_service.py",
+      "severity": "critical"
+    },
+    {
+      "test_id": "AUTO_TEST_targeted_psoriasis_001",
+      "patient_profile": {
+        "age": 29,
+        "conditions": [
+          "Plaque Psoriasis"
+        ],
+        "medications": [
+          "Topical Corticosteroids"
+        ]
+      },
+      "type": "crash",
+      "error_type": "conversation_failure",
+      "error_message": "Cannot connect to host gemini-chatbot-480267397633.us-central1.run.app:443 ssl:True [SSLCertVerificationError: (1, '[SSL: CERTIFICATE_VERIFY_FAILED] certificate verify failed: unable to get local issuer certificate (_ssl.c:1028)')]",
+      "likely_location": "core/services/gemini_service.py",
+      "severity": "critical"
+    },
+    {
+      "test_id": "AUTO_TEST_targeted_psoriasis_001",
+      "patient_profile": {
+        "age": 29,
+        "conditions": [
+          "Plaque Psoriasis"
+        ],
+        "medications": [
+          "Topical Corticosteroids"
+        ]
+      },
+      "type": "eligibility_logic_error",
+      "reason": "Prescreening flow did not complete",
+      "final_state": "failed",
+      "likely_location": "core/conversation/gemini_conversation_manager.py or core/prescreening/gemini_prescreening_manager.py",
+      "severity": "high"
+    },
+    {
+      "test_id": "AUTO_TEST_targeted_psoriasis_001",
+      "patient_profile": {
+        "age": 29,
+        "conditions": [
+          "Plaque Psoriasis"
+        ],
+        "medications": [
+          "Topical Corticosteroids"
+        ]
+      },
+      "type": "conversation_quality_issue",
+      "issue": "Too few questions asked (0, expected at least 4)",
+      "severity": "medium",
+      "likely_location": "core/conversation/gemini_conversation_manager.py or core/prescreening/gemini_prescreening_manager.py"
+    },
+    {
+      "test_id": "AUTO_TEST_random_000",
+      "patient_profile": {
+        "age": 59,
+        "conditions": [
+          "Hypertension"
+        ],
+        "medications": [
+          "Hydrochlorothiazide",
+          "Metoprolol"
+        ]
+      },
+      "type": "crash",
+      "error_type": "api_error",
+      "error_message": "Cannot connect to host gemini-chatbot-480267397633.us-central1.run.app:443 ssl:True [SSLCertVerificationError: (1, '[SSL: CERTIFICATE_VERIFY_FAILED] certificate verify failed: unable to get local issuer certificate (_ssl.c:1028)')]",
+      "likely_location": "core/services/gemini_service.py",
+      "severity": "critical"
+    },
+    {
+      "test_id": "AUTO_TEST_random_000",
+      "patient_profile": {
+        "age": 59,
+        "conditions": [
+          "Hypertension"
+        ],
+        "medications": [
+          "Hydrochlorothiazide",
+          "Metoprolol"
+        ]
+      },
+      "type": "crash",
+      "error_type": "conversation_failure",
+      "error_message": "Cannot connect to host gemini-chatbot-480267397633.us-central1.run.app:443 ssl:True [SSLCertVerificationError: (1, '[SSL: CERTIFICATE_VERIFY_FAILED] certificate verify failed: unable to get local issuer certificate (_ssl.c:1028)')]",
+      "likely_location": "core/services/gemini_service.py",
+      "severity": "critical"
+    },
+    {
+      "test_id": "AUTO_TEST_random_000",
+      "patient_profile": {
+        "age": 59,
+        "conditions": [
+          "Hypertension"
+        ],
+        "medications": [
+          "Hydrochlorothiazide",
+          "Metoprolol"
+        ]
+      },
+      "type": "eligibility_logic_error",
+      "reason": "Prescreening flow did not complete",
+      "final_state": "failed",
+      "likely_location": "core/conversation/gemini_conversation_manager.py or core/prescreening/gemini_prescreening_manager.py",
+      "severity": "high"
+    },
+    {
+      "test_id": "AUTO_TEST_random_000",
+      "patient_profile": {
+        "age": 59,
+        "conditions": [
+          "Hypertension"
+        ],
+        "medications": [
+          "Hydrochlorothiazide",
+          "Metoprolol"
+        ]
+      },
+      "type": "conversation_quality_issue",
+      "issue": "Too few questions asked (0, expected at least 4)",
+      "severity": "medium",
+      "likely_location": "core/conversation/gemini_conversation_manager.py or core/prescreening/gemini_prescreening_manager.py"
+    },
+    {
+      "test_id": "AUTO_TEST_targeted_diabetes_000",
+      "patient_profile": {
+        "age": 54,
+        "conditions": [
+          "Type 2 Diabetes",
+          "Hypertension"
+        ],
+        "medications": [
+          "Metformin",
+          "Lisinopril"
+        ]
+      },
+      "type": "crash",
+      "error_type": "api_error",
+      "error_message": "Cannot connect to host gemini-chatbot-480267397633.us-central1.run.app:443 ssl:True [SSLCertVerificationError: (1, '[SSL: CERTIFICATE_VERIFY_FAILED] certificate verify failed: unable to get local issuer certificate (_ssl.c:1028)')]",
+      "likely_location": "core/services/gemini_service.py",
+      "severity": "critical"
+    },
+    {
+      "test_id": "AUTO_TEST_targeted_diabetes_000",
+      "patient_profile": {
+        "age": 54,
+        "conditions": [
+          "Type 2 Diabetes",
+          "Hypertension"
+        ],
+        "medications": [
+          "Metformin",
+          "Lisinopril"
+        ]
+      },
+      "type": "crash",
+      "error_type": "conversation_failure",
+      "error_message": "Cannot connect to host gemini-chatbot-480267397633.us-central1.run.app:443 ssl:True [SSLCertVerificationError: (1, '[SSL: CERTIFICATE_VERIFY_FAILED] certificate verify failed: unable to get local issuer certificate (_ssl.c:1028)')]",
+      "likely_location": "core/services/gemini_service.py",
+      "severity": "critical"
+    },
+    {
+      "test_id": "AUTO_TEST_targeted_diabetes_000",
+      "patient_profile": {
+        "age": 54,
+        "conditions": [
+          "Type 2 Diabetes",
+          "Hypertension"
+        ],
+        "medications": [
+          "Metformin",
+          "Lisinopril"
+        ]
+      },
+      "type": "eligibility_logic_error",
+      "reason": "Prescreening flow did not complete",
+      "final_state": "failed",
+      "likely_location": "core/conversation/gemini_conversation_manager.py or core/prescreening/gemini_prescreening_manager.py",
+      "severity": "high"
+    },
+    {
+      "test_id": "AUTO_TEST_targeted_diabetes_000",
+      "patient_profile": {
+        "age": 54,
+        "conditions": [
+          "Type 2 Diabetes",
+          "Hypertension"
+        ],
+        "medications": [
+          "Metformin",
+          "Lisinopril"
+        ]
+      },
+      "type": "conversation_quality_issue",
+      "issue": "Too few questions asked (0, expected at least 5)",
+      "severity": "medium",
+      "likely_location": "core/conversation/gemini_conversation_manager.py or core/prescreening/gemini_prescreening_manager.py"
+    },
+    {
+      "test_id": "AUTO_TEST_edge_unclear_000",
+      "patient_profile": {
+        "age": 50,
+        "conditions": [
+          "Hypertension"
+        ],
+        "medications": [
+          "Lisinopril"
+        ]
+      },
+      "type": "crash",
+      "error_type": "api_error",
+      "error_message": "Cannot connect to host gemini-chatbot-480267397633.us-central1.run.app:443 ssl:True [SSLCertVerificationError: (1, '[SSL: CERTIFICATE_VERIFY_FAILED] certificate verify failed: unable to get local issuer certificate (_ssl.c:1028)')]",
+      "likely_location": "core/services/gemini_service.py",
+      "severity": "critical"
+    },
+    {
+      "test_id": "AUTO_TEST_edge_unclear_000",
+      "patient_profile": {
+        "age": 50,
+        "conditions": [
+          "Hypertension"
+        ],
+        "medications": [
+          "Lisinopril"
+        ]
+      },
+      "type": "crash",
+      "error_type": "conversation_failure",
+      "error_message": "Cannot connect to host gemini-chatbot-480267397633.us-central1.run.app:443 ssl:True [SSLCertVerificationError: (1, '[SSL: CERTIFICATE_VERIFY_FAILED] certificate verify failed: unable to get local issuer certificate (_ssl.c:1028)')]",
+      "likely_location": "core/services/gemini_service.py",
+      "severity": "critical"
+    },
+    {
+      "test_id": "AUTO_TEST_edge_unclear_000",
+      "patient_profile": {
+        "age": 50,
+        "conditions": [
+          "Hypertension"
+        ],
+        "medications": [
+          "Lisinopril"
+        ]
+      },
+      "type": "eligibility_logic_error",
+      "reason": "Prescreening flow did not complete",
+      "final_state": "failed",
+      "likely_location": "core/conversation/gemini_conversation_manager.py or core/prescreening/gemini_prescreening_manager.py",
+      "severity": "high"
+    },
+    {
+      "test_id": "AUTO_TEST_edge_unclear_000",
+      "patient_profile": {
+        "age": 50,
+        "conditions": [
+          "Hypertension"
+        ],
+        "medications": [
+          "Lisinopril"
+        ]
+      },
+      "type": "conversation_quality_issue",
+      "issue": "Too few questions asked (0, expected at least 5)",
+      "severity": "medium",
+      "likely_location": "core/conversation/gemini_conversation_manager.py or core/prescreening/gemini_prescreening_manager.py"
+    },
+    {
+      "test_id": "AUTO_TEST_edge_unclear_000",
+      "patient_profile": {
+        "age": 50,
+        "conditions": [
+          "Hypertension"
+        ],
+        "medications": [
+          "Lisinopril"
+        ]
+      },
+      "type": "edge_case_handling_failure",
+      "edge_case_type": "unclear_responses",
+      "final_state": "failed",
+      "reason": "Edge case caused conversation to fail",
+      "severity": "medium",
+      "likely_location": "core/conversation/gemini_conversation_manager.py or core/prescreening/gemini_prescreening_manager.py"
+    }
+  ],
+  "detailed_results": [
+    {
+      "patient_id": "AUTO_TEST_random_001",
+      "patient_profile": {
+        "patient_id": "AUTO_TEST_random_001",
+        "profile_type": "random",
+        "demographics": {
+          "age": 41,
+          "gender": "female",
+          "location": "New Orleans, LA",
+          "name": "Susan Brown",
+          "first_name": "Susan",
+          "last_name": "Brown"
+        },
+        "medical_history": {
+          "primary_condition": "Hypertension",
+          "conditions": [
+            "Hypertension",
+            "Diabetes"
+          ],
+          "medications": [
+            "Metoprolol",
+            "Amlodipine",
+            "Losartan"
+          ],
+          "duration_years": 3
+        },
+        "expected_behavior": {
+          "should_find_trials": true,
+          "likely_eligible": true,
+          "expected_question_count_range": [
+            4,
+            8
+          ]
+        }
+      },
+      "conversation_result": {
+        "session_id": "AUTO_TEST_random_001",
+        "patient_id": "AUTO_TEST_random_001",
+        "conversation_log": [],
+        "final_state": "failed",
+        "total_turns": 0,
+        "total_questions_asked": 0,
+        "errors": [
+          {
+            "type": "api_error",
+            "message": "Hypertension trials in New Orleans, LA",
+            "error": "Cannot connect to host gemini-chatbot-480267397633.us-central1.run.app:443 ssl:True [SSLCertVerificationError: (1, '[SSL: CERTIFICATE_VERIFY_FAILED] certificate verify failed: unable to get local issuer certificate (_ssl.c:1028)')]",
+            "response_time": 0.7689049243927002
+          },
+          {
+            "type": "conversation_failure",
+            "error": "Cannot connect to host gemini-chatbot-480267397633.us-central1.run.app:443 ssl:True [SSLCertVerificationError: (1, '[SSL: CERTIFICATE_VERIFY_FAILED] certificate verify failed: unable to get local issuer certificate (_ssl.c:1028)')]",
+            "state": "initial",
+            "timestamp": "2025-12-15T18:58:38.418997"
+          }
+        ]
+      },
+      "validation": {
+        "passed": false,
+        "overall_score": 26.0,
+        "crash_prevention": {
+          "passed": false,
+          "score": 0.0,
+          "error_count": 2,
+          "errors": [
+            {
+              "type": "api_error",
+              "message": "Hypertension trials in New Orleans, LA",
+              "error": "Cannot connect to host gemini-chatbot-480267397633.us-central1.run.app:443 ssl:True [SSLCertVerificationError: (1, '[SSL: CERTIFICATE_VERIFY_FAILED] certificate verify failed: unable to get local issuer certificate (_ssl.c:1028)')]",
+              "response_time": 0.7689049243927002
+            },
+            {
+              "type": "conversation_failure",
+              "error": "Cannot connect to host gemini-chatbot-480267397633.us-central1.run.app:443 ssl:True [SSLCertVerificationError: (1, '[SSL: CERTIFICATE_VERIFY_FAILED] certificate verify failed: unable to get local issuer certificate (_ssl.c:1028)')]",
+              "state": "initial",
+              "timestamp": "2025-12-15T18:58:38.418997"
+            }
+          ],
+          "failures": [
+            {
+              "type": "crash",
+              "error_type": "api_error",
+              "error_message": "Cannot connect to host gemini-chatbot-480267397633.us-central1.run.app:443 ssl:True [SSLCertVerificationError: (1, '[SSL: CERTIFICATE_VERIFY_FAILED] certificate verify failed: unable to get local issuer certificate (_ssl.c:1028)')]",
+              "likely_location": "core/services/gemini_service.py",
+              "severity": "critical"
+            },
+            {
+              "type": "crash",
+              "error_type": "conversation_failure",
+              "error_message": "Cannot connect to host gemini-chatbot-480267397633.us-central1.run.app:443 ssl:True [SSLCertVerificationError: (1, '[SSL: CERTIFICATE_VERIFY_FAILED] certificate verify failed: unable to get local issuer certificate (_ssl.c:1028)')]",
+              "likely_location": "core/services/gemini_service.py",
+              "severity": "critical"
+            }
+          ]
+        },
+        "eligibility_accuracy": {
+          "passed": false,
+          "score": 0.0,
+          "reason": "Prescreening did not complete",
+          "failures": [
+            {
+              "type": "eligibility_logic_error",
+              "reason": "Prescreening flow did not complete",
+              "final_state": "failed",
+              "likely_location": "core/conversation/gemini_conversation_manager.py or core/prescreening/gemini_prescreening_manager.py",
+              "severity": "high"
+            }
+          ]
+        },
+        "conversation_quality": {
+          "passed": true,
+          "score": 80.0,
+          "total_questions_asked": 0,
+          "issues": [
+            "Too few questions asked (0, expected at least 4)"
+          ],
+          "failures": [
+            {
+              "type": "conversation_quality_issue",
+              "issue": "Too few questions asked (0, expected at least 4)",
+              "severity": "medium",
+              "likely_location": "core/conversation/gemini_conversation_manager.py or core/prescreening/gemini_prescreening_manager.py"
+            }
+          ]
+        },
+        "edge_case_handling": {
+          "passed": true,
+          "score": 100.0,
+          "applicable": false,
+          "failures": []
+        },
+        "performance": {
+          "passed": true,
+          "score": 100.0,
+          "failures": []
+        },
+        "failure_points": [
+          {
+            "type": "crash",
+            "error_type": "api_error",
+            "error_message": "Cannot connect to host gemini-chatbot-480267397633.us-central1.run.app:443 ssl:True [SSLCertVerificationError: (1, '[SSL: CERTIFICATE_VERIFY_FAILED] certificate verify failed: unable to get local issuer certificate (_ssl.c:1028)')]",
+            "likely_location": "core/services/gemini_service.py",
+            "severity": "critical"
+          },
+          {
+            "type": "crash",
+            "error_type": "conversation_failure",
+            "error_message": "Cannot connect to host gemini-chatbot-480267397633.us-central1.run.app:443 ssl:True [SSLCertVerificationError: (1, '[SSL: CERTIFICATE_VERIFY_FAILED] certificate verify failed: unable to get local issuer certificate (_ssl.c:1028)')]",
+            "likely_location": "core/services/gemini_service.py",
+            "severity": "critical"
+          },
+          {
+            "type": "eligibility_logic_error",
+            "reason": "Prescreening flow did not complete",
+            "final_state": "failed",
+            "likely_location": "core/conversation/gemini_conversation_manager.py or core/prescreening/gemini_prescreening_manager.py",
+            "severity": "high"
+          },
+          {
+            "type": "conversation_quality_issue",
+            "issue": "Too few questions asked (0, expected at least 4)",
+            "severity": "medium",
+            "likely_location": "core/conversation/gemini_conversation_manager.py or core/prescreening/gemini_prescreening_manager.py"
+          }
+        ],
+        "recommendations": [
+          "\ud83d\udea8 CRITICAL: Fix crashes and exceptions. Review error logs and add error handling.",
+          "\u26a0\ufe0f HIGH: Review eligibility evaluation logic in gemini_prescreening_manager.py"
+        ]
+      },
+      "timestamp": "2025-12-15T18:58:38.419034"
+    },
+    {
+      "patient_id": "AUTO_TEST_targeted_psoriasis_001",
+      "patient_profile": {
+        "patient_id": "AUTO_TEST_targeted_psoriasis_001",
+        "profile_type": "targeted",
+        "demographics": {
+          "age": 29,
+          "gender": "male",
+          "location": "New Orleans, LA",
+          "name": "Test Psoriasis Patient",
+          "first_name": "Test",
+          "last_name": "Patient"
+        },
+        "medical_history": {
+          "primary_condition": "Psoriasis",
+          "conditions": [
+            "Plaque Psoriasis"
+          ],
+          "medications": [
+            "Topical Corticosteroids"
+          ],
+          "duration_years": 5,
+          "pasi_score": 15,
+          "body_surface_area": "20%"
+        },
+        "expected_behavior": {
+          "should_find_trials": true,
+          "likely_eligible": true,
+          "expected_question_count_range": [
+            4,
+            7
+          ],
+          "target_trial_keywords": [
+            "psoriasis",
+            "dermatology"
+          ]
+        }
+      },
+      "conversation_result": {
+        "session_id": "AUTO_TEST_targeted_psoriasis_001",
+        "patient_id": "AUTO_TEST_targeted_psoriasis_001",
+        "conversation_log": [],
+        "final_state": "failed",
+        "total_turns": 0,
+        "total_questions_asked": 0,
+        "errors": [
+          {
+            "type": "api_error",
+            "message": "Psoriasis trials in New Orleans, LA",
+            "error": "Cannot connect to host gemini-chatbot-480267397633.us-central1.run.app:443 ssl:True [SSLCertVerificationError: (1, '[SSL: CERTIFICATE_VERIFY_FAILED] certificate verify failed: unable to get local issuer certificate (_ssl.c:1028)')]",
+            "response_time": 0.7630419731140137
+          },
+          {
+            "type": "conversation_failure",
+            "error": "Cannot connect to host gemini-chatbot-480267397633.us-central1.run.app:443 ssl:True [SSLCertVerificationError: (1, '[SSL: CERTIFICATE_VERIFY_FAILED] certificate verify failed: unable to get local issuer certificate (_ssl.c:1028)')]",
+            "state": "initial",
+            "timestamp": "2025-12-15T18:58:38.414392"
+          }
+        ]
+      },
+      "validation": {
+        "passed": false,
+        "overall_score": 26.0,
+        "crash_prevention": {
+          "passed": false,
+          "score": 0.0,
+          "error_count": 2,
+          "errors": [
+            {
+              "type": "api_error",
+              "message": "Psoriasis trials in New Orleans, LA",
+              "error": "Cannot connect to host gemini-chatbot-480267397633.us-central1.run.app:443 ssl:True [SSLCertVerificationError: (1, '[SSL: CERTIFICATE_VERIFY_FAILED] certificate verify failed: unable to get local issuer certificate (_ssl.c:1028)')]",
+              "response_time": 0.7630419731140137
+            },
+            {
+              "type": "conversation_failure",
+              "error": "Cannot connect to host gemini-chatbot-480267397633.us-central1.run.app:443 ssl:True [SSLCertVerificationError: (1, '[SSL: CERTIFICATE_VERIFY_FAILED] certificate verify failed: unable to get local issuer certificate (_ssl.c:1028)')]",
+              "state": "initial",
+              "timestamp": "2025-12-15T18:58:38.414392"
+            }
+          ],
+          "failures": [
+            {
+              "type": "crash",
+              "error_type": "api_error",
+              "error_message": "Cannot connect to host gemini-chatbot-480267397633.us-central1.run.app:443 ssl:True [SSLCertVerificationError: (1, '[SSL: CERTIFICATE_VERIFY_FAILED] certificate verify failed: unable to get local issuer certificate (_ssl.c:1028)')]",
+              "likely_location": "core/services/gemini_service.py",
+              "severity": "critical"
+            },
+            {
+              "type": "crash",
+              "error_type": "conversation_failure",
+              "error_message": "Cannot connect to host gemini-chatbot-480267397633.us-central1.run.app:443 ssl:True [SSLCertVerificationError: (1, '[SSL: CERTIFICATE_VERIFY_FAILED] certificate verify failed: unable to get local issuer certificate (_ssl.c:1028)')]",
+              "likely_location": "core/services/gemini_service.py",
+              "severity": "critical"
+            }
+          ]
+        },
+        "eligibility_accuracy": {
+          "passed": false,
+          "score": 0.0,
+          "reason": "Prescreening did not complete",
+          "failures": [
+            {
+              "type": "eligibility_logic_error",
+              "reason": "Prescreening flow did not complete",
+              "final_state": "failed",
+              "likely_location": "core/conversation/gemini_conversation_manager.py or core/prescreening/gemini_prescreening_manager.py",
+              "severity": "high"
+            }
+          ]
+        },
+        "conversation_quality": {
+          "passed": true,
+          "score": 80.0,
+          "total_questions_asked": 0,
+          "issues": [
+            "Too few questions asked (0, expected at least 4)"
+          ],
+          "failures": [
+            {
+              "type": "conversation_quality_issue",
+              "issue": "Too few questions asked (0, expected at least 4)",
+              "severity": "medium",
+              "likely_location": "core/conversation/gemini_conversation_manager.py or core/prescreening/gemini_prescreening_manager.py"
+            }
+          ]
+        },
+        "edge_case_handling": {
+          "passed": true,
+          "score": 100.0,
+          "applicable": false,
+          "failures": []
+        },
+        "performance": {
+          "passed": true,
+          "score": 100.0,
+          "failures": []
+        },
+        "failure_points": [
+          {
+            "type": "crash",
+            "error_type": "api_error",
+            "error_message": "Cannot connect to host gemini-chatbot-480267397633.us-central1.run.app:443 ssl:True [SSLCertVerificationError: (1, '[SSL: CERTIFICATE_VERIFY_FAILED] certificate verify failed: unable to get local issuer certificate (_ssl.c:1028)')]",
+            "likely_location": "core/services/gemini_service.py",
+            "severity": "critical"
+          },
+          {
+            "type": "crash",
+            "error_type": "conversation_failure",
+            "error_message": "Cannot connect to host gemini-chatbot-480267397633.us-central1.run.app:443 ssl:True [SSLCertVerificationError: (1, '[SSL: CERTIFICATE_VERIFY_FAILED] certificate verify failed: unable to get local issuer certificate (_ssl.c:1028)')]",
+            "likely_location": "core/services/gemini_service.py",
+            "severity": "critical"
+          },
+          {
+            "type": "eligibility_logic_error",
+            "reason": "Prescreening flow did not complete",
+            "final_state": "failed",
+            "likely_location": "core/conversation/gemini_conversation_manager.py or core/prescreening/gemini_prescreening_manager.py",
+            "severity": "high"
+          },
+          {
+            "type": "conversation_quality_issue",
+            "issue": "Too few questions asked (0, expected at least 4)",
+            "severity": "medium",
+            "likely_location": "core/conversation/gemini_conversation_manager.py or core/prescreening/gemini_prescreening_manager.py"
+          }
+        ],
+        "recommendations": [
+          "\ud83d\udea8 CRITICAL: Fix crashes and exceptions. Review error logs and add error handling.",
+          "\u26a0\ufe0f HIGH: Review eligibility evaluation logic in gemini_prescreening_manager.py"
+        ]
+      },
+      "timestamp": "2025-12-15T18:58:38.414462"
+    },
+    {
+      "patient_id": "AUTO_TEST_random_000",
+      "patient_profile": {
+        "patient_id": "AUTO_TEST_random_000",
+        "profile_type": "random",
+        "demographics": {
+          "age": 59,
+          "gender": "male",
+          "location": "New Orleans, LA",
+          "name": "James Brown",
+          "first_name": "James",
+          "last_name": "Brown"
+        },
+        "medical_history": {
+          "primary_condition": "Hypertension",
+          "conditions": [
+            "Hypertension"
+          ],
+          "medications": [
+            "Hydrochlorothiazide",
+            "Metoprolol"
+          ],
+          "duration_years": 4
+        },
+        "expected_behavior": {
+          "should_find_trials": true,
+          "likely_eligible": true,
+          "expected_question_count_range": [
+            4,
+            8
+          ]
+        }
+      },
+      "conversation_result": {
+        "session_id": "AUTO_TEST_random_000",
+        "patient_id": "AUTO_TEST_random_000",
+        "conversation_log": [],
+        "final_state": "failed",
+        "total_turns": 0,
+        "total_questions_asked": 0,
+        "errors": [
+          {
+            "type": "api_error",
+            "message": "Hypertension trials in New Orleans, LA",
+            "error": "Cannot connect to host gemini-chatbot-480267397633.us-central1.run.app:443 ssl:True [SSLCertVerificationError: (1, '[SSL: CERTIFICATE_VERIFY_FAILED] certificate verify failed: unable to get local issuer certificate (_ssl.c:1028)')]",
+            "response_time": 0.7403740882873535
+          },
+          {
+            "type": "conversation_failure",
+            "error": "Cannot connect to host gemini-chatbot-480267397633.us-central1.run.app:443 ssl:True [SSLCertVerificationError: (1, '[SSL: CERTIFICATE_VERIFY_FAILED] certificate verify failed: unable to get local issuer certificate (_ssl.c:1028)')]",
+            "state": "initial",
+            "timestamp": "2025-12-15T18:58:39.159666"
+          }
+        ]
+      },
+      "validation": {
+        "passed": false,
+        "overall_score": 26.0,
+        "crash_prevention": {
+          "passed": false,
+          "score": 0.0,
+          "error_count": 2,
+          "errors": [
+            {
+              "type": "api_error",
+              "message": "Hypertension trials in New Orleans, LA",
+              "error": "Cannot connect to host gemini-chatbot-480267397633.us-central1.run.app:443 ssl:True [SSLCertVerificationError: (1, '[SSL: CERTIFICATE_VERIFY_FAILED] certificate verify failed: unable to get local issuer certificate (_ssl.c:1028)')]",
+              "response_time": 0.7403740882873535
+            },
+            {
+              "type": "conversation_failure",
+              "error": "Cannot connect to host gemini-chatbot-480267397633.us-central1.run.app:443 ssl:True [SSLCertVerificationError: (1, '[SSL: CERTIFICATE_VERIFY_FAILED] certificate verify failed: unable to get local issuer certificate (_ssl.c:1028)')]",
+              "state": "initial",
+              "timestamp": "2025-12-15T18:58:39.159666"
+            }
+          ],
+          "failures": [
+            {
+              "type": "crash",
+              "error_type": "api_error",
+              "error_message": "Cannot connect to host gemini-chatbot-480267397633.us-central1.run.app:443 ssl:True [SSLCertVerificationError: (1, '[SSL: CERTIFICATE_VERIFY_FAILED] certificate verify failed: unable to get local issuer certificate (_ssl.c:1028)')]",
+              "likely_location": "core/services/gemini_service.py",
+              "severity": "critical"
+            },
+            {
+              "type": "crash",
+              "error_type": "conversation_failure",
+              "error_message": "Cannot connect to host gemini-chatbot-480267397633.us-central1.run.app:443 ssl:True [SSLCertVerificationError: (1, '[SSL: CERTIFICATE_VERIFY_FAILED] certificate verify failed: unable to get local issuer certificate (_ssl.c:1028)')]",
+              "likely_location": "core/services/gemini_service.py",
+              "severity": "critical"
+            }
+          ]
+        },
+        "eligibility_accuracy": {
+          "passed": false,
+          "score": 0.0,
+          "reason": "Prescreening did not complete",
+          "failures": [
+            {
+              "type": "eligibility_logic_error",
+              "reason": "Prescreening flow did not complete",
+              "final_state": "failed",
+              "likely_location": "core/conversation/gemini_conversation_manager.py or core/prescreening/gemini_prescreening_manager.py",
+              "severity": "high"
+            }
+          ]
+        },
+        "conversation_quality": {
+          "passed": true,
+          "score": 80.0,
+          "total_questions_asked": 0,
+          "issues": [
+            "Too few questions asked (0, expected at least 4)"
+          ],
+          "failures": [
+            {
+              "type": "conversation_quality_issue",
+              "issue": "Too few questions asked (0, expected at least 4)",
+              "severity": "medium",
+              "likely_location": "core/conversation/gemini_conversation_manager.py or core/prescreening/gemini_prescreening_manager.py"
+            }
+          ]
+        },
+        "edge_case_handling": {
+          "passed": true,
+          "score": 100.0,
+          "applicable": false,
+          "failures": []
+        },
+        "performance": {
+          "passed": true,
+          "score": 100.0,
+          "failures": []
+        },
+        "failure_points": [
+          {
+            "type": "crash",
+            "error_type": "api_error",
+            "error_message": "Cannot connect to host gemini-chatbot-480267397633.us-central1.run.app:443 ssl:True [SSLCertVerificationError: (1, '[SSL: CERTIFICATE_VERIFY_FAILED] certificate verify failed: unable to get local issuer certificate (_ssl.c:1028)')]",
+            "likely_location": "core/services/gemini_service.py",
+            "severity": "critical"
+          },
+          {
+            "type": "crash",
+            "error_type": "conversation_failure",
+            "error_message": "Cannot connect to host gemini-chatbot-480267397633.us-central1.run.app:443 ssl:True [SSLCertVerificationError: (1, '[SSL: CERTIFICATE_VERIFY_FAILED] certificate verify failed: unable to get local issuer certificate (_ssl.c:1028)')]",
+            "likely_location": "core/services/gemini_service.py",
+            "severity": "critical"
+          },
+          {
+            "type": "eligibility_logic_error",
+            "reason": "Prescreening flow did not complete",
+            "final_state": "failed",
+            "likely_location": "core/conversation/gemini_conversation_manager.py or core/prescreening/gemini_prescreening_manager.py",
+            "severity": "high"
+          },
+          {
+            "type": "conversation_quality_issue",
+            "issue": "Too few questions asked (0, expected at least 4)",
+            "severity": "medium",
+            "likely_location": "core/conversation/gemini_conversation_manager.py or core/prescreening/gemini_prescreening_manager.py"
+          }
+        ],
+        "recommendations": [
+          "\ud83d\udea8 CRITICAL: Fix crashes and exceptions. Review error logs and add error handling.",
+          "\u26a0\ufe0f HIGH: Review eligibility evaluation logic in gemini_prescreening_manager.py"
+        ]
+      },
+      "timestamp": "2025-12-15T18:58:39.159708"
+    },
+    {
+      "patient_id": "AUTO_TEST_targeted_diabetes_000",
+      "patient_profile": {
+        "patient_id": "AUTO_TEST_targeted_diabetes_000",
+        "profile_type": "targeted",
+        "demographics": {
+          "age": 54,
+          "gender": "male",
+          "location": "Charlotte, NC",
+          "name": "Test Diabetes Patient",
+          "first_name": "Test",
+          "last_name": "Patient"
+        },
+        "medical_history": {
+          "primary_condition": "Type 2 Diabetes",
+          "conditions": [
+            "Type 2 Diabetes",
+            "Hypertension"
+          ],
+          "medications": [
+            "Metformin",
+            "Lisinopril"
+          ],
+          "duration_years": 7,
+          "a1c": 8.2,
+          "blood_glucose": 180
+        },
+        "expected_behavior": {
+          "should_find_trials": true,
+          "likely_eligible": true,
+          "expected_question_count_range": [
+            5,
+            9
+          ],
+          "target_trial_keywords": [
+            "diabetes"
+          ]
+        }
+      },
+      "conversation_result": {
+        "session_id": "AUTO_TEST_targeted_diabetes_000",
+        "patient_id": "AUTO_TEST_targeted_diabetes_000",
+        "conversation_log": [],
+        "final_state": "failed",
+        "total_turns": 0,
+        "total_questions_asked": 0,
+        "errors": [
+          {
+            "type": "api_error",
+            "message": "Type 2 Diabetes trials in Charlotte, NC",
+            "error": "Cannot connect to host gemini-chatbot-480267397633.us-central1.run.app:443 ssl:True [SSLCertVerificationError: (1, '[SSL: CERTIFICATE_VERIFY_FAILED] certificate verify failed: unable to get local issuer certificate (_ssl.c:1028)')]",
+            "response_time": 0.7086889743804932
+          },
+          {
+            "type": "conversation_failure",
+            "error": "Cannot connect to host gemini-chatbot-480267397633.us-central1.run.app:443 ssl:True [SSLCertVerificationError: (1, '[SSL: CERTIFICATE_VERIFY_FAILED] certificate verify failed: unable to get local issuer certificate (_ssl.c:1028)')]",
+            "state": "initial",
+            "timestamp": "2025-12-15T18:58:39.128328"
+          }
+        ]
+      },
+      "validation": {
+        "passed": false,
+        "overall_score": 26.0,
+        "crash_prevention": {
+          "passed": false,
+          "score": 0.0,
+          "error_count": 2,
+          "errors": [
+            {
+              "type": "api_error",
+              "message": "Type 2 Diabetes trials in Charlotte, NC",
+              "error": "Cannot connect to host gemini-chatbot-480267397633.us-central1.run.app:443 ssl:True [SSLCertVerificationError: (1, '[SSL: CERTIFICATE_VERIFY_FAILED] certificate verify failed: unable to get local issuer certificate (_ssl.c:1028)')]",
+              "response_time": 0.7086889743804932
+            },
+            {
+              "type": "conversation_failure",
+              "error": "Cannot connect to host gemini-chatbot-480267397633.us-central1.run.app:443 ssl:True [SSLCertVerificationError: (1, '[SSL: CERTIFICATE_VERIFY_FAILED] certificate verify failed: unable to get local issuer certificate (_ssl.c:1028)')]",
+              "state": "initial",
+              "timestamp": "2025-12-15T18:58:39.128328"
+            }
+          ],
+          "failures": [
+            {
+              "type": "crash",
+              "error_type": "api_error",
+              "error_message": "Cannot connect to host gemini-chatbot-480267397633.us-central1.run.app:443 ssl:True [SSLCertVerificationError: (1, '[SSL: CERTIFICATE_VERIFY_FAILED] certificate verify failed: unable to get local issuer certificate (_ssl.c:1028)')]",
+              "likely_location": "core/services/gemini_service.py",
+              "severity": "critical"
+            },
+            {
+              "type": "crash",
+              "error_type": "conversation_failure",
+              "error_message": "Cannot connect to host gemini-chatbot-480267397633.us-central1.run.app:443 ssl:True [SSLCertVerificationError: (1, '[SSL: CERTIFICATE_VERIFY_FAILED] certificate verify failed: unable to get local issuer certificate (_ssl.c:1028)')]",
+              "likely_location": "core/services/gemini_service.py",
+              "severity": "critical"
+            }
+          ]
+        },
+        "eligibility_accuracy": {
+          "passed": false,
+          "score": 0.0,
+          "reason": "Prescreening did not complete",
+          "failures": [
+            {
+              "type": "eligibility_logic_error",
+              "reason": "Prescreening flow did not complete",
+              "final_state": "failed",
+              "likely_location": "core/conversation/gemini_conversation_manager.py or core/prescreening/gemini_prescreening_manager.py",
+              "severity": "high"
+            }
+          ]
+        },
+        "conversation_quality": {
+          "passed": true,
+          "score": 80.0,
+          "total_questions_asked": 0,
+          "issues": [
+            "Too few questions asked (0, expected at least 5)"
+          ],
+          "failures": [
+            {
+              "type": "conversation_quality_issue",
+              "issue": "Too few questions asked (0, expected at least 5)",
+              "severity": "medium",
+              "likely_location": "core/conversation/gemini_conversation_manager.py or core/prescreening/gemini_prescreening_manager.py"
+            }
+          ]
+        },
+        "edge_case_handling": {
+          "passed": true,
+          "score": 100.0,
+          "applicable": false,
+          "failures": []
+        },
+        "performance": {
+          "passed": true,
+          "score": 100.0,
+          "failures": []
+        },
+        "failure_points": [
+          {
+            "type": "crash",
+            "error_type": "api_error",
+            "error_message": "Cannot connect to host gemini-chatbot-480267397633.us-central1.run.app:443 ssl:True [SSLCertVerificationError: (1, '[SSL: CERTIFICATE_VERIFY_FAILED] certificate verify failed: unable to get local issuer certificate (_ssl.c:1028)')]",
+            "likely_location": "core/services/gemini_service.py",
+            "severity": "critical"
+          },
+          {
+            "type": "crash",
+            "error_type": "conversation_failure",
+            "error_message": "Cannot connect to host gemini-chatbot-480267397633.us-central1.run.app:443 ssl:True [SSLCertVerificationError: (1, '[SSL: CERTIFICATE_VERIFY_FAILED] certificate verify failed: unable to get local issuer certificate (_ssl.c:1028)')]",
+            "likely_location": "core/services/gemini_service.py",
+            "severity": "critical"
+          },
+          {
+            "type": "eligibility_logic_error",
+            "reason": "Prescreening flow did not complete",
+            "final_state": "failed",
+            "likely_location": "core/conversation/gemini_conversation_manager.py or core/prescreening/gemini_prescreening_manager.py",
+            "severity": "high"
+          },
+          {
+            "type": "conversation_quality_issue",
+            "issue": "Too few questions asked (0, expected at least 5)",
+            "severity": "medium",
+            "likely_location": "core/conversation/gemini_conversation_manager.py or core/prescreening/gemini_prescreening_manager.py"
+          }
+        ],
+        "recommendations": [
+          "\ud83d\udea8 CRITICAL: Fix crashes and exceptions. Review error logs and add error handling.",
+          "\u26a0\ufe0f HIGH: Review eligibility evaluation logic in gemini_prescreening_manager.py"
+        ]
+      },
+      "timestamp": "2025-12-15T18:58:39.128388"
+    },
+    {
+      "patient_id": "AUTO_TEST_edge_unclear_000",
+      "patient_profile": {
+        "patient_id": "AUTO_TEST_edge_unclear_000",
+        "profile_type": "edge_case",
+        "demographics": {
+          "age": 50,
+          "gender": "female",
+          "location": "Charlotte, NC",
+          "name": "Unclear Patient",
+          "first_name": "Unclear",
+          "last_name": "Patient"
+        },
+        "medical_history": {
+          "primary_condition": "Hypertension",
+          "conditions": [
+            "Hypertension"
+          ],
+          "medications": [
+            "Lisinopril"
+          ],
+          "duration_years": 5,
+          "response_style": "unclear"
+        },
+        "expected_behavior": {
+          "should_find_trials": true,
+          "likely_eligible": "unclear",
+          "expected_question_count_range": [
+            5,
+            12
+          ],
+          "edge_case_type": "unclear_responses",
+          "should_ask_for_clarification": true
+        }
+      },
+      "conversation_result": {
+        "session_id": "AUTO_TEST_edge_unclear_000",
+        "patient_id": "AUTO_TEST_edge_unclear_000",
+        "conversation_log": [],
+        "final_state": "failed",
+        "total_turns": 0,
+        "total_questions_asked": 0,
+        "errors": [
+          {
+            "type": "api_error",
+            "message": "Hypertension trials in Charlotte, NC",
+            "error": "Cannot connect to host gemini-chatbot-480267397633.us-central1.run.app:443 ssl:True [SSLCertVerificationError: (1, '[SSL: CERTIFICATE_VERIFY_FAILED] certificate verify failed: unable to get local issuer certificate (_ssl.c:1028)')]",
+            "response_time": 0.6557817459106445
+          },
+          {
+            "type": "conversation_failure",
+            "error": "Cannot connect to host gemini-chatbot-480267397633.us-central1.run.app:443 ssl:True [SSLCertVerificationError: (1, '[SSL: CERTIFICATE_VERIFY_FAILED] certificate verify failed: unable to get local issuer certificate (_ssl.c:1028)')]",
+            "state": "initial",
+            "timestamp": "2025-12-15T18:58:39.815748"
+          }
+        ]
+      },
+      "validation": {
+        "passed": false,
+        "overall_score": 19.0,
+        "crash_prevention": {
+          "passed": false,
+          "score": 0.0,
+          "error_count": 2,
+          "errors": [
+            {
+              "type": "api_error",
+              "message": "Hypertension trials in Charlotte, NC",
+              "error": "Cannot connect to host gemini-chatbot-480267397633.us-central1.run.app:443 ssl:True [SSLCertVerificationError: (1, '[SSL: CERTIFICATE_VERIFY_FAILED] certificate verify failed: unable to get local issuer certificate (_ssl.c:1028)')]",
+              "response_time": 0.6557817459106445
+            },
+            {
+              "type": "conversation_failure",
+              "error": "Cannot connect to host gemini-chatbot-480267397633.us-central1.run.app:443 ssl:True [SSLCertVerificationError: (1, '[SSL: CERTIFICATE_VERIFY_FAILED] certificate verify failed: unable to get local issuer certificate (_ssl.c:1028)')]",
+              "state": "initial",
+              "timestamp": "2025-12-15T18:58:39.815748"
+            }
+          ],
+          "failures": [
+            {
+              "type": "crash",
+              "error_type": "api_error",
+              "error_message": "Cannot connect to host gemini-chatbot-480267397633.us-central1.run.app:443 ssl:True [SSLCertVerificationError: (1, '[SSL: CERTIFICATE_VERIFY_FAILED] certificate verify failed: unable to get local issuer certificate (_ssl.c:1028)')]",
+              "likely_location": "core/services/gemini_service.py",
+              "severity": "critical"
+            },
+            {
+              "type": "crash",
+              "error_type": "conversation_failure",
+              "error_message": "Cannot connect to host gemini-chatbot-480267397633.us-central1.run.app:443 ssl:True [SSLCertVerificationError: (1, '[SSL: CERTIFICATE_VERIFY_FAILED] certificate verify failed: unable to get local issuer certificate (_ssl.c:1028)')]",
+              "likely_location": "core/services/gemini_service.py",
+              "severity": "critical"
+            }
+          ]
+        },
+        "eligibility_accuracy": {
+          "passed": false,
+          "score": 0.0,
+          "reason": "Prescreening did not complete",
+          "failures": [
+            {
+              "type": "eligibility_logic_error",
+              "reason": "Prescreening flow did not complete",
+              "final_state": "failed",
+              "likely_location": "core/conversation/gemini_conversation_manager.py or core/prescreening/gemini_prescreening_manager.py",
+              "severity": "high"
+            }
+          ]
+        },
+        "conversation_quality": {
+          "passed": true,
+          "score": 80.0,
+          "total_questions_asked": 0,
+          "issues": [
+            "Too few questions asked (0, expected at least 5)"
+          ],
+          "failures": [
+            {
+              "type": "conversation_quality_issue",
+              "issue": "Too few questions asked (0, expected at least 5)",
+              "severity": "medium",
+              "likely_location": "core/conversation/gemini_conversation_manager.py or core/prescreening/gemini_prescreening_manager.py"
+            }
+          ]
+        },
+        "edge_case_handling": {
+          "passed": false,
+          "score": 30.0,
+          "applicable": true,
+          "edge_case_type": "unclear_responses",
+          "completed": false,
+          "failures": [
+            {
+              "type": "edge_case_handling_failure",
+              "edge_case_type": "unclear_responses",
+              "final_state": "failed",
+              "reason": "Edge case caused conversation to fail",
+              "severity": "medium",
+              "likely_location": "core/conversation/gemini_conversation_manager.py or core/prescreening/gemini_prescreening_manager.py"
+            }
+          ]
+        },
+        "performance": {
+          "passed": true,
+          "score": 100.0,
+          "failures": []
+        },
+        "failure_points": [
+          {
+            "type": "crash",
+            "error_type": "api_error",
+            "error_message": "Cannot connect to host gemini-chatbot-480267397633.us-central1.run.app:443 ssl:True [SSLCertVerificationError: (1, '[SSL: CERTIFICATE_VERIFY_FAILED] certificate verify failed: unable to get local issuer certificate (_ssl.c:1028)')]",
+            "likely_location": "core/services/gemini_service.py",
+            "severity": "critical"
+          },
+          {
+            "type": "crash",
+            "error_type": "conversation_failure",
+            "error_message": "Cannot connect to host gemini-chatbot-480267397633.us-central1.run.app:443 ssl:True [SSLCertVerificationError: (1, '[SSL: CERTIFICATE_VERIFY_FAILED] certificate verify failed: unable to get local issuer certificate (_ssl.c:1028)')]",
+            "likely_location": "core/services/gemini_service.py",
+            "severity": "critical"
+          },
+          {
+            "type": "eligibility_logic_error",
+            "reason": "Prescreening flow did not complete",
+            "final_state": "failed",
+            "likely_location": "core/conversation/gemini_conversation_manager.py or core/prescreening/gemini_prescreening_manager.py",
+            "severity": "high"
+          },
+          {
+            "type": "conversation_quality_issue",
+            "issue": "Too few questions asked (0, expected at least 5)",
+            "severity": "medium",
+            "likely_location": "core/conversation/gemini_conversation_manager.py or core/prescreening/gemini_prescreening_manager.py"
+          },
+          {
+            "type": "edge_case_handling_failure",
+            "edge_case_type": "unclear_responses",
+            "final_state": "failed",
+            "reason": "Edge case caused conversation to fail",
+            "severity": "medium",
+            "likely_location": "core/conversation/gemini_conversation_manager.py or core/prescreening/gemini_prescreening_manager.py"
+          }
+        ],
+        "recommendations": [
+          "\ud83d\udea8 CRITICAL: Fix crashes and exceptions. Review error logs and add error handling.",
+          "\u26a0\ufe0f HIGH: Review eligibility evaluation logic in gemini_prescreening_manager.py",
+          "\u26a0\ufe0f MEDIUM: Improve edge case handling. Add input validation and clarification prompts."
+        ]
+      },
+      "timestamp": "2025-12-15T18:58:39.815826"
+    }
+  ]
+}

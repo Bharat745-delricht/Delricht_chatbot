@@ -1,0 +1,2298 @@
+{
+  "test_run_id": "test_run_2025-12-15_19-25-55",
+  "timestamp": "2025-12-15T19:25:55.145397",
+  "configuration": {
+    "api_base_url": "https://gemini-chatbot-480267397633.us-central1.run.app",
+    "num_tests": 50,
+    "parallel": 5,
+    "timeout": 120,
+    "save_reports": true,
+    "report_dir": "automated_testing/reports"
+  },
+  "summary": {
+    "total_tests": 5,
+    "passed": 0,
+    "failed": 5,
+    "pass_rate": 0.0,
+    "average_overall_score": 32.8,
+    "average_response_time": 20.420454223950706
+  },
+  "metrics": {
+    "crash_prevention": {
+      "average_score": 20.0,
+      "passed": 1,
+      "failed": 4
+    },
+    "eligibility_accuracy": {
+      "average_score": 0.0,
+      "passed": 0,
+      "failed": 5
+    },
+    "conversation_quality": {
+      "average_score": 79.0,
+      "passed": 3,
+      "failed": 2
+    },
+    "edge_case_handling": {
+      "average_score": 50.0,
+      "applicable_tests": 1,
+      "passed": 4
+    },
+    "performance": {
+      "average_response_time": 20.420454223950706,
+      "passed": 3
+    }
+  },
+  "failure_summary": {
+    "total_failures": 21,
+    "by_type": {
+      "crash": 7,
+      "eligibility_logic_error": 5,
+      "conversation_quality_issue": 6,
+      "performance_issue": 2,
+      "edge_case_handling_failure": 1
+    }
+  },
+  "failures": [
+    {
+      "test_id": "AUTO_TEST_random_000",
+      "patient_profile": {
+        "age": 31,
+        "conditions": [
+          "Diabetes"
+        ],
+        "medications": [
+          "Ozempic",
+          "Jardiance",
+          "Insulin"
+        ]
+      },
+      "type": "crash",
+      "error_type": "timeout",
+      "error_message": "Unknown error",
+      "likely_location": "aiohttp timeout in conversation_simulator.py or slow Gemini API response",
+      "severity": "critical"
+    },
+    {
+      "test_id": "AUTO_TEST_random_000",
+      "patient_profile": {
+        "age": 31,
+        "conditions": [
+          "Diabetes"
+        ],
+        "medications": [
+          "Ozempic",
+          "Jardiance",
+          "Insulin"
+        ]
+      },
+      "type": "crash",
+      "error_type": "conversation_failure",
+      "error_message": "",
+      "likely_location": "Unknown - check full error trace",
+      "severity": "critical"
+    },
+    {
+      "test_id": "AUTO_TEST_random_000",
+      "patient_profile": {
+        "age": 31,
+        "conditions": [
+          "Diabetes"
+        ],
+        "medications": [
+          "Ozempic",
+          "Jardiance",
+          "Insulin"
+        ]
+      },
+      "type": "eligibility_logic_error",
+      "reason": "Prescreening flow did not complete",
+      "final_state": "failed",
+      "likely_location": "core/conversation/gemini_conversation_manager.py or core/prescreening/gemini_prescreening_manager.py",
+      "severity": "high"
+    },
+    {
+      "test_id": "AUTO_TEST_random_000",
+      "patient_profile": {
+        "age": 31,
+        "conditions": [
+          "Diabetes"
+        ],
+        "medications": [
+          "Ozempic",
+          "Jardiance",
+          "Insulin"
+        ]
+      },
+      "type": "conversation_quality_issue",
+      "issue": "Too few questions asked (0, expected at least 4)",
+      "severity": "medium",
+      "likely_location": "core/conversation/gemini_conversation_manager.py or core/prescreening/gemini_prescreening_manager.py"
+    },
+    {
+      "test_id": "AUTO_TEST_random_000",
+      "patient_profile": {
+        "age": 31,
+        "conditions": [
+          "Diabetes"
+        ],
+        "medications": [
+          "Ozempic",
+          "Jardiance",
+          "Insulin"
+        ]
+      },
+      "type": "performance_issue",
+      "avg_response_time": 21.82028341293335,
+      "max_response_time": 26.25827980041504,
+      "severity": "low",
+      "recommendation": "Investigate slow API responses or Gemini API delays"
+    },
+    {
+      "test_id": "AUTO_TEST_edge_contradictory_000",
+      "patient_profile": {
+        "age": 45,
+        "conditions": [],
+        "medications": [
+          "Metformin",
+          "Insulin"
+        ]
+      },
+      "type": "crash",
+      "error_type": "conversation_failure",
+      "error_message": "maximum recursion depth exceeded",
+      "likely_location": "Unknown - check full error trace",
+      "severity": "critical"
+    },
+    {
+      "test_id": "AUTO_TEST_edge_contradictory_000",
+      "patient_profile": {
+        "age": 45,
+        "conditions": [],
+        "medications": [
+          "Metformin",
+          "Insulin"
+        ]
+      },
+      "type": "eligibility_logic_error",
+      "reason": "Prescreening flow did not complete",
+      "final_state": "failed",
+      "likely_location": "core/conversation/gemini_conversation_manager.py or core/prescreening/gemini_prescreening_manager.py",
+      "severity": "high"
+    },
+    {
+      "test_id": "AUTO_TEST_edge_contradictory_000",
+      "patient_profile": {
+        "age": 45,
+        "conditions": [],
+        "medications": [
+          "Metformin",
+          "Insulin"
+        ]
+      },
+      "type": "edge_case_handling_failure",
+      "edge_case_type": "contradictory_info",
+      "final_state": "failed",
+      "reason": "Edge case caused conversation to fail",
+      "severity": "medium",
+      "likely_location": "core/conversation/gemini_conversation_manager.py or core/prescreening/gemini_prescreening_manager.py"
+    },
+    {
+      "test_id": "AUTO_TEST_random_001",
+      "patient_profile": {
+        "age": 27,
+        "conditions": [
+          "Psoriasis"
+        ],
+        "medications": [
+          "Methotrexate"
+        ]
+      },
+      "type": "crash",
+      "error_type": "timeout",
+      "error_message": "Unknown error",
+      "likely_location": "aiohttp timeout in conversation_simulator.py or slow Gemini API response",
+      "severity": "critical"
+    },
+    {
+      "test_id": "AUTO_TEST_random_001",
+      "patient_profile": {
+        "age": 27,
+        "conditions": [
+          "Psoriasis"
+        ],
+        "medications": [
+          "Methotrexate"
+        ]
+      },
+      "type": "crash",
+      "error_type": "conversation_failure",
+      "error_message": "",
+      "likely_location": "Unknown - check full error trace",
+      "severity": "critical"
+    },
+    {
+      "test_id": "AUTO_TEST_random_001",
+      "patient_profile": {
+        "age": 27,
+        "conditions": [
+          "Psoriasis"
+        ],
+        "medications": [
+          "Methotrexate"
+        ]
+      },
+      "type": "eligibility_logic_error",
+      "reason": "Prescreening flow did not complete",
+      "final_state": "failed",
+      "likely_location": "core/conversation/gemini_conversation_manager.py or core/prescreening/gemini_prescreening_manager.py",
+      "severity": "high"
+    },
+    {
+      "test_id": "AUTO_TEST_random_001",
+      "patient_profile": {
+        "age": 27,
+        "conditions": [
+          "Psoriasis"
+        ],
+        "medications": [
+          "Methotrexate"
+        ]
+      },
+      "type": "conversation_quality_issue",
+      "issue": "Too few questions asked (0, expected at least 4)",
+      "severity": "medium",
+      "likely_location": "core/conversation/gemini_conversation_manager.py or core/prescreening/gemini_prescreening_manager.py"
+    },
+    {
+      "test_id": "AUTO_TEST_random_001",
+      "patient_profile": {
+        "age": 27,
+        "conditions": [
+          "Psoriasis"
+        ],
+        "medications": [
+          "Methotrexate"
+        ]
+      },
+      "type": "conversation_quality_issue",
+      "issue": "Repeated question: Great! I found 5 clinical trial(s) available in Ne...",
+      "severity": "medium",
+      "likely_location": "core/conversation/gemini_conversation_manager.py or core/prescreening/gemini_prescreening_manager.py"
+    },
+    {
+      "test_id": "AUTO_TEST_random_001",
+      "patient_profile": {
+        "age": 27,
+        "conditions": [
+          "Psoriasis"
+        ],
+        "medications": [
+          "Methotrexate"
+        ]
+      },
+      "type": "performance_issue",
+      "avg_response_time": 23.115755081176758,
+      "max_response_time": 26.14660096168518,
+      "severity": "low",
+      "recommendation": "Investigate slow API responses or Gemini API delays"
+    },
+    {
+      "test_id": "AUTO_TEST_targeted_diabetes_001",
+      "patient_profile": {
+        "age": 39,
+        "conditions": [
+          "Type 2 Diabetes",
+          "Hypertension"
+        ],
+        "medications": [
+          "Metformin",
+          "Lisinopril"
+        ]
+      },
+      "type": "crash",
+      "error_type": "timeout",
+      "error_message": "Unknown error",
+      "likely_location": "aiohttp timeout in conversation_simulator.py or slow Gemini API response",
+      "severity": "critical"
+    },
+    {
+      "test_id": "AUTO_TEST_targeted_diabetes_001",
+      "patient_profile": {
+        "age": 39,
+        "conditions": [
+          "Type 2 Diabetes",
+          "Hypertension"
+        ],
+        "medications": [
+          "Metformin",
+          "Lisinopril"
+        ]
+      },
+      "type": "crash",
+      "error_type": "conversation_failure",
+      "error_message": "",
+      "likely_location": "Unknown - check full error trace",
+      "severity": "critical"
+    },
+    {
+      "test_id": "AUTO_TEST_targeted_diabetes_001",
+      "patient_profile": {
+        "age": 39,
+        "conditions": [
+          "Type 2 Diabetes",
+          "Hypertension"
+        ],
+        "medications": [
+          "Metformin",
+          "Lisinopril"
+        ]
+      },
+      "type": "eligibility_logic_error",
+      "reason": "Prescreening flow did not complete",
+      "final_state": "failed",
+      "likely_location": "core/conversation/gemini_conversation_manager.py or core/prescreening/gemini_prescreening_manager.py",
+      "severity": "high"
+    },
+    {
+      "test_id": "AUTO_TEST_targeted_diabetes_001",
+      "patient_profile": {
+        "age": 39,
+        "conditions": [
+          "Type 2 Diabetes",
+          "Hypertension"
+        ],
+        "medications": [
+          "Metformin",
+          "Lisinopril"
+        ]
+      },
+      "type": "conversation_quality_issue",
+      "issue": "Too few questions asked (0, expected at least 5)",
+      "severity": "medium",
+      "likely_location": "core/conversation/gemini_conversation_manager.py or core/prescreening/gemini_prescreening_manager.py"
+    },
+    {
+      "test_id": "AUTO_TEST_targeted_diabetes_001",
+      "patient_profile": {
+        "age": 39,
+        "conditions": [
+          "Type 2 Diabetes",
+          "Hypertension"
+        ],
+        "medications": [
+          "Metformin",
+          "Lisinopril"
+        ]
+      },
+      "type": "conversation_quality_issue",
+      "issue": "Repeated question: I couldn't find any trials for Type 2 Diabetes in ...",
+      "severity": "medium",
+      "likely_location": "core/conversation/gemini_conversation_manager.py or core/prescreening/gemini_prescreening_manager.py"
+    },
+    {
+      "test_id": "AUTO_TEST_targeted_diabetes_001",
+      "patient_profile": {
+        "age": 39,
+        "conditions": [
+          "Type 2 Diabetes",
+          "Hypertension"
+        ],
+        "medications": [
+          "Metformin",
+          "Lisinopril"
+        ]
+      },
+      "type": "conversation_quality_issue",
+      "issue": "Repeated question: I couldn't find any trials for Type 2 Diabetes in ...",
+      "severity": "medium",
+      "likely_location": "core/conversation/gemini_conversation_manager.py or core/prescreening/gemini_prescreening_manager.py"
+    },
+    {
+      "test_id": "AUTO_TEST_targeted_gout_000",
+      "patient_profile": {
+        "age": 65,
+        "conditions": [
+          "Gout",
+          "Hypertension"
+        ],
+        "medications": [
+          "Lisinopril"
+        ]
+      },
+      "type": "eligibility_logic_error",
+      "reason": "No eligibility determination found in conversation",
+      "likely_location": "core/prescreening/gemini_prescreening_manager.py:evaluate_eligibility()",
+      "severity": "high"
+    }
+  ],
+  "detailed_results": [
+    {
+      "patient_id": "AUTO_TEST_random_000",
+      "patient_profile": {
+        "patient_id": "AUTO_TEST_random_000",
+        "profile_type": "random",
+        "demographics": {
+          "age": 31,
+          "gender": "non-binary",
+          "location": "Memphis, TN",
+          "name": "Jessica Garcia",
+          "first_name": "Jessica",
+          "last_name": "Garcia"
+        },
+        "medical_history": {
+          "primary_condition": "Diabetes",
+          "conditions": [
+            "Diabetes"
+          ],
+          "medications": [
+            "Ozempic",
+            "Jardiance",
+            "Insulin"
+          ],
+          "duration_years": 4
+        },
+        "expected_behavior": {
+          "should_find_trials": true,
+          "likely_eligible": true,
+          "expected_question_count_range": [
+            4,
+            8
+          ]
+        }
+      },
+      "conversation_result": {
+        "session_id": "AUTO_TEST_random_000",
+        "patient_id": "AUTO_TEST_random_000",
+        "conversation_log": [
+          {
+            "user_message": "Diabetes trials in Memphis, TN",
+            "bot_response": "I couldn't find any trials for Diabetes in Memphis, TN at the moment. Would you like to try a different condition or location?",
+            "metadata": {
+              "session_id": "AUTO_TEST_random_000",
+              "current_state": "initial",
+              "handler_used": "GeminiConversationManager",
+              "processing_method": "gemini_conversation_manager",
+              "action_type": "search_trials",
+              "entities_collected": {
+                "condition": "Diabetes",
+                "location": "Memphis",
+                "age": null,
+                "medication": null,
+                "number": null,
+                "trial_name": null,
+                "boolean_answer": null,
+                "confidence_scores": {}
+              },
+              "conversation_action": {
+                "action_type": "search_trials",
+                "parameters": {
+                  "condition": "Diabetes",
+                  "location": "Memphis, TN"
+                },
+                "response_text": "Of course, I can help with that. Let's switch gears and look for clinical trials for Diabetes in the Memphis, TN area. One moment while I search for you.",
+                "new_state": "trials_shown",
+                "collect_entities": [],
+                "metadata": {
+                  "reasoning": "The user has provided a new, complete search request with both a condition ('Diabetes') and a location ('Memphis, TN'). This is a context switch from the previous search for 'Alzheimers' in 'New Orleans'. The most appropriate action is to perform a new search with the updated parameters. The response acknowledges the change in topic and confirms the new search criteria before proceeding."
+                }
+              },
+              "user_analysis": {
+                "sentiment": "neutral",
+                "communication_style": "standard",
+                "complexity_preference": "moderate"
+              },
+              "no_trials_found": true,
+              "condition": "Diabetes",
+              "location": "Memphis, TN"
+            },
+            "response_time": 16.773818969726562,
+            "timestamp": "2025-12-15T19:14:32.226125"
+          },
+          {
+            "user_message": "Yes, check my eligibility",
+            "bot_response": "I can definitely help with that. To check eligibility, we first need to find a specific trial. It looks like our previous search for Diabetes trials in Memphis didn't turn up any results. Would you like me to try searching again for you?",
+            "metadata": {
+              "session_id": "AUTO_TEST_random_000",
+              "current_state": "initial",
+              "handler_used": "GeminiConversationManager",
+              "processing_method": "gemini_conversation_manager",
+              "action_type": "clarify_request",
+              "entities_collected": {
+                "condition": null,
+                "location": null,
+                "age": null,
+                "medication": null,
+                "number": null,
+                "trial_name": null,
+                "boolean_answer": true,
+                "confidence_scores": {}
+              },
+              "conversation_action": {
+                "action_type": "clarify_request",
+                "parameters": {},
+                "response_text": "I can definitely help with that. To check eligibility, we first need to find a specific trial. It looks like our previous search for Diabetes trials in Memphis didn't turn up any results. Would you like me to try searching again for you?",
+                "new_state": "awaiting_search_confirmation",
+                "collect_entities": [],
+                "metadata": {
+                  "reasoning": "The user is asking to check eligibility, but the context indicates the previous trial search failed. Therefore, there is no specific trial to screen for. The best action is to clarify this situation with the user and offer to perform the search again to find potential trials before we can proceed with an eligibility check."
+                }
+              },
+              "user_analysis": {
+                "sentiment": "neutral",
+                "communication_style": "standard",
+                "complexity_preference": "moderate"
+              },
+              "general_response": true
+            },
+            "response_time": 21.805920124053955,
+            "timestamp": "2025-12-15T19:14:54.033639"
+          },
+          {
+            "user_message": "I'm not sure, can you clarify?",
+            "bot_response": "Of course, I'm happy to clarify. When you're ready, I will use the information you've provided (Diabetes and Memphis) to look for currently recruiting clinical trials in your area. I'll then show you a list of potential matches. From there, you can explore any that seem interesting, and we can even start to check if you might be eligible. Does that sound like a good next step?",
+            "metadata": {
+              "session_id": "AUTO_TEST_random_000",
+              "current_state": "initial",
+              "handler_used": "GeminiConversationManager",
+              "processing_method": "gemini_conversation_manager",
+              "action_type": "clarify_request",
+              "entities_collected": {
+                "condition": null,
+                "location": null,
+                "age": null,
+                "medication": null,
+                "number": null,
+                "trial_name": null,
+                "boolean_answer": null,
+                "confidence_scores": {}
+              },
+              "conversation_action": {
+                "action_type": "clarify_request",
+                "parameters": {},
+                "response_text": "Of course, I'm happy to clarify. When you're ready, I will use the information you've provided (Diabetes and Memphis) to look for currently recruiting clinical trials in your area. I'll then show you a list of potential matches. From there, you can explore any that seem interesting, and we can even start to check if you might be eligible. Does that sound like a good next step?",
+                "new_state": "pending_search_confirmation",
+                "collect_entities": [],
+                "metadata": {
+                  "reasoning": "The user has expressed uncertainty and asked for clarification. Although we have the necessary information (condition and location) to perform a search, the user is not yet ready to proceed. The best action is to explain what the search process entails to build their confidence and ensure they are comfortable moving forward. This response clarifies the next steps and then gently re-prompts for confirmation, directly addressing their request while guiding them toward their goal."
+                }
+              },
+              "user_analysis": {
+                "sentiment": "neutral",
+                "communication_style": "standard",
+                "complexity_preference": "moderate"
+              },
+              "general_response": true
+            },
+            "response_time": 26.25827980041504,
+            "timestamp": "2025-12-15T19:15:20.292646"
+          },
+          {
+            "user_message": "I'm not sure, can you clarify?",
+            "bot_response": "Of course, I'm happy to clarify. My next step would be to search for clinical trials for Diabetes near Memphis. I'll then show you a list of potential matches. For any trial that looks interesting, we can go through a few questions to see if you might be eligible. How does that sound?",
+            "metadata": {
+              "session_id": "AUTO_TEST_random_000",
+              "current_state": "initial",
+              "handler_used": "GeminiConversationManager",
+              "processing_method": "gemini_conversation_manager",
+              "action_type": "general_response",
+              "entities_collected": {
+                "condition": null,
+                "location": null,
+                "age": null,
+                "medication": null,
+                "number": null,
+                "trial_name": null,
+                "boolean_answer": null,
+                "confidence_scores": {}
+              },
+              "conversation_action": {
+                "action_type": "general_response",
+                "parameters": {},
+                "response_text": "Of course, I'm happy to clarify. My next step would be to search for clinical trials for Diabetes near Memphis. I'll then show you a list of potential matches. For any trial that looks interesting, we can go through a few questions to see if you might be eligible. How does that sound?",
+                "new_state": "initial",
+                "collect_entities": [],
+                "metadata": {
+                  "reasoning": "The user is expressing uncertainty and has asked for clarification. Since we have the necessary information (condition and location) to proceed with a search, the most likely point of confusion is what the search process entails. This response clarifies the next steps (searching, presenting a list, offering prescreening) in a supportive way and asks for the user's consent to proceed, directly addressing their query without making assumptions. The action is `general_response` as it's a clarification of the process, not a new search or information-gathering step."
+                }
+              },
+              "user_analysis": {
+                "sentiment": "neutral",
+                "communication_style": "standard",
+                "complexity_preference": "moderate"
+              },
+              "general_response": true
+            },
+            "response_time": 23.23576283454895,
+            "timestamp": "2025-12-15T19:15:43.528892"
+          },
+          {
+            "user_message": "I'm not sure, can you clarify?",
+            "bot_response": "Of course, I'm happy to clarify. My apologies if I wasn't clear before. Could you tell me a bit more about what you're unsure of? For example, are you wondering about how the trial search works, what happens next, or something else entirely? I want to make sure I'm providing the most helpful information for you.",
+            "metadata": {
+              "session_id": "AUTO_TEST_random_000",
+              "current_state": "initial",
+              "handler_used": "GeminiConversationManager",
+              "processing_method": "gemini_conversation_manager",
+              "action_type": "clarify_request",
+              "entities_collected": {
+                "condition": null,
+                "location": null,
+                "age": null,
+                "medication": null,
+                "number": null,
+                "trial_name": null,
+                "boolean_answer": null,
+                "confidence_scores": {}
+              },
+              "conversation_action": {
+                "action_type": "clarify_request",
+                "parameters": {},
+                "response_text": "Of course, I'm happy to clarify. My apologies if I wasn't clear before. Could you tell me a bit more about what you're unsure of? For example, are you wondering about how the trial search works, what happens next, or something else entirely? I want to make sure I'm providing the most helpful information for you.",
+                "new_state": "initial",
+                "collect_entities": [],
+                "metadata": {
+                  "reasoning": "The user is explicitly asking for clarification and expressing uncertainty. Given the conversation has progressed for 8 turns and we have the necessary information to search (Diabetes, Memphis), it's clear there's a blocker. Instead of proceeding with a search they might not be ready for, or repeating previous information, the most empathetic and effective action is to ask them to specify their point of confusion. This response validates their question, offers examples to guide them, and aims to resolve the specific issue before moving forward."
+                }
+              },
+              "user_analysis": {
+                "sentiment": "neutral",
+                "communication_style": "standard",
+                "complexity_preference": "moderate"
+              },
+              "general_response": true
+            },
+            "response_time": 21.97079586982727,
+            "timestamp": "2025-12-15T19:16:05.500301"
+          },
+          {
+            "user_message": "I'm not sure, can you clarify?",
+            "bot_response": "Of course, I'm happy to clarify. I want to make sure this process is as clear as possible for you. Now that I know you're looking for trials for Diabetes in Memphis, the next step would be for me to search for relevant studies. Before I do that, could you tell me what part you're unsure about? For example, are you curious about how the search works, what the results will look like, or something else entirely? I'm here to help.",
+            "metadata": {
+              "session_id": "AUTO_TEST_random_000",
+              "current_state": "initial",
+              "handler_used": "GeminiConversationManager",
+              "processing_method": "gemini_conversation_manager",
+              "action_type": "clarify_request",
+              "entities_collected": {
+                "condition": null,
+                "location": null,
+                "age": null,
+                "medication": null,
+                "number": null,
+                "trial_name": null,
+                "boolean_answer": null,
+                "confidence_scores": {}
+              },
+              "conversation_action": {
+                "action_type": "clarify_request",
+                "parameters": {},
+                "response_text": "Of course, I'm happy to clarify. I want to make sure this process is as clear as possible for you. Now that I know you're looking for trials for Diabetes in Memphis, the next step would be for me to search for relevant studies. Before I do that, could you tell me what part you're unsure about? For example, are you curious about how the search works, what the results will look like, or something else entirely? I'm here to help.",
+                "new_state": "awaiting_clarification",
+                "collect_entities": [],
+                "metadata": {
+                  "reasoning": "The user has repeatedly asked for clarification, indicating a conversational loop and confusion about the process. Although we have the necessary information (condition and location) to search for trials, proceeding directly would ignore the user's explicit request and could increase their confusion. The best action is to `clarify_request` to break the loop. The response acknowledges their uncertainty, confirms the information gathered so far, states the logical next step (searching), and then directly asks the user to specify what they are confused about, providing examples to guide them. This approach is empathetic, user-centric, and aims to resolve their uncertainty before moving forward."
+                }
+              },
+              "user_analysis": {
+                "sentiment": "neutral",
+                "communication_style": "standard",
+                "complexity_preference": "moderate"
+              },
+              "general_response": true
+            },
+            "response_time": 20.87712287902832,
+            "timestamp": "2025-12-15T19:16:26.378191"
+          }
+        ],
+        "final_state": "failed",
+        "total_turns": 6,
+        "total_questions_asked": 0,
+        "errors": [
+          {
+            "type": "timeout",
+            "message": "I'm not sure, can you clarify?",
+            "response_time": 30.127803802490234
+          },
+          {
+            "type": "conversation_failure",
+            "error": "",
+            "state": "prescreening_active",
+            "timestamp": "2025-12-15T19:16:56.506494"
+          }
+        ]
+      },
+      "validation": {
+        "passed": false,
+        "overall_score": 26.0,
+        "crash_prevention": {
+          "passed": false,
+          "score": 0.0,
+          "error_count": 2,
+          "errors": [
+            {
+              "type": "timeout",
+              "message": "I'm not sure, can you clarify?",
+              "response_time": 30.127803802490234
+            },
+            {
+              "type": "conversation_failure",
+              "error": "",
+              "state": "prescreening_active",
+              "timestamp": "2025-12-15T19:16:56.506494"
+            }
+          ],
+          "failures": [
+            {
+              "type": "crash",
+              "error_type": "timeout",
+              "error_message": "Unknown error",
+              "likely_location": "aiohttp timeout in conversation_simulator.py or slow Gemini API response",
+              "severity": "critical"
+            },
+            {
+              "type": "crash",
+              "error_type": "conversation_failure",
+              "error_message": "",
+              "likely_location": "Unknown - check full error trace",
+              "severity": "critical"
+            }
+          ]
+        },
+        "eligibility_accuracy": {
+          "passed": false,
+          "score": 0.0,
+          "reason": "Prescreening did not complete",
+          "failures": [
+            {
+              "type": "eligibility_logic_error",
+              "reason": "Prescreening flow did not complete",
+              "final_state": "failed",
+              "likely_location": "core/conversation/gemini_conversation_manager.py or core/prescreening/gemini_prescreening_manager.py",
+              "severity": "high"
+            }
+          ]
+        },
+        "conversation_quality": {
+          "passed": true,
+          "score": 80.0,
+          "total_questions_asked": 0,
+          "issues": [
+            "Too few questions asked (0, expected at least 4)"
+          ],
+          "failures": [
+            {
+              "type": "conversation_quality_issue",
+              "issue": "Too few questions asked (0, expected at least 4)",
+              "severity": "medium",
+              "likely_location": "core/conversation/gemini_conversation_manager.py or core/prescreening/gemini_prescreening_manager.py"
+            }
+          ]
+        },
+        "edge_case_handling": {
+          "passed": true,
+          "score": 100.0,
+          "applicable": false,
+          "failures": []
+        },
+        "performance": {
+          "passed": false,
+          "score": 40.0,
+          "avg_response_time": 21.82028341293335,
+          "max_response_time": 26.25827980041504,
+          "status": "slow",
+          "failures": [
+            {
+              "type": "performance_issue",
+              "avg_response_time": 21.82028341293335,
+              "max_response_time": 26.25827980041504,
+              "severity": "low",
+              "recommendation": "Investigate slow API responses or Gemini API delays"
+            }
+          ]
+        },
+        "failure_points": [
+          {
+            "type": "crash",
+            "error_type": "timeout",
+            "error_message": "Unknown error",
+            "likely_location": "aiohttp timeout in conversation_simulator.py or slow Gemini API response",
+            "severity": "critical"
+          },
+          {
+            "type": "crash",
+            "error_type": "conversation_failure",
+            "error_message": "",
+            "likely_location": "Unknown - check full error trace",
+            "severity": "critical"
+          },
+          {
+            "type": "eligibility_logic_error",
+            "reason": "Prescreening flow did not complete",
+            "final_state": "failed",
+            "likely_location": "core/conversation/gemini_conversation_manager.py or core/prescreening/gemini_prescreening_manager.py",
+            "severity": "high"
+          },
+          {
+            "type": "conversation_quality_issue",
+            "issue": "Too few questions asked (0, expected at least 4)",
+            "severity": "medium",
+            "likely_location": "core/conversation/gemini_conversation_manager.py or core/prescreening/gemini_prescreening_manager.py"
+          },
+          {
+            "type": "performance_issue",
+            "avg_response_time": 21.82028341293335,
+            "max_response_time": 26.25827980041504,
+            "severity": "low",
+            "recommendation": "Investigate slow API responses or Gemini API delays"
+          }
+        ],
+        "recommendations": [
+          "\ud83d\udea8 CRITICAL: Fix crashes and exceptions. Review error logs and add error handling.",
+          "\u26a0\ufe0f HIGH: Review eligibility evaluation logic in gemini_prescreening_manager.py",
+          "\u2139\ufe0f LOW: Slow response times. Optimize API calls or consider caching."
+        ]
+      },
+      "timestamp": "2025-12-15T19:16:56.506849"
+    },
+    {
+      "patient_id": "AUTO_TEST_edge_contradictory_000",
+      "patient_profile": {
+        "patient_id": "AUTO_TEST_edge_contradictory_000",
+        "profile_type": "edge_case",
+        "demographics": {
+          "age": 45,
+          "gender": "male",
+          "location": "New Orleans, LA",
+          "name": "Contradictory Patient",
+          "first_name": "Contradictory",
+          "last_name": "Patient"
+        },
+        "medical_history": {
+          "primary_condition": "Diabetes",
+          "conditions": [],
+          "medications": [
+            "Metformin",
+            "Insulin"
+          ],
+          "duration_years": 0,
+          "contradictions": {
+            "says_no_diabetes": true,
+            "but_takes_diabetes_meds": true
+          }
+        },
+        "expected_behavior": {
+          "should_find_trials": true,
+          "likely_eligible": "unclear",
+          "expected_question_count_range": [
+            4,
+            8
+          ],
+          "edge_case_type": "contradictory_info",
+          "should_handle_gracefully": true
+        }
+      },
+      "conversation_result": {
+        "session_id": "AUTO_TEST_edge_contradictory_000",
+        "patient_id": "AUTO_TEST_edge_contradictory_000",
+        "conversation_log": [
+          {
+            "user_message": "Diabetes trials in New Orleans, LA",
+            "bot_response": "Great! I found 5 clinical trial(s) available in New Orleans, LA:\n\n**Dr. Patrick Dennis**\n  \u2022 Overweight (2 trials)\n  \u2022 Overweight or Obesity and Type 2 Diabetes (1 trial)\n  \u2022 COVID-19 (1 trial)\n  \u2022 Osteoarthritis of the Knee (1 trial)\n\nWould you like to:\n1. Check your eligibility for any of these trials?\n2. Learn more about a specific condition?\n3. See trials in a different location?",
+            "metadata": {
+              "session_id": "AUTO_TEST_edge_contradictory_000",
+              "current_state": "trials_shown",
+              "handler_used": "GeminiConversationManager",
+              "processing_method": "gemini_conversation_manager",
+              "action_type": "search_trials",
+              "entities_collected": {
+                "condition": "Diabetes",
+                "location": "New Orleans",
+                "age": null,
+                "medication": null,
+                "number": null,
+                "trial_name": null,
+                "boolean_answer": null,
+                "confidence_scores": {}
+              },
+              "conversation_action": {
+                "action_type": "search_trials",
+                "parameters": {
+                  "condition": "Diabetes",
+                  "location": "New Orleans, LA"
+                },
+                "response_text": "Of course. I'm looking for clinical trials for Diabetes in the New Orleans, LA area now. I'll share what I find in just a moment.",
+                "new_state": "trials_found",
+                "collect_entities": [
+                  "condition",
+                  "location"
+                ],
+                "metadata": {
+                  "reasoning": "The user has provided both a specific condition ('Diabetes') and a location ('New Orleans, LA'), which are the two required pieces of information to perform a trial search. The `search_trials` action is the most direct and helpful next step to fulfill their request. The response confirms their request and sets the expectation that results are forthcoming, while the state transitions to `trials_found` to prepare for displaying the results."
+                }
+              },
+              "user_analysis": {
+                "sentiment": "neutral",
+                "communication_style": "standard",
+                "complexity_preference": "moderate"
+              },
+              "trials_found": 5,
+              "condition": "Diabetes",
+              "location": "New Orleans, LA",
+              "trials_data": [
+                {
+                  "id": 111,
+                  "trial_name": "A Randomized, Double-Blind, Phase 2 Trial of Once Weekly Petrelintide Compared with Placebo in Participants with Overweight or Obesity and Type 2 Diabetes",
+                  "conditions": "Overweight",
+                  "description": "This is a Phase 2 clinical research study, sponsored by Zealand Pharma A/S, to learn about an investigational weekly injection called petrelintide. The study is designed to see if petrelintide can help people with overweight or obesity and type 2 diabetes lose weight and manage their blood sugar. It is a \"randomized, double-blind, placebo-controlled\" trial, which means you will be randomly assigned (like a coin flip) to receive either petrelintide or a placebo, an inactive substance with no medicine. Neither you nor your study doctor will know which treatment you are receiving to ensure the results are unbiased. The study will take place at multiple research sites across the United States, and your total participation will last for approximately 39 weeks.\n\nThis study is looking for approximately 216 adults who have been diagnosed with both type 2 diabetes and have overweight or obesity. To be eligible, you must be willing to follow a reduced-calorie diet and increase your physical activity, as you will receive counseling on these lifestyle changes throughout the trial. The study aims to include a balanced number of men and women. As a participant, you will be closely monitored by a team of healthcare professionals. Your commitment to attending all study visits and following the study plan is essential for us to gather accurate information about the investigational drug's safety and effectiveness.\n\nIf you join the study, you will be assigned to one of six groups to receive a once-weekly injection, which you will learn to give yourself at home. Three groups will receive different doses of the investigational drug, petrelintide, and three groups will receive a matching placebo. The main goal is to see how the treatment affects your body weight after 28 weeks. We will also monitor changes in your blood sugar (HbA1c), waist circumference, cholesterol, and blood pressure. Your participation involves regular clinic visits over about 39 weeks, including a screening period, a 28-week treatment phase, and a 9-week follow-up. During these visits, you can expect procedures like blood tests, physical exams, ECGs, and completing health questionnaires.",
+                  "investigator_name": "Dr. Patrick Dennis",
+                  "site_location": "New Orleans, LA",
+                  "protocol_summary": "This is a Phase 2 clinical research study, sponsored by Zealand Pharma A/S, to learn about an investigational weekly injection called petrelintide. The study is designed to see if petrelintide can help people with overweight or obesity and type 2 diabetes lose weight and manage their blood sugar. It is a \"randomized, double-blind, placebo-controlled\" trial, which means you will be randomly assigned (like a coin flip) to receive either petrelintide or a placebo, an inactive substance with no medicine. Neither you nor your study doctor will know which treatment you are receiving to ensure the results are unbiased. The study will take place at multiple research sites across the United States, and your total participation will last for approximately 39 weeks.\n\nThis study is looking for approximately 216 adults who have been diagnosed with both type 2 diabetes and have overweight or obesity. To be eligible, you must be willing to follow a reduced-calorie diet and increase your physical activity, as you will receive counseling on these lifestyle changes throughout the trial. The study aims to include a balanced number of men and women. As a participant, you will be closely monitored by a team of healthcare professionals. Your commitment to attending all study visits and following the study plan is essential for us to gather accurate information about the investigational drug's safety and effectiveness.\n\nIf you join the study, you will be assigned to one of six groups to receive a once-weekly injection, which you will learn to give yourself at home. Three groups will receive different doses of the investigational drug, petrelintide, and three groups will receive a matching placebo. The main goal is to see how the treatment affects your body weight after 28 weeks. We will also monitor changes in your blood sugar (HbA1c), waist circumference, cholesterol, and blood pressure. Your participation involves regular clinic visits over about 39 weeks, including a screening period, a 28-week treatment phase, and a 9-week follow-up. During these visits, you can expect procedures like blood tests, physical exams, ECGs, and completing health questionnaires.",
+                  "total_sites": 1,
+                  "similarity_score": 0.7735885213537406
+                },
+                {
+                  "id": 55,
+                  "trial_name": "A Randomized, Double-Blind, Phase 2 Trial of Once-Weekly Petrelintide Compared with Placebo in Participants with Overweight or Obesity and Type 2 Diabetes",
+                  "conditions": "Overweight or Obesity and Type 2 Diabetes",
+                  "description": "This is a Phase 2, randomized, double-blind, placebo-controlled, multi-center clinical trial sponsored by Zealand Pharma A/S.  \"Double-blind\" means neither you nor the study staff will know whether you are receiving the study drug or a placebo. \"Randomized\" means you will be assigned to a treatment group by chance, like flipping a coin. The study will be conducted at multiple locations and will last approximately 40 weeks.\n\nThis study is for adults with type 2 diabetes who are overweight or obese.  You must be willing to follow a reduced-calorie diet and increase your physical activity. Key inclusion criteria include a diagnosis of type 2 diabetes and a Body Mass Index (BMI) indicating overweight or obesity. You may not be eligible to participate if you have certain medical conditions, such as a history of pancreatitis, or are taking certain medications. During the study, you will receive either petrelintide or a placebo injection once a week. You will also attend regular study visits where your weight, blood sugar levels, and other health measures will be monitored. \n\nThis study is investigating the effectiveness and safety of petrelintide for weight management.  You will receive one of three doses of petrelintide or a placebo injection once weekly.  Researchers will measure changes in your body weight, waist circumference, blood sugar levels (HbA1c and fasting glucose), cholesterol levels, blood pressure, and other health indicators. The primary outcome is the percentage change in body weight from the start of the study to week 28. Secondary outcomes include the proportion of participants achieving at least 5% or 10% weight loss, changes in other health measures, and any side effects experienced.  You will have study visits approximately every 4 weeks for the first 16 weeks, then every 4 weeks until week 28, with a final follow-up visit 10 weeks after your last injection.",
+                  "investigator_name": "Dr. Patrick Dennis",
+                  "site_location": "New Orleans, LA",
+                  "protocol_summary": "This is a Phase 2, randomized, double-blind, placebo-controlled, multi-center clinical trial sponsored by Zealand Pharma A/S.  \"Double-blind\" means neither you nor the study staff will know whether you are receiving the study drug or a placebo. \"Randomized\" means you will be assigned to a treatment group by chance, like flipping a coin. The study will be conducted at multiple locations and will last approximately 40 weeks.\n\nThis study is for adults with type 2 diabetes who are overweight or obese.  You must be willing to follow a reduced-calorie diet and increase your physical activity. Key inclusion criteria include a diagnosis of type 2 diabetes and a Body Mass Index (BMI) indicating overweight or obesity. You may not be eligible to participate if you have certain medical conditions, such as a history of pancreatitis, or are taking certain medications. During the study, you will receive either petrelintide or a placebo injection once a week. You will also attend regular study visits where your weight, blood sugar levels, and other health measures will be monitored. \n\nThis study is investigating the effectiveness and safety of petrelintide for weight management.  You will receive one of three doses of petrelintide or a placebo injection once weekly.  Researchers will measure changes in your body weight, waist circumference, blood sugar levels (HbA1c and fasting glucose), cholesterol levels, blood pressure, and other health indicators. The primary outcome is the percentage change in body weight from the start of the study to week 28. Secondary outcomes include the proportion of participants achieving at least 5% or 10% weight loss, changes in other health measures, and any side effects experienced.  You will have study visits approximately every 4 weeks for the first 16 weeks, then every 4 weeks until week 28, with a final follow-up visit 10 weeks after your last injection.",
+                  "total_sites": 1,
+                  "similarity_score": 0.7713892113968572
+                },
+                {
+                  "id": 96,
+                  "trial_name": "A Phase 2b, Multicenter, Randomized, Double-Blind, Placebo-Controlled, Multiple Dose Study with Open-Label Extension to Assess the Efficacy, Safety, and Pharmacokinetics of Subcutaneously Administered Taldefgrobep alfa in Adults Living with Overweight and Obesity",
+                  "conditions": "Overweight",
+                  "description": "This is a Phase 2b clinical research study, sponsored by Biohaven Therapeutics Ltd., to evaluate an investigational drug called taldefgrobep alfa for adults with overweight or obesity. The study will take place at multiple research centers. For the first 24 weeks, it is a randomized, double-blind, placebo-controlled trial. This means participants will be randomly assigned (like a coin flip) to receive either the study drug or a placebo (an inactive substance), and neither the participant nor the study team will know which treatment is being given. After this period, eligible participants may choose to continue in a 24-week extension where all participants will receive the active study drug. The total study participation can last up to 60 weeks, including screening and follow-up periods.\n\nThis study is seeking approximately 150 adult participants who are living with overweight or obesity. To be eligible, you must provide written informed consent and meet specific criteria related to your body mass index (BMI) and overall health, which the study team will review with you. The study aims to include a diverse group of participants, with a goal that no more than 70% of those enrolled will be female. As part of the study, all participants will receive counseling on maintaining a healthy diet and are encouraged to follow standard exercise guidelines. Participation is entirely voluntary, and you can decide to leave the study at any time.\n\nThe investigational drug, taldefgrobep alfa, or a matching placebo, is administered as an injection under the skin either once weekly or once every four weeks. The main purpose of the study is to measure the change in total body weight after 24 weeks of treatment. Researchers will also closely monitor changes in body composition, specifically total body fat and lean muscle mass, using methods like DXA scans. Your safety will be monitored throughout the study with physical exams, blood tests, and tracking of any side effects. The study involves approximately 16 in-person visits and one phone call over the 60-week period, where you will undergo procedures, complete health questionnaires, and perform simple physical function tests.",
+                  "investigator_name": "Dr. Patrick Dennis",
+                  "site_location": "New Orleans, LA",
+                  "protocol_summary": "This is a Phase 2b clinical research study, sponsored by Biohaven Therapeutics Ltd., to evaluate an investigational drug called taldefgrobep alfa for adults with overweight or obesity. The study will take place at multiple research centers. For the first 24 weeks, it is a randomized, double-blind, placebo-controlled trial. This means participants will be randomly assigned (like a coin flip) to receive either the study drug or a placebo (an inactive substance), and neither the participant nor the study team will know which treatment is being given. After this period, eligible participants may choose to continue in a 24-week extension where all participants will receive the active study drug. The total study participation can last up to 60 weeks, including screening and follow-up periods.\n\nThis study is seeking approximately 150 adult participants who are living with overweight or obesity. To be eligible, you must provide written informed consent and meet specific criteria related to your body mass index (BMI) and overall health, which the study team will review with you. The study aims to include a diverse group of participants, with a goal that no more than 70% of those enrolled will be female. As part of the study, all participants will receive counseling on maintaining a healthy diet and are encouraged to follow standard exercise guidelines. Participation is entirely voluntary, and you can decide to leave the study at any time.\n\nThe investigational drug, taldefgrobep alfa, or a matching placebo, is administered as an injection under the skin either once weekly or once every four weeks. The main purpose of the study is to measure the change in total body weight after 24 weeks of treatment. Researchers will also closely monitor changes in body composition, specifically total body fat and lean muscle mass, using methods like DXA scans. Your safety will be monitored throughout the study with physical exams, blood tests, and tracking of any side effects. The study involves approximately 16 in-person visits and one phone call over the 60-week period, where you will undergo procedures, complete health questionnaires, and perform simple physical function tests.",
+                  "total_sites": 2,
+                  "similarity_score": 0.7446329635683518
+                }
+              ],
+              "semantic_search": true
+            },
+            "response_time": 21.074580192565918,
+            "timestamp": "2025-12-15T19:14:36.532074"
+          },
+          {
+            "user_message": "Yes, check my eligibility",
+            "bot_response": "Great! I'll help you check your eligibility.\n\nI need to ask you a few questions about the diabetes trial.\n\n**Question 1 of 7:** What is your age?",
+            "metadata": {
+              "session_id": "AUTO_TEST_edge_contradictory_000",
+              "current_state": "prescreening_active",
+              "handler_used": "GeminiConversationManager",
+              "processing_method": "gemini_conversation_manager",
+              "action_type": "start_prescreening",
+              "entities_collected": {
+                "condition": null,
+                "location": null,
+                "age": null,
+                "medication": null,
+                "number": null,
+                "trial_name": null,
+                "boolean_answer": "yes",
+                "confidence_scores": {}
+              },
+              "conversation_action": {
+                "action_type": "start_prescreening",
+                "parameters": {},
+                "response_text": "Of course. To get started, could you please tell me the name or number of the trial you're most interested in from the list I just showed you? I'll then ask a few simple questions to see if you might be a match.",
+                "new_state": "prescreening_started",
+                "collect_entities": [
+                  "trial_name",
+                  "number"
+                ],
+                "metadata": {
+                  "reasoning": "The user has explicitly confirmed their desire to check eligibility ('Yes, check my eligibility') immediately after being shown a list of trials (State: trials_shown). The most logical and helpful next step is to initiate the prescreening process. The `start_prescreening` action is the correct choice. The response acknowledges the user's request, sets the expectation that a few questions will follow, and prompts the user to specify which trial they are interested in, which is a necessary first step before asking targeted eligibility questions. The state is transitioned to `prescreening_started` to reflect this new phase of the conversation."
+                }
+              },
+              "user_analysis": {
+                "sentiment": "neutral",
+                "communication_style": "standard",
+                "complexity_preference": "moderate"
+              },
+              "prescreening_started": true,
+              "trial_id": 55,
+              "trial_name": "A Randomized, Double-Blind, Phase 2 Trial of Once-Weekly Petrelintide Compared with Placebo in Participants with Overweight or Obesity and Type 2 Diabetes",
+              "current_question_index": 0,
+              "total_questions": 7,
+              "current_question": "What is your age?",
+              "expected_answer_type": "number"
+            },
+            "response_time": 18.21626925468445,
+            "timestamp": "2025-12-15T19:14:54.748740"
+          }
+        ],
+        "final_state": "failed",
+        "total_turns": 2,
+        "total_questions_asked": 7,
+        "errors": [
+          {
+            "type": "conversation_failure",
+            "error": "maximum recursion depth exceeded",
+            "state": "prescreening_active",
+            "timestamp": "2025-12-15T19:14:54.751055"
+          }
+        ]
+      },
+      "validation": {
+        "passed": false,
+        "overall_score": 25.0,
+        "crash_prevention": {
+          "passed": false,
+          "score": 0.0,
+          "error_count": 1,
+          "errors": [
+            {
+              "type": "conversation_failure",
+              "error": "maximum recursion depth exceeded",
+              "state": "prescreening_active",
+              "timestamp": "2025-12-15T19:14:54.751055"
+            }
+          ],
+          "failures": [
+            {
+              "type": "crash",
+              "error_type": "conversation_failure",
+              "error_message": "maximum recursion depth exceeded",
+              "likely_location": "Unknown - check full error trace",
+              "severity": "critical"
+            }
+          ]
+        },
+        "eligibility_accuracy": {
+          "passed": false,
+          "score": 0.0,
+          "reason": "Prescreening did not complete",
+          "failures": [
+            {
+              "type": "eligibility_logic_error",
+              "reason": "Prescreening flow did not complete",
+              "final_state": "failed",
+              "likely_location": "core/conversation/gemini_conversation_manager.py or core/prescreening/gemini_prescreening_manager.py",
+              "severity": "high"
+            }
+          ]
+        },
+        "conversation_quality": {
+          "passed": true,
+          "score": 100.0,
+          "total_questions_asked": 7,
+          "issues": [],
+          "failures": []
+        },
+        "edge_case_handling": {
+          "passed": false,
+          "score": 50.0,
+          "applicable": true,
+          "edge_case_type": "contradictory_info",
+          "completed": false,
+          "failures": [
+            {
+              "type": "edge_case_handling_failure",
+              "edge_case_type": "contradictory_info",
+              "final_state": "failed",
+              "reason": "Edge case caused conversation to fail",
+              "severity": "medium",
+              "likely_location": "core/conversation/gemini_conversation_manager.py or core/prescreening/gemini_prescreening_manager.py"
+            }
+          ]
+        },
+        "performance": {
+          "passed": true,
+          "score": 70.0,
+          "avg_response_time": 19.645424723625183,
+          "max_response_time": 21.074580192565918,
+          "status": "acceptable",
+          "failures": []
+        },
+        "failure_points": [
+          {
+            "type": "crash",
+            "error_type": "conversation_failure",
+            "error_message": "maximum recursion depth exceeded",
+            "likely_location": "Unknown - check full error trace",
+            "severity": "critical"
+          },
+          {
+            "type": "eligibility_logic_error",
+            "reason": "Prescreening flow did not complete",
+            "final_state": "failed",
+            "likely_location": "core/conversation/gemini_conversation_manager.py or core/prescreening/gemini_prescreening_manager.py",
+            "severity": "high"
+          },
+          {
+            "type": "edge_case_handling_failure",
+            "edge_case_type": "contradictory_info",
+            "final_state": "failed",
+            "reason": "Edge case caused conversation to fail",
+            "severity": "medium",
+            "likely_location": "core/conversation/gemini_conversation_manager.py or core/prescreening/gemini_prescreening_manager.py"
+          }
+        ],
+        "recommendations": [
+          "\ud83d\udea8 CRITICAL: Fix crashes and exceptions. Review error logs and add error handling.",
+          "\u26a0\ufe0f HIGH: Review eligibility evaluation logic in gemini_prescreening_manager.py",
+          "\u26a0\ufe0f MEDIUM: Improve edge case handling. Add input validation and clarification prompts."
+        ]
+      },
+      "timestamp": "2025-12-15T19:14:54.751535"
+    },
+    {
+      "patient_id": "AUTO_TEST_random_001",
+      "patient_profile": {
+        "patient_id": "AUTO_TEST_random_001",
+        "profile_type": "random",
+        "demographics": {
+          "age": 27,
+          "gender": "male",
+          "location": "New Orleans, LA",
+          "name": "Thomas Smith",
+          "first_name": "Thomas",
+          "last_name": "Smith"
+        },
+        "medical_history": {
+          "primary_condition": "Psoriasis",
+          "conditions": [
+            "Psoriasis"
+          ],
+          "medications": [
+            "Methotrexate"
+          ],
+          "duration_years": 6
+        },
+        "expected_behavior": {
+          "should_find_trials": true,
+          "likely_eligible": true,
+          "expected_question_count_range": [
+            4,
+            8
+          ]
+        }
+      },
+      "conversation_result": {
+        "session_id": "AUTO_TEST_random_001",
+        "patient_id": "AUTO_TEST_random_001",
+        "conversation_log": [
+          {
+            "user_message": "Psoriasis trials in New Orleans, LA",
+            "bot_response": "Great! I found 5 clinical trial(s) available in New Orleans, LA:\n\n**Dr. Patrick Dennis**\n  \u2022 Nonsegmental Vitiligo (1 trial)\n\n**Dr. Deidre Hooper**\n  \u2022 Acne Vulgaris (2 trials)\n  \u2022 Glabellar Lines (1 trial)\n\n**Dr. Lesley Saketkoo**\n  \u2022 Systemic Sclerosis (1 trial)\n\nWould you like to:\n1. Check your eligibility for any of these trials?\n2. Learn more about a specific condition?\n3. See trials in a different location?",
+            "metadata": {
+              "session_id": "AUTO_TEST_random_001",
+              "current_state": "trials_shown",
+              "handler_used": "GeminiConversationManager",
+              "processing_method": "gemini_conversation_manager",
+              "action_type": "search_trials",
+              "entities_collected": {
+                "condition": "Psoriasis",
+                "location": "New Orleans",
+                "age": null,
+                "medication": null,
+                "number": null,
+                "trial_name": null,
+                "boolean_answer": null,
+                "confidence_scores": {}
+              },
+              "conversation_action": {
+                "action_type": "search_trials",
+                "parameters": {
+                  "condition": "Psoriasis",
+                  "location": "New Orleans, LA"
+                },
+                "response_text": "Of course. I'll update your location and look for Psoriasis trials in New Orleans, LA for you. One moment while I search.",
+                "new_state": "trials_found",
+                "collect_entities": [],
+                "metadata": {
+                  "reasoning": "The user has provided a new location, overriding the previous one from the context. Since we now have both a condition ('Psoriasis') and a specific location ('New Orleans, LA'), the correct action is to perform a new search with these updated parameters. The response confirms this change to the user and sets expectations for the search results."
+                }
+              },
+              "user_analysis": {
+                "sentiment": "neutral",
+                "communication_style": "standard",
+                "complexity_preference": "moderate"
+              },
+              "trials_found": 5,
+              "condition": "Psoriasis",
+              "location": "New Orleans, LA",
+              "trials_data": [
+                {
+                  "id": 109,
+                  "trial_name": "A Phase 2, Multicenter, Randomized, Placebo-Controlled, Double-Blind, Dose-Ranging Study to Evaluate the Efficacy and Safety of Zasocitinib in Participants with Nonsegmental Vitiligo",
+                  "conditions": "Nonsegmental Vitiligo",
+                  "description": "This is a Phase 2 clinical research study sponsored by Takeda Pharmaceuticals to test an investigational oral medication called zasocitinib for adults with nonsegmental vitiligo. The study is designed to be multicenter, meaning it will take place at various clinics and hospitals. It is a randomized, double-blind, placebo-controlled trial. This means participants will be randomly assigned (like a coin flip) to receive one of several different doses of zasocitinib or a placebo, which contains no active medicine. The double-blind design ensures that neither the participant nor the study doctor will know which treatment is being administered, which helps prevent bias in the results. The study will involve a screening period to determine eligibility, a treatment period, and a follow-up period.\n\nTo be eligible for this study, you must be an adult with a confirmed diagnosis of nonsegmental vitiligo. The study is looking for individuals whose vitiligo affects a certain amount of their body surface area and is considered stable or active. You may not be able to participate if you are pregnant or breastfeeding, have certain other medical conditions, or have recently used specific medications or therapies for vitiligo, including other JAK inhibitors or phototherapy. Before joining, the study team will explain all the details in an informed consent document, and you will have the opportunity to ask any questions to decide if participation is right for you.\n\nThe primary goal of this study is to evaluate how effective different doses of zasocitinib are at promoting skin repigmentation compared to a placebo. This will be measured by the study doctor using a standardized scoring system (Vitiligo Area Scoring Index, or VASI) that assesses changes in vitiligo on your face and body. The study will also assess the drug's safety and its impact on your quality of life through questionnaires. Participation requires regular visits to the study clinic for assessments, which will include physical exams, blood tests, medical photography to document skin changes, and completing surveys about your symptoms and well-being.",
+                  "investigator_name": "Dr. Patrick Dennis",
+                  "site_location": "New Orleans, LA",
+                  "protocol_summary": "This is a Phase 2 clinical research study sponsored by Takeda Pharmaceuticals to test an investigational oral medication called zasocitinib for adults with nonsegmental vitiligo. The study is designed to be multicenter, meaning it will take place at various clinics and hospitals. It is a randomized, double-blind, placebo-controlled trial. This means participants will be randomly assigned (like a coin flip) to receive one of several different doses of zasocitinib or a placebo, which contains no active medicine. The double-blind design ensures that neither the participant nor the study doctor will know which treatment is being administered, which helps prevent bias in the results. The study will involve a screening period to determine eligibility, a treatment period, and a follow-up period.\n\nTo be eligible for this study, you must be an adult with a confirmed diagnosis of nonsegmental vitiligo. The study is looking for individuals whose vitiligo affects a certain amount of their body surface area and is considered stable or active. You may not be able to participate if you are pregnant or breastfeeding, have certain other medical conditions, or have recently used specific medications or therapies for vitiligo, including other JAK inhibitors or phototherapy. Before joining, the study team will explain all the details in an informed consent document, and you will have the opportunity to ask any questions to decide if participation is right for you.\n\nThe primary goal of this study is to evaluate how effective different doses of zasocitinib are at promoting skin repigmentation compared to a placebo. This will be measured by the study doctor using a standardized scoring system (Vitiligo Area Scoring Index, or VASI) that assesses changes in vitiligo on your face and body. The study will also assess the drug's safety and its impact on your quality of life through questionnaires. Participation requires regular visits to the study clinic for assessments, which will include physical exams, blood tests, medical photography to document skin changes, and completing surveys about your symptoms and well-being.",
+                  "total_sites": 2,
+                  "similarity_score": 0.7841763997694425
+                },
+                {
+                  "id": 84,
+                  "trial_name": "A Phase 1/2, randomized, double-blind, placebo-controlled study to evaluate the safety, efficacy and immunogenicity of an Acne mRNA vaccine candidate in participants with mild acne",
+                  "conditions": "Acne Vulgaris",
+                  "description": "This is a Phase 1/2, multi-center, randomized, double-blind, placebo-controlled study sponsored by Sanofi.  The study will be conducted in Singapore and potentially other countries.  This means that some participants will receive the acne vaccine and others will receive a placebo, and neither the participants nor the researchers will know who received which until the end of the study.  The study aims to evaluate the safety and effectiveness of two doses of an mRNA vaccine for mild acne. The duration of the study is not explicitly stated in the provided excerpt but includes a sentinel cohort followed by a main cohort and a long-term follow-up.\n\nThis study is looking for participants aged 18 to 45 years old with mild facial acne vulgaris.  To qualify, you must have an IGA score of mild (grade 2), 10-24 non-inflammatory lesions (like blackheads and whiteheads), and 5-19 inflammatory lesions (like papules and pustules), but no nodulocystic lesions.  Women must not be pregnant or breastfeeding and must use effective contraception or be post-menopausal/surgically sterile.  You cannot participate if you have certain medical conditions like immunodeficiency, allergies to vaccine components, history of myocarditis/pericarditis, chronic illness, bleeding disorders, or severe forms of acne.  Several acne treatments require a washout period before joining the study, ranging from 2 to 24 weeks depending on the treatment.  You should be able to attend all scheduled visits and comply with study procedures.\n\nParticipants will receive two administrations of either the acne mRNA vaccine or a placebo.  The study will measure the safety, effectiveness, and how the vaccine affects the immune system.  Safety will be assessed by monitoring for any side effects.  Effectiveness will be evaluated by measuring changes in acne lesions.  Immunogenicity will be assessed by measuring the body's immune response to the vaccine.  The visit schedule and specific procedures are not fully detailed in this summary, but will involve regular check-ups to assess your acne and monitor for any side effects.  The protocol mentions a sentinel cohort which will have a modified double-blind approach where site staff administering the vaccine and some sponsor staff will be unblinded.",
+                  "investigator_name": "Dr. Deidre Hooper",
+                  "site_location": "New Orleans, LA",
+                  "protocol_summary": "This is a Phase 1/2, multi-center, randomized, double-blind, placebo-controlled study sponsored by Sanofi.  The study will be conducted in Singapore and potentially other countries.  This means that some participants will receive the acne vaccine and others will receive a placebo, and neither the participants nor the researchers will know who received which until the end of the study.  The study aims to evaluate the safety and effectiveness of two doses of an mRNA vaccine for mild acne. The duration of the study is not explicitly stated in the provided excerpt but includes a sentinel cohort followed by a main cohort and a long-term follow-up.\n\nThis study is looking for participants aged 18 to 45 years old with mild facial acne vulgaris.  To qualify, you must have an IGA score of mild (grade 2), 10-24 non-inflammatory lesions (like blackheads and whiteheads), and 5-19 inflammatory lesions (like papules and pustules), but no nodulocystic lesions.  Women must not be pregnant or breastfeeding and must use effective contraception or be post-menopausal/surgically sterile.  You cannot participate if you have certain medical conditions like immunodeficiency, allergies to vaccine components, history of myocarditis/pericarditis, chronic illness, bleeding disorders, or severe forms of acne.  Several acne treatments require a washout period before joining the study, ranging from 2 to 24 weeks depending on the treatment.  You should be able to attend all scheduled visits and comply with study procedures.\n\nParticipants will receive two administrations of either the acne mRNA vaccine or a placebo.  The study will measure the safety, effectiveness, and how the vaccine affects the immune system.  Safety will be assessed by monitoring for any side effects.  Effectiveness will be evaluated by measuring changes in acne lesions.  Immunogenicity will be assessed by measuring the body's immune response to the vaccine.  The visit schedule and specific procedures are not fully detailed in this summary, but will involve regular check-ups to assess your acne and monitor for any side effects.  The protocol mentions a sentinel cohort which will have a modified double-blind approach where site staff administering the vaccine and some sponsor staff will be unblinded.",
+                  "total_sites": 1,
+                  "similarity_score": 0.7720884592658063
+                },
+                {
+                  "id": 90,
+                  "trial_name": "A Phase I/II, randomized, placebo-controlled, multi-arm, dose-finding study to evaluate the safety, efficacy and immunogenicity of an Acne mRNA vaccine candidate in adults with moderate to severe acne 18 to 45 years of age",
+                  "conditions": "Acne Vulgaris",
+                  "description": "This is a Phase I/II study, meaning it's one of the first times this acne vaccine is being tested in humans.  The study is randomized, which means participants are assigned to different treatment groups by chance, like flipping a coin. Some participants will receive the vaccine, while others will receive a placebo (an inactive substance).  This helps researchers understand if the vaccine is truly effective.  The study is also 'double-blinded' (or 'modified double-blind' in some parts), meaning neither the participants nor the researchers know who is getting the vaccine or the placebo until the end of the study. Sanofi is sponsoring the study, which will be conducted at multiple sites in the US and potentially other countries. The study duration will depend on the dose and cohort, but will involve multiple visits over several months.\n\nThis study is looking for adults between 18 and 45 years old who have moderate to severe acne.  To qualify, you must have a certain number of pimples, blackheads, and whiteheads, as determined by a doctor.  You must be generally healthy and able to attend all scheduled study visits.  You cannot participate if you have certain medical conditions, like a weakened immune system, a history of heart inflammation (myocarditis or pericarditis), or certain skin conditions.  You also can't participate if you've recently received other vaccines, taken certain acne medications (like isotretinoin), or are pregnant or breastfeeding.  If you are eligible and choose to participate, you'll need to avoid other acne treatments during the study and follow the instructions provided by the study team.\n\nIn this study, participants will receive either the acne mRNA vaccine or a placebo by injection.  Researchers will be looking at how safe the vaccine is, how well it works to reduce acne, and how the body's immune system responds to it.  The main measurements will be the change in the number of acne lesions, how your skin looks overall, and the presence of antibodies against acne-causing bacteria in your blood.  You'll need to visit the study site several times over the course of the study for check-ups, assessments, and to receive the study injections. The exact schedule will depend on which part of the study you are in, but will likely involve visits over several months.  During these visits, doctors will examine your skin, take blood samples, and ask you about any side effects you may be experiencing.",
+                  "investigator_name": "Dr. Deidre Hooper",
+                  "site_location": "New Orleans, LA",
+                  "protocol_summary": "This is a Phase I/II study, meaning it's one of the first times this acne vaccine is being tested in humans.  The study is randomized, which means participants are assigned to different treatment groups by chance, like flipping a coin. Some participants will receive the vaccine, while others will receive a placebo (an inactive substance).  This helps researchers understand if the vaccine is truly effective.  The study is also 'double-blinded' (or 'modified double-blind' in some parts), meaning neither the participants nor the researchers know who is getting the vaccine or the placebo until the end of the study. Sanofi is sponsoring the study, which will be conducted at multiple sites in the US and potentially other countries. The study duration will depend on the dose and cohort, but will involve multiple visits over several months.\n\nThis study is looking for adults between 18 and 45 years old who have moderate to severe acne.  To qualify, you must have a certain number of pimples, blackheads, and whiteheads, as determined by a doctor.  You must be generally healthy and able to attend all scheduled study visits.  You cannot participate if you have certain medical conditions, like a weakened immune system, a history of heart inflammation (myocarditis or pericarditis), or certain skin conditions.  You also can't participate if you've recently received other vaccines, taken certain acne medications (like isotretinoin), or are pregnant or breastfeeding.  If you are eligible and choose to participate, you'll need to avoid other acne treatments during the study and follow the instructions provided by the study team.\n\nIn this study, participants will receive either the acne mRNA vaccine or a placebo by injection.  Researchers will be looking at how safe the vaccine is, how well it works to reduce acne, and how the body's immune system responds to it.  The main measurements will be the change in the number of acne lesions, how your skin looks overall, and the presence of antibodies against acne-causing bacteria in your blood.  You'll need to visit the study site several times over the course of the study for check-ups, assessments, and to receive the study injections. The exact schedule will depend on which part of the study you are in, but will likely involve visits over several months.  During these visits, doctors will examine your skin, take blood samples, and ask you about any side effects you may be experiencing.",
+                  "total_sites": 5,
+                  "similarity_score": 0.7692959174605448
+                }
+              ],
+              "semantic_search": true
+            },
+            "response_time": 21.24744200706482,
+            "timestamp": "2025-12-15T19:17:17.781886"
+          },
+          {
+            "user_message": "Yes, check my eligibility",
+            "bot_response": "I need to know which specific trial you'd like to check eligibility for. Could you please search for trials first, or let me know what condition and location you're interested in?",
+            "metadata": {
+              "session_id": "AUTO_TEST_random_001",
+              "current_state": "initial",
+              "handler_used": "GeminiConversationManager",
+              "processing_method": "gemini_conversation_manager",
+              "action_type": "start_prescreening",
+              "entities_collected": {
+                "condition": null,
+                "location": null,
+                "age": null,
+                "medication": null,
+                "number": null,
+                "trial_name": null,
+                "boolean_answer": "yes",
+                "confidence_scores": {}
+              },
+              "conversation_action": {
+                "action_type": "start_prescreening",
+                "parameters": {},
+                "response_text": "Great! I can help with that. I'll ask a few questions to see if you might be a match for these Psoriasis trials. Please remember, this is just a preliminary check, and the final decision is always made by the study team.\n\nTo start, could you please tell me your age?",
+                "new_state": "prescreening_in_progress",
+                "collect_entities": [
+                  "age"
+                ],
+                "metadata": {
+                  "reasoning": "The user has explicitly confirmed their desire to check eligibility ('Yes, check my eligibility') after being shown a list of trials (state: trials_shown). The most appropriate action is to initiate the prescreening process. The response acknowledges their request, sets clear expectations that this is a preliminary check, and asks the first common eligibility question (age) to move the process forward. The state is transitioned to 'prescreening_in_progress' to reflect this new conversational phase."
+                }
+              },
+              "user_analysis": {
+                "sentiment": "neutral",
+                "communication_style": "standard",
+                "complexity_preference": "moderate"
+              },
+              "prescreening_error": "no_trial_id_found"
+            },
+            "response_time": 21.953222274780273,
+            "timestamp": "2025-12-15T19:17:39.735678"
+          },
+          {
+            "user_message": "New Orleans, LA",
+            "bot_response": "Great! I found 5 clinical trial(s) available in New Orleans, LA:\n\n**Dr. Patrick Dennis**\n  \u2022 Nonsegmental Vitiligo (1 trial)\n\n**Dr. Deidre Hooper**\n  \u2022 Acne Vulgaris (2 trials)\n  \u2022 Glabellar Lines (1 trial)\n\n**Dr. Lesley Saketkoo**\n  \u2022 Systemic Sclerosis (1 trial)\n\nWould you like to:\n1. Check your eligibility for any of these trials?\n2. Learn more about a specific condition?\n3. See trials in a different location?",
+            "metadata": {
+              "session_id": "AUTO_TEST_random_001",
+              "current_state": "trials_shown",
+              "handler_used": "GeminiConversationManager",
+              "processing_method": "gemini_conversation_manager",
+              "action_type": "search_trials",
+              "entities_collected": {
+                "condition": null,
+                "location": "New Orleans, LA",
+                "age": null,
+                "medication": null,
+                "number": null,
+                "trial_name": null,
+                "boolean_answer": null,
+                "confidence_scores": {}
+              },
+              "conversation_action": {
+                "action_type": "search_trials",
+                "parameters": {
+                  "condition": "Psoriasis",
+                  "location": "New Orleans, LA"
+                },
+                "response_text": "Perfect, thank you. I'm now searching for Psoriasis clinical trials in the New Orleans area. Please give me a moment to find the latest results for you.",
+                "new_state": "trials_found",
+                "collect_entities": [],
+                "metadata": {
+                  "reasoning": "The user has provided their location, and we already have their condition (Psoriasis) from the conversation context. With both necessary pieces of information, the next logical step is to execute the search for clinical trials as per the user's implicit request. The response confirms this action and sets expectations for the user."
+                }
+              },
+              "user_analysis": {
+                "sentiment": "neutral",
+                "communication_style": "standard",
+                "complexity_preference": "moderate"
+              },
+              "trials_found": 5,
+              "condition": "Psoriasis",
+              "location": "New Orleans, LA",
+              "trials_data": [
+                {
+                  "id": 109,
+                  "trial_name": "A Phase 2, Multicenter, Randomized, Placebo-Controlled, Double-Blind, Dose-Ranging Study to Evaluate the Efficacy and Safety of Zasocitinib in Participants with Nonsegmental Vitiligo",
+                  "conditions": "Nonsegmental Vitiligo",
+                  "description": "This is a Phase 2 clinical research study sponsored by Takeda Pharmaceuticals to test an investigational oral medication called zasocitinib for adults with nonsegmental vitiligo. The study is designed to be multicenter, meaning it will take place at various clinics and hospitals. It is a randomized, double-blind, placebo-controlled trial. This means participants will be randomly assigned (like a coin flip) to receive one of several different doses of zasocitinib or a placebo, which contains no active medicine. The double-blind design ensures that neither the participant nor the study doctor will know which treatment is being administered, which helps prevent bias in the results. The study will involve a screening period to determine eligibility, a treatment period, and a follow-up period.\n\nTo be eligible for this study, you must be an adult with a confirmed diagnosis of nonsegmental vitiligo. The study is looking for individuals whose vitiligo affects a certain amount of their body surface area and is considered stable or active. You may not be able to participate if you are pregnant or breastfeeding, have certain other medical conditions, or have recently used specific medications or therapies for vitiligo, including other JAK inhibitors or phototherapy. Before joining, the study team will explain all the details in an informed consent document, and you will have the opportunity to ask any questions to decide if participation is right for you.\n\nThe primary goal of this study is to evaluate how effective different doses of zasocitinib are at promoting skin repigmentation compared to a placebo. This will be measured by the study doctor using a standardized scoring system (Vitiligo Area Scoring Index, or VASI) that assesses changes in vitiligo on your face and body. The study will also assess the drug's safety and its impact on your quality of life through questionnaires. Participation requires regular visits to the study clinic for assessments, which will include physical exams, blood tests, medical photography to document skin changes, and completing surveys about your symptoms and well-being.",
+                  "investigator_name": "Dr. Patrick Dennis",
+                  "site_location": "New Orleans, LA",
+                  "protocol_summary": "This is a Phase 2 clinical research study sponsored by Takeda Pharmaceuticals to test an investigational oral medication called zasocitinib for adults with nonsegmental vitiligo. The study is designed to be multicenter, meaning it will take place at various clinics and hospitals. It is a randomized, double-blind, placebo-controlled trial. This means participants will be randomly assigned (like a coin flip) to receive one of several different doses of zasocitinib or a placebo, which contains no active medicine. The double-blind design ensures that neither the participant nor the study doctor will know which treatment is being administered, which helps prevent bias in the results. The study will involve a screening period to determine eligibility, a treatment period, and a follow-up period.\n\nTo be eligible for this study, you must be an adult with a confirmed diagnosis of nonsegmental vitiligo. The study is looking for individuals whose vitiligo affects a certain amount of their body surface area and is considered stable or active. You may not be able to participate if you are pregnant or breastfeeding, have certain other medical conditions, or have recently used specific medications or therapies for vitiligo, including other JAK inhibitors or phototherapy. Before joining, the study team will explain all the details in an informed consent document, and you will have the opportunity to ask any questions to decide if participation is right for you.\n\nThe primary goal of this study is to evaluate how effective different doses of zasocitinib are at promoting skin repigmentation compared to a placebo. This will be measured by the study doctor using a standardized scoring system (Vitiligo Area Scoring Index, or VASI) that assesses changes in vitiligo on your face and body. The study will also assess the drug's safety and its impact on your quality of life through questionnaires. Participation requires regular visits to the study clinic for assessments, which will include physical exams, blood tests, medical photography to document skin changes, and completing surveys about your symptoms and well-being.",
+                  "total_sites": 2,
+                  "similarity_score": 0.7841763997694425
+                },
+                {
+                  "id": 84,
+                  "trial_name": "A Phase 1/2, randomized, double-blind, placebo-controlled study to evaluate the safety, efficacy and immunogenicity of an Acne mRNA vaccine candidate in participants with mild acne",
+                  "conditions": "Acne Vulgaris",
+                  "description": "This is a Phase 1/2, multi-center, randomized, double-blind, placebo-controlled study sponsored by Sanofi.  The study will be conducted in Singapore and potentially other countries.  This means that some participants will receive the acne vaccine and others will receive a placebo, and neither the participants nor the researchers will know who received which until the end of the study.  The study aims to evaluate the safety and effectiveness of two doses of an mRNA vaccine for mild acne. The duration of the study is not explicitly stated in the provided excerpt but includes a sentinel cohort followed by a main cohort and a long-term follow-up.\n\nThis study is looking for participants aged 18 to 45 years old with mild facial acne vulgaris.  To qualify, you must have an IGA score of mild (grade 2), 10-24 non-inflammatory lesions (like blackheads and whiteheads), and 5-19 inflammatory lesions (like papules and pustules), but no nodulocystic lesions.  Women must not be pregnant or breastfeeding and must use effective contraception or be post-menopausal/surgically sterile.  You cannot participate if you have certain medical conditions like immunodeficiency, allergies to vaccine components, history of myocarditis/pericarditis, chronic illness, bleeding disorders, or severe forms of acne.  Several acne treatments require a washout period before joining the study, ranging from 2 to 24 weeks depending on the treatment.  You should be able to attend all scheduled visits and comply with study procedures.\n\nParticipants will receive two administrations of either the acne mRNA vaccine or a placebo.  The study will measure the safety, effectiveness, and how the vaccine affects the immune system.  Safety will be assessed by monitoring for any side effects.  Effectiveness will be evaluated by measuring changes in acne lesions.  Immunogenicity will be assessed by measuring the body's immune response to the vaccine.  The visit schedule and specific procedures are not fully detailed in this summary, but will involve regular check-ups to assess your acne and monitor for any side effects.  The protocol mentions a sentinel cohort which will have a modified double-blind approach where site staff administering the vaccine and some sponsor staff will be unblinded.",
+                  "investigator_name": "Dr. Deidre Hooper",
+                  "site_location": "New Orleans, LA",
+                  "protocol_summary": "This is a Phase 1/2, multi-center, randomized, double-blind, placebo-controlled study sponsored by Sanofi.  The study will be conducted in Singapore and potentially other countries.  This means that some participants will receive the acne vaccine and others will receive a placebo, and neither the participants nor the researchers will know who received which until the end of the study.  The study aims to evaluate the safety and effectiveness of two doses of an mRNA vaccine for mild acne. The duration of the study is not explicitly stated in the provided excerpt but includes a sentinel cohort followed by a main cohort and a long-term follow-up.\n\nThis study is looking for participants aged 18 to 45 years old with mild facial acne vulgaris.  To qualify, you must have an IGA score of mild (grade 2), 10-24 non-inflammatory lesions (like blackheads and whiteheads), and 5-19 inflammatory lesions (like papules and pustules), but no nodulocystic lesions.  Women must not be pregnant or breastfeeding and must use effective contraception or be post-menopausal/surgically sterile.  You cannot participate if you have certain medical conditions like immunodeficiency, allergies to vaccine components, history of myocarditis/pericarditis, chronic illness, bleeding disorders, or severe forms of acne.  Several acne treatments require a washout period before joining the study, ranging from 2 to 24 weeks depending on the treatment.  You should be able to attend all scheduled visits and comply with study procedures.\n\nParticipants will receive two administrations of either the acne mRNA vaccine or a placebo.  The study will measure the safety, effectiveness, and how the vaccine affects the immune system.  Safety will be assessed by monitoring for any side effects.  Effectiveness will be evaluated by measuring changes in acne lesions.  Immunogenicity will be assessed by measuring the body's immune response to the vaccine.  The visit schedule and specific procedures are not fully detailed in this summary, but will involve regular check-ups to assess your acne and monitor for any side effects.  The protocol mentions a sentinel cohort which will have a modified double-blind approach where site staff administering the vaccine and some sponsor staff will be unblinded.",
+                  "total_sites": 1,
+                  "similarity_score": 0.7720884592658063
+                },
+                {
+                  "id": 90,
+                  "trial_name": "A Phase I/II, randomized, placebo-controlled, multi-arm, dose-finding study to evaluate the safety, efficacy and immunogenicity of an Acne mRNA vaccine candidate in adults with moderate to severe acne 18 to 45 years of age",
+                  "conditions": "Acne Vulgaris",
+                  "description": "This is a Phase I/II study, meaning it's one of the first times this acne vaccine is being tested in humans.  The study is randomized, which means participants are assigned to different treatment groups by chance, like flipping a coin. Some participants will receive the vaccine, while others will receive a placebo (an inactive substance).  This helps researchers understand if the vaccine is truly effective.  The study is also 'double-blinded' (or 'modified double-blind' in some parts), meaning neither the participants nor the researchers know who is getting the vaccine or the placebo until the end of the study. Sanofi is sponsoring the study, which will be conducted at multiple sites in the US and potentially other countries. The study duration will depend on the dose and cohort, but will involve multiple visits over several months.\n\nThis study is looking for adults between 18 and 45 years old who have moderate to severe acne.  To qualify, you must have a certain number of pimples, blackheads, and whiteheads, as determined by a doctor.  You must be generally healthy and able to attend all scheduled study visits.  You cannot participate if you have certain medical conditions, like a weakened immune system, a history of heart inflammation (myocarditis or pericarditis), or certain skin conditions.  You also can't participate if you've recently received other vaccines, taken certain acne medications (like isotretinoin), or are pregnant or breastfeeding.  If you are eligible and choose to participate, you'll need to avoid other acne treatments during the study and follow the instructions provided by the study team.\n\nIn this study, participants will receive either the acne mRNA vaccine or a placebo by injection.  Researchers will be looking at how safe the vaccine is, how well it works to reduce acne, and how the body's immune system responds to it.  The main measurements will be the change in the number of acne lesions, how your skin looks overall, and the presence of antibodies against acne-causing bacteria in your blood.  You'll need to visit the study site several times over the course of the study for check-ups, assessments, and to receive the study injections. The exact schedule will depend on which part of the study you are in, but will likely involve visits over several months.  During these visits, doctors will examine your skin, take blood samples, and ask you about any side effects you may be experiencing.",
+                  "investigator_name": "Dr. Deidre Hooper",
+                  "site_location": "New Orleans, LA",
+                  "protocol_summary": "This is a Phase I/II study, meaning it's one of the first times this acne vaccine is being tested in humans.  The study is randomized, which means participants are assigned to different treatment groups by chance, like flipping a coin. Some participants will receive the vaccine, while others will receive a placebo (an inactive substance).  This helps researchers understand if the vaccine is truly effective.  The study is also 'double-blinded' (or 'modified double-blind' in some parts), meaning neither the participants nor the researchers know who is getting the vaccine or the placebo until the end of the study. Sanofi is sponsoring the study, which will be conducted at multiple sites in the US and potentially other countries. The study duration will depend on the dose and cohort, but will involve multiple visits over several months.\n\nThis study is looking for adults between 18 and 45 years old who have moderate to severe acne.  To qualify, you must have a certain number of pimples, blackheads, and whiteheads, as determined by a doctor.  You must be generally healthy and able to attend all scheduled study visits.  You cannot participate if you have certain medical conditions, like a weakened immune system, a history of heart inflammation (myocarditis or pericarditis), or certain skin conditions.  You also can't participate if you've recently received other vaccines, taken certain acne medications (like isotretinoin), or are pregnant or breastfeeding.  If you are eligible and choose to participate, you'll need to avoid other acne treatments during the study and follow the instructions provided by the study team.\n\nIn this study, participants will receive either the acne mRNA vaccine or a placebo by injection.  Researchers will be looking at how safe the vaccine is, how well it works to reduce acne, and how the body's immune system responds to it.  The main measurements will be the change in the number of acne lesions, how your skin looks overall, and the presence of antibodies against acne-causing bacteria in your blood.  You'll need to visit the study site several times over the course of the study for check-ups, assessments, and to receive the study injections. The exact schedule will depend on which part of the study you are in, but will likely involve visits over several months.  During these visits, doctors will examine your skin, take blood samples, and ask you about any side effects you may be experiencing.",
+                  "total_sites": 5,
+                  "similarity_score": 0.7692959174605448
+                }
+              ],
+              "semantic_search": true
+            },
+            "response_time": 26.14660096168518,
+            "timestamp": "2025-12-15T19:18:05.912542"
+          }
+        ],
+        "final_state": "failed",
+        "total_turns": 3,
+        "total_questions_asked": 0,
+        "errors": [
+          {
+            "type": "timeout",
+            "message": "New Orleans, LA",
+            "response_time": 30.592250108718872
+          },
+          {
+            "type": "conversation_failure",
+            "error": "",
+            "state": "prescreening_active",
+            "timestamp": "2025-12-15T19:18:36.505163"
+          }
+        ]
+      },
+      "validation": {
+        "passed": false,
+        "overall_score": 23.0,
+        "crash_prevention": {
+          "passed": false,
+          "score": 0.0,
+          "error_count": 2,
+          "errors": [
+            {
+              "type": "timeout",
+              "message": "New Orleans, LA",
+              "response_time": 30.592250108718872
+            },
+            {
+              "type": "conversation_failure",
+              "error": "",
+              "state": "prescreening_active",
+              "timestamp": "2025-12-15T19:18:36.505163"
+            }
+          ],
+          "failures": [
+            {
+              "type": "crash",
+              "error_type": "timeout",
+              "error_message": "Unknown error",
+              "likely_location": "aiohttp timeout in conversation_simulator.py or slow Gemini API response",
+              "severity": "critical"
+            },
+            {
+              "type": "crash",
+              "error_type": "conversation_failure",
+              "error_message": "",
+              "likely_location": "Unknown - check full error trace",
+              "severity": "critical"
+            }
+          ]
+        },
+        "eligibility_accuracy": {
+          "passed": false,
+          "score": 0.0,
+          "reason": "Prescreening did not complete",
+          "failures": [
+            {
+              "type": "eligibility_logic_error",
+              "reason": "Prescreening flow did not complete",
+              "final_state": "failed",
+              "likely_location": "core/conversation/gemini_conversation_manager.py or core/prescreening/gemini_prescreening_manager.py",
+              "severity": "high"
+            }
+          ]
+        },
+        "conversation_quality": {
+          "passed": false,
+          "score": 65.0,
+          "total_questions_asked": 0,
+          "issues": [
+            "Too few questions asked (0, expected at least 4)",
+            "Repeated question: Great! I found 5 clinical trial(s) available in Ne..."
+          ],
+          "failures": [
+            {
+              "type": "conversation_quality_issue",
+              "issue": "Too few questions asked (0, expected at least 4)",
+              "severity": "medium",
+              "likely_location": "core/conversation/gemini_conversation_manager.py or core/prescreening/gemini_prescreening_manager.py"
+            },
+            {
+              "type": "conversation_quality_issue",
+              "issue": "Repeated question: Great! I found 5 clinical trial(s) available in Ne...",
+              "severity": "medium",
+              "likely_location": "core/conversation/gemini_conversation_manager.py or core/prescreening/gemini_prescreening_manager.py"
+            }
+          ]
+        },
+        "edge_case_handling": {
+          "passed": true,
+          "score": 100.0,
+          "applicable": false,
+          "failures": []
+        },
+        "performance": {
+          "passed": false,
+          "score": 40.0,
+          "avg_response_time": 23.115755081176758,
+          "max_response_time": 26.14660096168518,
+          "status": "slow",
+          "failures": [
+            {
+              "type": "performance_issue",
+              "avg_response_time": 23.115755081176758,
+              "max_response_time": 26.14660096168518,
+              "severity": "low",
+              "recommendation": "Investigate slow API responses or Gemini API delays"
+            }
+          ]
+        },
+        "failure_points": [
+          {
+            "type": "crash",
+            "error_type": "timeout",
+            "error_message": "Unknown error",
+            "likely_location": "aiohttp timeout in conversation_simulator.py or slow Gemini API response",
+            "severity": "critical"
+          },
+          {
+            "type": "crash",
+            "error_type": "conversation_failure",
+            "error_message": "",
+            "likely_location": "Unknown - check full error trace",
+            "severity": "critical"
+          },
+          {
+            "type": "eligibility_logic_error",
+            "reason": "Prescreening flow did not complete",
+            "final_state": "failed",
+            "likely_location": "core/conversation/gemini_conversation_manager.py or core/prescreening/gemini_prescreening_manager.py",
+            "severity": "high"
+          },
+          {
+            "type": "conversation_quality_issue",
+            "issue": "Too few questions asked (0, expected at least 4)",
+            "severity": "medium",
+            "likely_location": "core/conversation/gemini_conversation_manager.py or core/prescreening/gemini_prescreening_manager.py"
+          },
+          {
+            "type": "conversation_quality_issue",
+            "issue": "Repeated question: Great! I found 5 clinical trial(s) available in Ne...",
+            "severity": "medium",
+            "likely_location": "core/conversation/gemini_conversation_manager.py or core/prescreening/gemini_prescreening_manager.py"
+          },
+          {
+            "type": "performance_issue",
+            "avg_response_time": 23.115755081176758,
+            "max_response_time": 26.14660096168518,
+            "severity": "low",
+            "recommendation": "Investigate slow API responses or Gemini API delays"
+          }
+        ],
+        "recommendations": [
+          "\ud83d\udea8 CRITICAL: Fix crashes and exceptions. Review error logs and add error handling.",
+          "\u26a0\ufe0f HIGH: Review eligibility evaluation logic in gemini_prescreening_manager.py",
+          "\u2139\ufe0f LOW: Minor conversation quality issues. Consider refining prompts and validation.",
+          "\u2139\ufe0f LOW: Slow response times. Optimize API calls or consider caching."
+        ]
+      },
+      "timestamp": "2025-12-15T19:18:36.505421"
+    },
+    {
+      "patient_id": "AUTO_TEST_targeted_diabetes_001",
+      "patient_profile": {
+        "patient_id": "AUTO_TEST_targeted_diabetes_001",
+        "profile_type": "targeted",
+        "demographics": {
+          "age": 39,
+          "gender": "female",
+          "location": "Jackson, MS",
+          "name": "Test Diabetes Patient",
+          "first_name": "Test",
+          "last_name": "Patient"
+        },
+        "medical_history": {
+          "primary_condition": "Type 2 Diabetes",
+          "conditions": [
+            "Type 2 Diabetes",
+            "Hypertension"
+          ],
+          "medications": [
+            "Metformin",
+            "Lisinopril"
+          ],
+          "duration_years": 7,
+          "a1c": 8.2,
+          "blood_glucose": 180
+        },
+        "expected_behavior": {
+          "should_find_trials": true,
+          "likely_eligible": true,
+          "expected_question_count_range": [
+            5,
+            9
+          ],
+          "target_trial_keywords": [
+            "diabetes"
+          ]
+        }
+      },
+      "conversation_result": {
+        "session_id": "AUTO_TEST_targeted_diabetes_001",
+        "patient_id": "AUTO_TEST_targeted_diabetes_001",
+        "conversation_log": [
+          {
+            "user_message": "Type 2 Diabetes trials in Jackson, MS",
+            "bot_response": "I couldn't find any trials for Type 2 Diabetes in Jackson, MS at the moment. Would you like to try a different condition or location?",
+            "metadata": {
+              "session_id": "AUTO_TEST_targeted_diabetes_001",
+              "current_state": "initial",
+              "handler_used": "GeminiConversationManager",
+              "processing_method": "gemini_conversation_manager",
+              "action_type": "search_trials",
+              "entities_collected": {
+                "condition": "Type 2 Diabetes",
+                "location": "Jackson",
+                "age": null,
+                "medication": null,
+                "number": null,
+                "trial_name": null,
+                "boolean_answer": null,
+                "confidence_scores": {}
+              },
+              "conversation_action": {
+                "action_type": "search_trials",
+                "parameters": {
+                  "condition": "Type 2 Diabetes",
+                  "location": "Jackson, MS"
+                },
+                "response_text": "Of course. Let's look for Type 2 Diabetes trials in Jackson, MS for you. One moment while I find the latest studies.",
+                "new_state": "trials_shown",
+                "collect_entities": [],
+                "metadata": {
+                  "reasoning": "The user has provided a new location ('Jackson, MS') while keeping the same condition ('Type 2 Diabetes'). This is a clear intent to perform a new search. Since I have both the required condition and location, the correct action is 'search_trials' with the updated parameters. The response confirms the new search location to the user and sets expectations."
+                }
+              },
+              "user_analysis": {
+                "sentiment": "neutral",
+                "communication_style": "standard",
+                "complexity_preference": "moderate"
+              },
+              "no_trials_found": true,
+              "condition": "Type 2 Diabetes",
+              "location": "Jackson, MS"
+            },
+            "response_time": 17.43613624572754,
+            "timestamp": "2025-12-15T19:17:13.944917"
+          },
+          {
+            "user_message": "Yes, check my eligibility",
+            "bot_response": "My apologies for any confusion. Since we didn't find any matching trials for Type 2 Diabetes in Jackson in the last search, I don't have a specific trial to check eligibility for at the moment. Would you like me to try searching in a wider area, like the entire state, or perhaps for a different condition?",
+            "metadata": {
+              "session_id": "AUTO_TEST_targeted_diabetes_001",
+              "current_state": "initial",
+              "handler_used": "GeminiConversationManager",
+              "processing_method": "gemini_conversation_manager",
+              "action_type": "clarify_request",
+              "entities_collected": {
+                "condition": null,
+                "location": null,
+                "age": null,
+                "medication": null,
+                "number": null,
+                "trial_name": null,
+                "boolean_answer": null,
+                "confidence_scores": {}
+              },
+              "conversation_action": {
+                "action_type": "clarify_request",
+                "parameters": {},
+                "response_text": "My apologies for any confusion. Since we didn't find any matching trials for Type 2 Diabetes in Jackson in the last search, I don't have a specific trial to check eligibility for at the moment. Would you like me to try searching in a wider area, like the entire state, or perhaps for a different condition?",
+                "new_state": "awaiting_clarification",
+                "collect_entities": [
+                  "location",
+                  "condition"
+                ],
+                "metadata": {
+                  "reasoning": "The user is asking to check eligibility, but the context indicates that the previous search found no trials. It is impossible to start a prescreening without a trial. The most helpful action is to clarify this discrepancy to the user and offer alternative next steps, such as broadening the search criteria, to help them find a relevant trial."
+                }
+              },
+              "user_analysis": {
+                "sentiment": "neutral",
+                "communication_style": "standard",
+                "complexity_preference": "moderate"
+              },
+              "general_response": true
+            },
+            "response_time": 12.731769800186157,
+            "timestamp": "2025-12-15T19:17:26.676954"
+          },
+          {
+            "user_message": "Yes, I have Type 2 Diabetes",
+            "bot_response": "I couldn't find any trials for Type 2 Diabetes in Jackson at the moment. Would you like to try a different condition or location?",
+            "metadata": {
+              "session_id": "AUTO_TEST_targeted_diabetes_001",
+              "current_state": "initial",
+              "handler_used": "GeminiConversationManager",
+              "processing_method": "gemini_conversation_manager",
+              "action_type": "search_trials",
+              "entities_collected": {
+                "condition": "Type 2 Diabetes",
+                "location": null,
+                "age": null,
+                "medication": null,
+                "number": null,
+                "trial_name": null,
+                "boolean_answer": "yes",
+                "confidence_scores": {}
+              },
+              "conversation_action": {
+                "action_type": "search_trials",
+                "parameters": {
+                  "condition": "Type 2 Diabetes",
+                  "location": "Jackson"
+                },
+                "response_text": "Great, thank you for confirming. I'll search for clinical trials for Type 2 Diabetes near Jackson. Please give me just a moment to see what's available.",
+                "new_state": "trials_presented",
+                "collect_entities": [],
+                "metadata": {
+                  "reasoning": "The user has confirmed their condition and intent to search. The conversation context provides all the necessary information: condition ('Type 2 Diabetes') and location ('Jackson'). Therefore, the most appropriate and helpful action is to execute the search. The response confirms the action and the search parameters, keeping the user informed and moving the conversation forward to the results phase."
+                }
+              },
+              "user_analysis": {
+                "sentiment": "neutral",
+                "communication_style": "standard",
+                "complexity_preference": "moderate"
+              },
+              "no_trials_found": true,
+              "condition": "Type 2 Diabetes",
+              "location": "Jackson"
+            },
+            "response_time": 24.535539150238037,
+            "timestamp": "2025-12-15T19:17:51.213086"
+          },
+          {
+            "user_message": "Jackson, MS",
+            "bot_response": "I couldn't find any trials for Type 2 Diabetes in Jackson, MS at the moment. Would you like to try a different condition or location?",
+            "metadata": {
+              "session_id": "AUTO_TEST_targeted_diabetes_001",
+              "current_state": "initial",
+              "handler_used": "GeminiConversationManager",
+              "processing_method": "gemini_conversation_manager",
+              "action_type": "search_trials",
+              "entities_collected": {
+                "condition": null,
+                "location": "Jackson, MS",
+                "age": null,
+                "medication": null,
+                "number": null,
+                "trial_name": null,
+                "boolean_answer": null,
+                "confidence_scores": {}
+              },
+              "conversation_action": {
+                "action_type": "search_trials",
+                "parameters": {
+                  "condition": "Type 2 Diabetes",
+                  "location": "Jackson, MS"
+                },
+                "response_text": "Thank you for confirming. I'm now searching for clinical trials for Type 2 Diabetes specifically in the Jackson, MS area. Please give me a moment to find the most relevant options for you.",
+                "new_state": "trials_found",
+                "collect_entities": [],
+                "metadata": {
+                  "reasoning": "The user has provided a specific location ('Jackson, MS') and the system already has their condition ('Type 2 Diabetes') from the conversation context. With both required pieces of information, the most logical and helpful action is to perform the search for clinical trials as requested. The response confirms the search parameters to build trust and sets expectations for the next step."
+                }
+              },
+              "user_analysis": {
+                "sentiment": "neutral",
+                "communication_style": "standard",
+                "complexity_preference": "moderate"
+              },
+              "no_trials_found": true,
+              "condition": "Type 2 Diabetes",
+              "location": "Jackson, MS"
+            },
+            "response_time": 21.85567879676819,
+            "timestamp": "2025-12-15T19:18:13.069526"
+          },
+          {
+            "user_message": "Jackson, MS",
+            "bot_response": "I couldn't find any trials for Type 2 Diabetes in Jackson, MS at the moment. Would you like to try a different condition or location?",
+            "metadata": {
+              "session_id": "AUTO_TEST_targeted_diabetes_001",
+              "current_state": "initial",
+              "handler_used": "GeminiConversationManager",
+              "processing_method": "gemini_conversation_manager",
+              "action_type": "search_trials",
+              "entities_collected": {
+                "condition": null,
+                "location": "Jackson, MS",
+                "age": null,
+                "medication": null,
+                "number": null,
+                "trial_name": null,
+                "boolean_answer": null,
+                "confidence_scores": {}
+              },
+              "conversation_action": {
+                "action_type": "search_trials",
+                "parameters": {
+                  "condition": "Type 2 Diabetes",
+                  "location": "Jackson, MS"
+                },
+                "response_text": "Thanks for confirming. I'll search again for Type 2 Diabetes clinical trials specifically in Jackson, MS. Please give me a moment.",
+                "new_state": null,
+                "collect_entities": [],
+                "metadata": {
+                  "reasoning": "The user has provided both the necessary pieces of information: condition ('Type 2 Diabetes') and location ('Jackson, MS'). The user is re-stating their location, likely due to a previous failed search, indicating they want to proceed with or retry the search for that specific area. The most helpful action is to honor this request and perform the search again. The response confirms the action and the parameters being used, showing the user they have been heard correctly."
+                }
+              },
+              "user_analysis": {
+                "sentiment": "neutral",
+                "communication_style": "standard",
+                "complexity_preference": "moderate"
+              },
+              "no_trials_found": true,
+              "condition": "Type 2 Diabetes",
+              "location": "Jackson, MS"
+            },
+            "response_time": 18.917030096054077,
+            "timestamp": "2025-12-15T19:18:31.986807"
+          },
+          {
+            "user_message": "Jackson, MS",
+            "bot_response": "Thanks for confirming. I've double-checked, and unfortunately, there don't seem to be any active clinical trials for Type 2 Diabetes listed directly in Jackson, MS at this time. This can sometimes happen as trial sites are limited.\n\nWould you be open to expanding the search? We could look within a 50-mile radius, or perhaps check a larger nearby city.",
+            "metadata": {
+              "session_id": "AUTO_TEST_targeted_diabetes_001",
+              "current_state": "initial",
+              "handler_used": "GeminiConversationManager",
+              "processing_method": "gemini_conversation_manager",
+              "action_type": "clarify_request",
+              "entities_collected": {
+                "condition": null,
+                "location": "Jackson, MS",
+                "age": null,
+                "medication": null,
+                "number": null,
+                "trial_name": null,
+                "boolean_answer": null,
+                "confidence_scores": {}
+              },
+              "conversation_action": {
+                "action_type": "clarify_request",
+                "parameters": {
+                  "original_condition": "Type 2 Diabetes",
+                  "original_location": "Jackson, MS"
+                },
+                "response_text": "Thanks for confirming. I've double-checked, and unfortunately, there don't seem to be any active clinical trials for Type 2 Diabetes listed directly in Jackson, MS at this time. This can sometimes happen as trial sites are limited.\n\nWould you be open to expanding the search? We could look within a 50-mile radius, or perhaps check a larger nearby city.",
+                "new_state": "awaiting_new_search_criteria",
+                "collect_entities": [
+                  "location",
+                  "boolean_answer"
+                ],
+                "metadata": {
+                  "reasoning": "The user is repeating their location after a search likely yielded no results. Running the same search again would be unhelpful and create a frustrating loop. The best course of action is to acknowledge their location, explain the lack of results, and proactively offer alternative, constructive search options like expanding the radius or searching a different city. This clarifies the situation and empowers the user with new choices to move the conversation forward."
+                }
+              },
+              "user_analysis": {
+                "sentiment": "neutral",
+                "communication_style": "standard",
+                "complexity_preference": "moderate"
+              },
+              "general_response": true
+            },
+            "response_time": 22.357414960861206,
+            "timestamp": "2025-12-15T19:18:54.344872"
+          }
+        ],
+        "final_state": "failed",
+        "total_turns": 6,
+        "total_questions_asked": 0,
+        "errors": [
+          {
+            "type": "timeout",
+            "message": "Yes, that's correct",
+            "response_time": 367.1463360786438
+          },
+          {
+            "type": "conversation_failure",
+            "error": "",
+            "state": "prescreening_active",
+            "timestamp": "2025-12-15T19:25:01.491818"
+          }
+        ]
+      },
+      "validation": {
+        "passed": false,
+        "overall_score": 20.0,
+        "crash_prevention": {
+          "passed": false,
+          "score": 0.0,
+          "error_count": 2,
+          "errors": [
+            {
+              "type": "timeout",
+              "message": "Yes, that's correct",
+              "response_time": 367.1463360786438
+            },
+            {
+              "type": "conversation_failure",
+              "error": "",
+              "state": "prescreening_active",
+              "timestamp": "2025-12-15T19:25:01.491818"
+            }
+          ],
+          "failures": [
+            {
+              "type": "crash",
+              "error_type": "timeout",
+              "error_message": "Unknown error",
+              "likely_location": "aiohttp timeout in conversation_simulator.py or slow Gemini API response",
+              "severity": "critical"
+            },
+            {
+              "type": "crash",
+              "error_type": "conversation_failure",
+              "error_message": "",
+              "likely_location": "Unknown - check full error trace",
+              "severity": "critical"
+            }
+          ]
+        },
+        "eligibility_accuracy": {
+          "passed": false,
+          "score": 0.0,
+          "reason": "Prescreening did not complete",
+          "failures": [
+            {
+              "type": "eligibility_logic_error",
+              "reason": "Prescreening flow did not complete",
+              "final_state": "failed",
+              "likely_location": "core/conversation/gemini_conversation_manager.py or core/prescreening/gemini_prescreening_manager.py",
+              "severity": "high"
+            }
+          ]
+        },
+        "conversation_quality": {
+          "passed": false,
+          "score": 50.0,
+          "total_questions_asked": 0,
+          "issues": [
+            "Too few questions asked (0, expected at least 5)",
+            "Repeated question: I couldn't find any trials for Type 2 Diabetes in ...",
+            "Repeated question: I couldn't find any trials for Type 2 Diabetes in ..."
+          ],
+          "failures": [
+            {
+              "type": "conversation_quality_issue",
+              "issue": "Too few questions asked (0, expected at least 5)",
+              "severity": "medium",
+              "likely_location": "core/conversation/gemini_conversation_manager.py or core/prescreening/gemini_prescreening_manager.py"
+            },
+            {
+              "type": "conversation_quality_issue",
+              "issue": "Repeated question: I couldn't find any trials for Type 2 Diabetes in ...",
+              "severity": "medium",
+              "likely_location": "core/conversation/gemini_conversation_manager.py or core/prescreening/gemini_prescreening_manager.py"
+            },
+            {
+              "type": "conversation_quality_issue",
+              "issue": "Repeated question: I couldn't find any trials for Type 2 Diabetes in ...",
+              "severity": "medium",
+              "likely_location": "core/conversation/gemini_conversation_manager.py or core/prescreening/gemini_prescreening_manager.py"
+            }
+          ]
+        },
+        "edge_case_handling": {
+          "passed": true,
+          "score": 100.0,
+          "applicable": false,
+          "failures": []
+        },
+        "performance": {
+          "passed": true,
+          "score": 70.0,
+          "avg_response_time": 19.638928174972534,
+          "max_response_time": 24.535539150238037,
+          "status": "acceptable",
+          "failures": []
+        },
+        "failure_points": [
+          {
+            "type": "crash",
+            "error_type": "timeout",
+            "error_message": "Unknown error",
+            "likely_location": "aiohttp timeout in conversation_simulator.py or slow Gemini API response",
+            "severity": "critical"
+          },
+          {
+            "type": "crash",
+            "error_type": "conversation_failure",
+            "error_message": "",
+            "likely_location": "Unknown - check full error trace",
+            "severity": "critical"
+          },
+          {
+            "type": "eligibility_logic_error",
+            "reason": "Prescreening flow did not complete",
+            "final_state": "failed",
+            "likely_location": "core/conversation/gemini_conversation_manager.py or core/prescreening/gemini_prescreening_manager.py",
+            "severity": "high"
+          },
+          {
+            "type": "conversation_quality_issue",
+            "issue": "Too few questions asked (0, expected at least 5)",
+            "severity": "medium",
+            "likely_location": "core/conversation/gemini_conversation_manager.py or core/prescreening/gemini_prescreening_manager.py"
+          },
+          {
+            "type": "conversation_quality_issue",
+            "issue": "Repeated question: I couldn't find any trials for Type 2 Diabetes in ...",
+            "severity": "medium",
+            "likely_location": "core/conversation/gemini_conversation_manager.py or core/prescreening/gemini_prescreening_manager.py"
+          },
+          {
+            "type": "conversation_quality_issue",
+            "issue": "Repeated question: I couldn't find any trials for Type 2 Diabetes in ...",
+            "severity": "medium",
+            "likely_location": "core/conversation/gemini_conversation_manager.py or core/prescreening/gemini_prescreening_manager.py"
+          }
+        ],
+        "recommendations": [
+          "\ud83d\udea8 CRITICAL: Fix crashes and exceptions. Review error logs and add error handling.",
+          "\u26a0\ufe0f HIGH: Review eligibility evaluation logic in gemini_prescreening_manager.py",
+          "\u2139\ufe0f LOW: Minor conversation quality issues. Consider refining prompts and validation."
+        ]
+      },
+      "timestamp": "2025-12-15T19:25:01.491962"
+    },
+    {
+      "patient_id": "AUTO_TEST_targeted_gout_000",
+      "patient_profile": {
+        "patient_id": "AUTO_TEST_targeted_gout_000",
+        "profile_type": "targeted",
+        "demographics": {
+          "age": 65,
+          "gender": "female",
+          "location": "Baton Rouge, LA",
+          "name": "Test Gout Patient",
+          "first_name": "Test",
+          "last_name": "Patient"
+        },
+        "medical_history": {
+          "primary_condition": "Gout",
+          "conditions": [
+            "Gout",
+            "Hypertension"
+          ],
+          "medications": [
+            "Lisinopril"
+          ],
+          "duration_years": 3,
+          "flares_per_year": 4,
+          "uric_acid_level": 8.5
+        },
+        "expected_behavior": {
+          "should_find_trials": true,
+          "likely_eligible": true,
+          "expected_question_count_range": [
+            5,
+            8
+          ],
+          "target_trial_keywords": [
+            "gout"
+          ]
+        }
+      },
+      "conversation_result": {
+        "session_id": "AUTO_TEST_targeted_gout_000",
+        "patient_id": "AUTO_TEST_targeted_gout_000",
+        "conversation_log": [
+          {
+            "user_message": "Gout trials in Baton Rouge, LA",
+            "bot_response": "Great! I found 5 clinical trial(s) available in Baton Rouge, LA:\n\n**Dr. Taylor Sanders**\n  \u2022 Gout (3 trials)\n  \u2022 Fibromyalgia (1 trial)\n\n**Dr. Ira Thorla**\n  \u2022 Female Pattern Hair Loss (Androgenetic Alopecia) (1 trial)\n\nWould you like to:\n1. Check your eligibility for any of these trials?\n2. Learn more about a specific condition?\n3. See trials in a different location?",
+            "metadata": {
+              "session_id": "AUTO_TEST_targeted_gout_000",
+              "current_state": "trials_shown",
+              "handler_used": "GeminiConversationManager",
+              "processing_method": "gemini_conversation_manager",
+              "action_type": "search_trials",
+              "entities_collected": {
+                "condition": "Gout",
+                "location": "Baton Rouge",
+                "age": null,
+                "medication": null,
+                "number": null,
+                "trial_name": null,
+                "boolean_answer": null,
+                "confidence_scores": {}
+              },
+              "conversation_action": {
+                "action_type": "search_trials",
+                "parameters": {
+                  "condition": "Gout",
+                  "location": "Baton Rouge, LA"
+                },
+                "response_text": "I can certainly help you find clinical trials for Gout in Baton Rouge, LA. Let me look that up for you now.",
+                "new_state": "awaiting_search_results",
+                "collect_entities": [],
+                "metadata": {
+                  "reasoning": "The user has provided both a specific condition ('Gout') and a location ('Baton Rouge, LA'), which are the two required pieces of information to perform a trial search. The most direct and helpful action is to execute the search immediately to fulfill their request."
+                }
+              },
+              "user_analysis": {
+                "sentiment": "neutral",
+                "communication_style": "standard",
+                "complexity_preference": "moderate"
+              },
+              "trials_found": 5,
+              "condition": "Gout",
+              "location": "Baton Rouge, LA",
+              "trials_data": [
+                {
+                  "id": 2,
+                  "trial_name": "A Phase 3 Randomized, Double-blind, Multi-center, Placebo-controlled Study to Evaluate the Efficacy and Safety of AR882 in Participants with Gout",
+                  "conditions": "Gout",
+                  "description": "",
+                  "investigator_name": "Dr. Taylor Sanders",
+                  "site_location": "Baton Rouge, LA",
+                  "protocol_summary": "The clinical trial, identified as Protocol AR882-301, is a Phase 3, randomized, double-blind, multi-center, placebo-controlled study designed to evaluate the efficacy and safety of the investigational drug AR882 in participants with gout. Sponsored by Arthrosi Therapeutics, Inc., this trial will be conducted across approximately 100 sites in the United States and Canada. The primary objective is to assess the ability of AR882 to reduce serum uric acid (sUA) levels in participants, with a specific focus on achieving sUA levels below 6.0 mg/dL by Month 6.\n\nParticipants in the trial will be randomly assigned to receive either AR882 or a placebo. The study will be double-blind, meaning neither the participants nor the investigators will know which treatment each participant is receiving. The intervention involves the administration of AR882, with the primary aim of evaluating its efficacy in lowering sUA levels and reducing tophus burden. The CAPER method will be employed to assess the response of target tophi, with evaluations conducted at Months 6 and 12 to determine the presence of disease progression.\n\nThe primary endpoint of the study is the proportion of participants achieving sUA levels below 6.0 mg/dL at Month 6. Secondary endpoints include the reduction of tophus burden and the maintenance of sUA levels below 6.0 mg/dL at Months 9 and 12, alongside the absence of gout flares over a three-month period. The trial will last until all participants have completed 12 months or have discontinued. Notable inclusion criteria include a diagnosis of gout and baseline tophi, while exclusion criteria may involve other significant health conditions that could interfere with the study's outcomes.",
+                  "total_sites": 17,
+                  "similarity_score": 0.8027487136996964
+                },
+                {
+                  "id": 66,
+                  "trial_name": "A Randomized, Double-blind, Multicenter, Colchicine and Placebo-controlled Study to Evaluate the Efficacy and Safety of ABP-745 in Subjects with an Acute Gout Flare",
+                  "conditions": "Gout",
+                  "description": "This is a Phase II, randomized, double-blind, placebo-controlled, multi-center study sponsored by Atom Therapeutics Co., Ltd.  The study will be conducted in the United States, Australia, and China and will last approximately 6 months for each participant, with the possibility of re-screening and continuing for another 6 months if no flare occurs in the initial period.  This means that neither you nor your doctor will know which treatment you are receiving, and participants will be randomly assigned to different treatment groups.  The study aims to determine how well ABP-745 works to treat acute gout flares compared to colchicine and a placebo.\n\nThis study is looking for men and women aged 18-70 with a BMI between 18 and 40 who have been diagnosed with gout and have experienced at least two gout flares in the past year.  You must be able to contact the study site and receive your first dose within 10 hours of a new flare starting, and you must be able to return to the site 24 hours after the first dose.  You will need to be able to attend several visits at the study site over a 7-day period during a flare and a final visit after treatment, as well as a safety follow-up phone call.  You may not be eligible to participate if you have certain other medical conditions or are taking certain medications.  Your doctor will discuss these criteria with you in more detail.\n\nParticipants will be randomly assigned to receive either ABP-745 (at one of two doses), colchicine, or a placebo.  The study will measure pain levels, tenderness, and swelling in your most affected joint.  The main goals are to see how much ABP-745 reduces pain at 24 hours after the first dose compared to colchicine and placebo.  Other measurements will include pain levels at later time points, the percentage of people who experience significant pain reduction, and how the treatment affects markers of inflammation in your blood.  You will take the study medication twice daily for 7 days during a flare.  You will have several visits to the study site during this time for assessments and blood draws.",
+                  "investigator_name": "Dr. Taylor Sanders",
+                  "site_location": "Baton Rouge, LA",
+                  "protocol_summary": "This is a Phase II, randomized, double-blind, placebo-controlled, multi-center study sponsored by Atom Therapeutics Co., Ltd.  The study will be conducted in the United States, Australia, and China and will last approximately 6 months for each participant, with the possibility of re-screening and continuing for another 6 months if no flare occurs in the initial period.  This means that neither you nor your doctor will know which treatment you are receiving, and participants will be randomly assigned to different treatment groups.  The study aims to determine how well ABP-745 works to treat acute gout flares compared to colchicine and a placebo.\n\nThis study is looking for men and women aged 18-70 with a BMI between 18 and 40 who have been diagnosed with gout and have experienced at least two gout flares in the past year.  You must be able to contact the study site and receive your first dose within 10 hours of a new flare starting, and you must be able to return to the site 24 hours after the first dose.  You will need to be able to attend several visits at the study site over a 7-day period during a flare and a final visit after treatment, as well as a safety follow-up phone call.  You may not be eligible to participate if you have certain other medical conditions or are taking certain medications.  Your doctor will discuss these criteria with you in more detail.\n\nParticipants will be randomly assigned to receive either ABP-745 (at one of two doses), colchicine, or a placebo.  The study will measure pain levels, tenderness, and swelling in your most affected joint.  The main goals are to see how much ABP-745 reduces pain at 24 hours after the first dose compared to colchicine and placebo.  Other measurements will include pain levels at later time points, the percentage of people who experience significant pain reduction, and how the treatment affects markers of inflammation in your blood.  You will take the study medication twice daily for 7 days during a flare.  You will have several visits to the study site during this time for assessments and blood draws.",
+                  "total_sites": 4,
+                  "similarity_score": 0.7992400049183908
+                },
+                {
+                  "id": 74,
+                  "trial_name": "A Phase 3, Randomized, Double-Blind, Multicenter Study to Evaluate the Efficacy and Safety of Dotinurad Compared With Allopurinol in Adult Participants With Hyperuricemia Associated With Gout",
+                  "conditions": "Gout",
+                  "description": "This is a Phase 3, randomized, double-blind, multicenter study sponsored by Crystalys Therapeutics, Inc.  The study will be conducted at up to 100 sites across North America and Europe and is expected to last approximately 2.5 years.  \"Double-blind\" means neither you nor your study doctor will know which medicine you are taking. \"Randomized\" means you will be assigned to a treatment group by chance, like flipping a coin.  This helps ensure the results are unbiased.\n\nThis study is for adults with gout who have experienced at least two gout flares in the past year and have been taking a stable dose of allopurinol (300-600mg daily, or 200mg for those with moderate kidney problems) for at least 3 months.  You must also have a serum uric acid (sUA) level of 6.5 mg/dL or higher at two screening visits.  You will not be able to participate if you have certain other medical conditions (these will be discussed during screening).  During the study, you will be asked to keep a diary of your medication intake, any gout flares you experience, and any related healthcare visits.  \n\nIn this study, you will receive either dotinurad (the investigational drug) or allopurinol.  Dotinurad will be given in increasing doses over the first 12 weeks.  Allopurinol will be given at the same dose you were taking before the study began.  The study will measure how well each medication lowers sUA levels in your blood, reduces the number of gout flares you experience, and assess any side effects.  The main goal is to see if dotinurad is as effective as allopurinol in lowering sUA at 24 weeks.  Other goals include evaluating the impact on gout flares and overall safety.  You will have regular check-ups every 2 weeks initially, then every 4 weeks, and will be asked to complete questionnaires about your health.  Even if you stop taking the study medication, you will be encouraged to continue with the follow-up visits.",
+                  "investigator_name": "Dr. Taylor Sanders",
+                  "site_location": "Baton Rouge, LA",
+                  "protocol_summary": "This is a Phase 3, randomized, double-blind, multicenter study sponsored by Crystalys Therapeutics, Inc.  The study will be conducted at up to 100 sites across North America and Europe and is expected to last approximately 2.5 years.  \"Double-blind\" means neither you nor your study doctor will know which medicine you are taking. \"Randomized\" means you will be assigned to a treatment group by chance, like flipping a coin.  This helps ensure the results are unbiased.\n\nThis study is for adults with gout who have experienced at least two gout flares in the past year and have been taking a stable dose of allopurinol (300-600mg daily, or 200mg for those with moderate kidney problems) for at least 3 months.  You must also have a serum uric acid (sUA) level of 6.5 mg/dL or higher at two screening visits.  You will not be able to participate if you have certain other medical conditions (these will be discussed during screening).  During the study, you will be asked to keep a diary of your medication intake, any gout flares you experience, and any related healthcare visits.  \n\nIn this study, you will receive either dotinurad (the investigational drug) or allopurinol.  Dotinurad will be given in increasing doses over the first 12 weeks.  Allopurinol will be given at the same dose you were taking before the study began.  The study will measure how well each medication lowers sUA levels in your blood, reduces the number of gout flares you experience, and assess any side effects.  The main goal is to see if dotinurad is as effective as allopurinol in lowering sUA at 24 weeks.  Other goals include evaluating the impact on gout flares and overall safety.  You will have regular check-ups every 2 weeks initially, then every 4 weeks, and will be asked to complete questionnaires about your health.  Even if you stop taking the study medication, you will be encouraged to continue with the follow-up visits.",
+                  "total_sites": 13,
+                  "similarity_score": 0.7947402273735418
+                }
+              ],
+              "semantic_search": true
+            },
+            "response_time": 18.19867205619812,
+            "timestamp": "2025-12-15T19:25:19.695602"
+          },
+          {
+            "user_message": "Yes, check my eligibility",
+            "bot_response": "Great! I'll help you check your eligibility.\n\nI need to ask you a few questions about the gout trial.\n\n**Question 1 of 5:** What is your age?",
+            "metadata": {
+              "session_id": "AUTO_TEST_targeted_gout_000",
+              "current_state": "prescreening_active",
+              "handler_used": "GeminiConversationManager",
+              "processing_method": "gemini_conversation_manager",
+              "action_type": "start_prescreening",
+              "entities_collected": {
+                "condition": null,
+                "location": null,
+                "age": null,
+                "medication": null,
+                "number": null,
+                "trial_name": null,
+                "boolean_answer": "yes",
+                "confidence_scores": {}
+              },
+              "conversation_action": {
+                "action_type": "start_prescreening",
+                "parameters": {},
+                "response_text": "Great, I can help with that. To check your eligibility, I'll need to ask a few questions based on the criteria for these studies. This is just a preliminary check, and the final decision is always made by the study team.\n\nTo start, could you please tell me your age?",
+                "new_state": "prescreening_started",
+                "collect_entities": [
+                  "age"
+                ],
+                "metadata": {
+                  "reasoning": "The user has explicitly confirmed their interest in checking eligibility after being shown a list of trials. The current state is 'trials_shown', and we have the necessary condition and location. Therefore, the most appropriate action is to initiate the prescreening process by asking the first eligibility question. The state will be updated to 'prescreening_started' to reflect this new phase of the conversation. Age is a standard and non-intrusive first question for most clinical trials."
+                }
+              },
+              "user_analysis": {
+                "sentiment": "neutral",
+                "communication_style": "standard",
+                "complexity_preference": "moderate"
+              },
+              "prescreening_started": true,
+              "trial_id": 2,
+              "trial_name": "A Phase 3 Randomized, Double-blind, Multi-center, Placebo-controlled Study to Evaluate the Efficacy and Safety of AR882 in Participants with Gout",
+              "current_question_index": 0,
+              "total_questions": 5,
+              "current_question": "What is your age?",
+              "expected_answer_type": "number"
+            },
+            "response_time": 19.902644157409668,
+            "timestamp": "2025-12-15T19:25:39.598936"
+          },
+          {
+            "user_message": "65",
+            "bot_response": "I had trouble processing your answer. There seems to be an issue with the prescreening system. Please try searching for trials again.",
+            "metadata": {
+              "session_id": "AUTO_TEST_targeted_gout_000",
+              "current_state": "initial",
+              "handler_used": "GeminiConversationManager",
+              "processing_method": "gemini_conversation_manager",
+              "action_type": "continue_prescreening",
+              "entities_collected": {
+                "condition": null,
+                "location": null,
+                "age": 65,
+                "medication": null,
+                "number": null,
+                "trial_name": null,
+                "boolean_answer": null,
+                "confidence_scores": {}
+              },
+              "conversation_action": {
+                "action_type": "continue_prescreening",
+                "parameters": {},
+                "response_text": "Great, thanks. Next question: Have you been formally diagnosed with Gout by a healthcare professional?",
+                "new_state": "prescreening_active",
+                "collect_entities": [
+                  "boolean_answer"
+                ],
+                "metadata": {
+                  "reasoning": "The user is in an active prescreening session and has just provided their age in response to a question. The correct action is to acknowledge their answer and proceed with the next question in the prescreening sequence to continue determining their eligibility. The state remains 'prescreening_active' as the process is ongoing."
+                }
+              },
+              "user_analysis": {
+                "sentiment": "neutral",
+                "communication_style": "standard",
+                "complexity_preference": "moderate"
+              },
+              "prescreening_error": "failed_to_process_answer",
+              "error_details": "'coroutine' object has no attribute 'criterion_id'",
+              "error_type": "AttributeError"
+            },
+            "response_time": 15.544322967529297,
+            "timestamp": "2025-12-15T19:25:55.143848"
+          }
+        ],
+        "final_state": "completed",
+        "total_turns": 3,
+        "total_questions_asked": 5,
+        "errors": [
+          {
+            "type": "unexpected_state",
+            "bot_response": "I had trouble processing your answer. There seems to be an issue with the prescreening system. Please try searching for trials again."
+          }
+        ]
+      },
+      "validation": {
+        "passed": false,
+        "overall_score": 70.0,
+        "crash_prevention": {
+          "passed": true,
+          "score": 100.0,
+          "error_count": 0,
+          "errors": [],
+          "failures": []
+        },
+        "eligibility_accuracy": {
+          "passed": false,
+          "score": 0.0,
+          "reason": "Could not extract eligibility result",
+          "failures": [
+            {
+              "type": "eligibility_logic_error",
+              "reason": "No eligibility determination found in conversation",
+              "likely_location": "core/prescreening/gemini_prescreening_manager.py:evaluate_eligibility()",
+              "severity": "high"
+            }
+          ]
+        },
+        "conversation_quality": {
+          "passed": true,
+          "score": 100.0,
+          "total_questions_asked": 5,
+          "issues": [],
+          "failures": []
+        },
+        "edge_case_handling": {
+          "passed": true,
+          "score": 100.0,
+          "applicable": false,
+          "failures": []
+        },
+        "performance": {
+          "passed": true,
+          "score": 70.0,
+          "avg_response_time": 17.881879727045696,
+          "max_response_time": 19.902644157409668,
+          "status": "acceptable",
+          "failures": []
+        },
+        "failure_points": [
+          {
+            "type": "eligibility_logic_error",
+            "reason": "No eligibility determination found in conversation",
+            "likely_location": "core/prescreening/gemini_prescreening_manager.py:evaluate_eligibility()",
+            "severity": "high"
+          }
+        ],
+        "recommendations": [
+          "\u26a0\ufe0f HIGH: Review eligibility evaluation logic in gemini_prescreening_manager.py"
+        ]
+      },
+      "timestamp": "2025-12-15T19:25:55.144904"
+    }
+  ]
+}

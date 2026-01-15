@@ -1,0 +1,29 @@
+# Automated Beta Testing Configuration
+
+# API Configuration
+api_base_url: "https://gemini-chatbot-480267397633.us-central1.run.app"
+
+# Test Configuration
+num_tests: 50
+parallel: 5
+timeout: 120  # seconds per test
+
+# Reporting
+save_reports: true
+report_dir: "automated_testing/reports"
+
+# Test Distribution (handled automatically by patient_generator)
+# - 40% Random patients
+# - 40% Targeted patients (specific trial types)
+# - 20% Edge case patients
+
+# Validation Thresholds (defined in result_validator.py)
+# - Crash Prevention: 100% required
+# - Eligibility Accuracy: 95%+ target
+# - Conversation Quality: 70%+ passing
+# - Edge Case Handling: 70%+ passing
+# - Performance: <10s response time
+
+# Session Prefix
+# All test sessions will be prefixed with AUTO_TEST_
+# Use cleanup script to remove after testing
